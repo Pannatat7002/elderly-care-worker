@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { collection, getDocs, setDoc, doc, where, query, addDoc, updateDoc } from 'firebase/firestore';
+import { collection, getDocs, getDoc, setDoc, doc, where, query, addDoc, updateDoc, deleteDoc, Timestamp, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { firestore } from "../app/service/config/firebaseConfig";
 @Component({
   selector: 'app-root',
@@ -12,14 +12,18 @@ export class AppComponent {
   title = 'elderly_care_worker';
   datafirestore: any
   dataYear: any = []
+  querySigleObject: any
+  dataVitalSign: any = []
   constructor(
     private db: AngularFirestore,
-    private firestore: AngularFirestore
+    // private firestore: AngularFirestore
   ) {
     this.queryFireStore()
+    this.queryVitalSign()
   }
 
   async queryFireStore() {
+    let object: any = []
     const outerCollectionRef = collection(firestore, 'data');
     const outerQuerySnapshot = await getDocs(outerCollectionRef);
     outerQuerySnapshot.forEach(async (outerDoc) => {
@@ -27,105 +31,84 @@ export class AppComponent {
       const outerId = outerDoc.id;
       console.log('outerId', outerId);
       console.log('outerData', outerData);
-      this.dataYear.push(JSON.stringify(outerData))
+      object.push(outerData)
+
+    });
+    this.dataYear = object
+    console.log('dataYear', this.dataYear);
+  }
+
+  async querySigle() {
+    const data = query(collection(firestore, 'data'), where("name", "==", "Pannnatat Saman"));
+    console.log('Sigle data', data);
+    const querySnapshot = await getDocs(data);
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+      this.querySigleObject = JSON.stringify(doc.data())
     });
   }
 
-  create() {
-    setDoc(doc(firestore, "data", "สมเทส_วีสอง"), {
-      "2023": {
-        "1": {
-          vital_signs: {
-            Medic: [
-              {
-                medicname: "ชุดยา A",
-                amout: "6",
-                unit: "เม็ด",
-                status: "false",
-                time: 'เช้า'
+  async createObject() {
+    const docData = {
+      name: "Pannnatat Saman",
+    }
+    await setDoc(doc(firestore, "data", "Pannnatat Saman"), docData);
+  }
 
-              },
-              {
-                medicname: "ชุดยา B",
-                amout: "4",
-                unit: "เม็ด",
-                time: "กลางวัน",
-                status: "false"
-              },
-              {
-                medicname: "ชุดยา C",
-                amout: "8",
-                unit: "เม็ด",
-                time: "เย็น",
-                status: "false"
-              },
-              {
-                medicname: "ชุดยา D",
-                amout: "8",
-                unit: "เม็ด",
-                time: "กลางคืน",
-                status: "false"
-              }
-            ]
-          }
-        }
-      }
+  async deleteDoc() { //Pass
+    var data = [
+      "Pannnatat Saman",
+    ]
+    data.forEach(async (res) => {
+      await deleteDoc(doc(firestore, "data", res));
+    })
+  }
 
+  async updatePushData() { //pass
+    const docData = {
+      temp: '36',
+      unit: 'C',
+      date: new Date()
+    };
+
+    await updateDoc(doc(firestore, "data", "Pannnatat Saman"), {
+      "2024.1.vital_sign.tempbody": arrayUnion(docData)
     });
+    this.queryVitalSign()
   }
 
-  async addDoc() {
-    const docRef = await addDoc(collection(firestore, "data"), {
-      "สมเทส_วีสาม": {
-        "2023": {
-          "1": {
-            // vital_signs: {}
-          }
-        }
-      }
-    });
-    console.log("Document written with ID: ", docRef.id);
+  async updateDeleteObject(index?: any) {
+    const docRef = doc(firestore, "data", "Pannnatat Saman");
+    const docSnap = await getDoc(docRef);
+    const currentData: any = docSnap.data();
+    currentData['2024']['1']['vital_sign']['tempbody'][index] = {};
+    await updateDoc(docRef, currentData);
+    this.queryVitalSign()
   }
 
-  async addDocData() {
-    const outerCollectionRef = collection(firestore, 'data');
-    const outerQuerySnapshot = await getDocs(outerCollectionRef);
-    outerQuerySnapshot.forEach(async (outerDoc) => {
-      // const outerData = outerDoc.data();
-      const outerId = outerDoc.id;
-      // this.dataYear.push(JSON.stringify(outerData))
-      if(outerId === "ปัณณทัต_สมาน"){
-        // console.log('outerId', outerId);
-        // console.log('outerData', outerData);
-        this.updateDataDoc(outerDoc)
-      } else {
-        console.log('outerId NO', outerDoc);
-
-      }
-    });
+  async updateDeleteAll() {
+    const docRef = doc(firestore, "data", "Pannnatat Saman");
+    const docSnap = await getDoc(docRef);
+    const currentData: any = docSnap.data();
+    currentData['2024']['1']['vital_sign']['tempbody'] = {};
+    await updateDoc(docRef, currentData);
+    this.queryVitalSign()
   }
 
-  async updateDataDoc(data?:any,outerDoc?:any) {
-    const outerData = outerDoc.data();
-    const outerId = outerDoc.id;
-    const washingtonRef = doc(firestore, "data", outerId);
-    await updateDoc(washingtonRef, {
-      outerData
-    });
+  async queryVitalSign() { //pass
+    this.dataVitalSign = []
+    const docRef = doc(firestore, "data", "Pannnatat Saman");
+    const docSnap = await getDoc(docRef);
+    const currentData: any = docSnap.data();
+    // const pathToTempBody = "2024.1.vital_sign.tempbody";
+    if (currentData['2024']['1']['vital_sign']['tempbody'].length >= 0) {
+      this.dataVitalSign = currentData['2024']['1']['vital_sign']['tempbody']
+      console.log('dataVitalSign', this.dataVitalSign);
+    }
   }
 
-  deleteDoc() {
-    const tutRef = this.db.doc('content');
-    tutRef.delete();
-
-  }
-  updateDoc() {
-    // const tutRef = this.db.doc('content');
-    // tutRef.set({ title: 'zkoder Tutorial'});
-    const correctDocRef = this.firestore.collection('data').doc('userId');
-    console.log('correctDocRef', correctDocRef);
-
-
+  returnVelue(velue: any) {
+    return Object.values(velue)
   }
 
 }
