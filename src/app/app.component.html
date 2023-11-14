@@ -1,0 +1,13 @@
+<div>
+    <div *ngFor="let item of datafirestore;">
+        <span>{{item}}</span>
+    </div>
+    <button (click)="queryFireStore()">queryFireStore</button>
+    <button (click)="create()">create</button>
+    <button (click)="addDoc()">add</button>
+    <button (click)="addDocData()">addDocData</button>
+    <button (click)="deleteDoc()">delete</button>
+    <button (click)="updateDoc()">updateDoc</button>
+    <button (click)="updateDataDoc()">updateDataDoc</button>
+    {{dataYear}}
+</div>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {fbConfig} from '../../src/app/service/config/firebaseConfig'
+import {config} from '../../src/app/service/config/firebaseConfig'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -12,7 +12,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(fbConfig),
+    AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
   ],
   providers: [],
