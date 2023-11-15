@@ -1,6 +1,5 @@
 <app-loading-service *ngIf="timeOutLoading === false" (timeOutLoading)="loading($event)"></app-loading-service>
 <html *ngIf="timeOutLoading == true">
-  <!-- <h1>landig</h1> -->
   <div class="container-fluid">
     <app-home-page (outPaths)="onNextPaths($event)" *ngIf="selectMode === 'home'"
     [userProfile]="userProfile"></app-home-page>

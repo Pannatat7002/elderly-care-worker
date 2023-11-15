@@ -11,17 +11,11 @@
     <button (click)="createObject()">createObject</button>
     <button (click)="deleteDoc()">delete</button>
 </div>
-<h3>dataVitalSignHeader</h3>
-<!-- {{dataVitalSignHeader}} -->
-<div *ngFor="let item of dataVitalSignHeader;index as i;" class="select-option">
-    <div>
-        {{i+1}} <div class="."></div> {{item}}
-    </div>
-</div>
-<h3>selectTitle</h3>
-<div class="select-option">
-    <button (click)="_selectVitalSign = 'tempbody';queryVitalSign();">tempbody</button>
-    <button (click)="_selectVitalSign = 'heart rate';queryVitalSign();">heart rate</button>
+<h3>selectTitleHeader</h3>
+<div class="select-option" *ngFor="let item of dataVitalSignHeader;index as i;">
+    <button (click)="_selectVitalSign = item;queryVitalSign();">
+      {{i+1}}  {{item}}
+    </button>
 </div>
 <h3>Update ({{_selectVitalSign}})</h3>
 <div class="select-option">

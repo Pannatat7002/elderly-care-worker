@@ -1,30 +1,27 @@
 <div class="container-xl p-0">
-  <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #fd7e14;">
-    <div class="navbar-brand" style="font-size: 24px;">
-      <i class="bi bi-person" style="padding-right: 1rem;"></i>
-      ชื่อผู้ใช้ : {{nameHeader}}
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <div class="navbar-brand">
+      <div class="bi bi-person">ชื่อผู้ใช้ : {{nameHeader}}</div>
+      <div>รหัส : {{pincode}}</div>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="border: none;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
+      style="border: none;">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav" style="font-size: 24px;">
-        <!-- <li class="nav-item" style="color: #FFF;border-bottom: 2px solid;">ชื่อผู้ใช้ : {{nameHeader}}</li> -->
+      <ul class="navbar-nav">
         <li class="nav-item">
+          <i class="bi bi-person-lines-fill"></i>
           <a class="nav-link" (click)="onNextPaths('profile')">ข้อมูลส่วนตัว</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" (click)="onNextPaths('post')">Story</a>
-        </li> -->
         <li class="nav-item">
+          <i class="bi bi-door-closed"></i>
           <a class="nav-link" (click)="SignOut()">ออกจากระบบ</a>
-        </li>    
+        </li>
       </ul>
-    </div>  
-  </nav>
-    <div class="content-body">
-      <!-- <app-carousel-activity></app-carousel-activity> -->
-      <app-tab-insights (outPaths)="onNextPaths($event)"></app-tab-insights>
-      <!-- <app-tab-schedule></app-tab-schedule> -->
     </div>
+  </nav>
+  <div class="content-body">
+    <app-tab-insights (outPaths)="onNextPaths($event)"></app-tab-insights>
+  </div>
 </div>

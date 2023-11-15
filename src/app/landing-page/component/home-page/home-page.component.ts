@@ -13,6 +13,7 @@ export class HomePageComponent implements OnInit {
   @Output() outPaths = new EventEmitter<string>();
   @Input() userProfile: any = '-'
   nameHeader:any
+  pincode:any
   constructor(
     private router: Router,
     private cookieService: CookieService,
@@ -50,6 +51,7 @@ export class HomePageComponent implements OnInit {
     querySnapshot.forEach((doc) => {
       const userProfile = doc.data()
       this.nameHeader = userProfile['name'] || ""
+      this.pincode = userProfile['pincode'] || ""
     });
   }
 }
