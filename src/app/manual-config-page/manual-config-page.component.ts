@@ -19,12 +19,14 @@ export class ManualConfigPageComponent implements OnInit {
 
   userTestName: string = 'Pannatat Saman'
   currentVitalSign: any
+  currentTopicWorks: any =[]
 
-  _selectVitalSign:string = 'tempbody'
-  
+  _selectVitalSign: string = 'tempbody'
+
   ngOnInit(): void {
     // this.queryFireStore()
     this.queryVitalSign()
+    this.queryTopicWorks()
   }
 
   async queryFireStore() {
@@ -139,13 +141,30 @@ export class ManualConfigPageComponent implements OnInit {
     this.currentVitalSign = docSnap.data();
     if (this.currentVitalSign['2024']['1']['vital_sign'][this._selectVitalSign].length >= 0) {
       this.dataVitalSign = this.currentVitalSign['2024']['1']['vital_sign'][this._selectVitalSign]
-      this.dataVitalSignHeader= Object.keys(this.currentVitalSign['2024']['1']['vital_sign'])
+      this.dataVitalSignHeader = Object.keys(this.currentVitalSign['2024']['1']['vital_sign'])
       // console.log('dataVitalSign', Object.keys(array));
       // Object.keys(array).forEach((item)=>{
       //   this.dataVitalSignHeader.push(item)
       // })
       // console.log('dataVitalSignHeader',this.dataVitalSignHeader);
     }
+  }
+
+  async queryTopicWorks() { //pass
+    this.currentTopicWorks = []
+    const docRef = doc(firestore, "manager", "mainTopicWorks");
+    const docSnap = await getDoc(docRef);
+    let objectTopic:any = docSnap.data();
+    // console.log('objectTopic',Object.keys(objectTopic));
+    Object.keys(objectTopic).forEach((topic:any,i)=>{
+      console.log('topic',topic,objectTopic[topic]);
+      
+      if(objectTopic[topic]){
+        this.currentTopicWorks.push(topic)
+      }
+    })
+    console.log('currentTopicWorks', this.currentTopicWorks);
+
   }
 
   returnVelue(velue: any) {

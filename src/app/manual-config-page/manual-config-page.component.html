@@ -12,7 +12,8 @@
     <button (click)="deleteDoc()">delete</button>
 </div>
 <h3>selectTitleHeader</h3>
-<div class="select-option" *ngFor="let item of dataVitalSignHeader;index as i;">
+<button (click)="queryTopicWorks()">queryTopicWorks</button>
+<div class="select-option" *ngFor="let item of currentTopicWorks;index as i;">
     <button (click)="_selectVitalSign = item;queryVitalSign();">
       {{i+1}}  {{item}}
     </button>
