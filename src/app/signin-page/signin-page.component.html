@@ -13,14 +13,14 @@
       font-size: 48px;
       text-shadow: 5px 0px 12px #55a1f3;">E</span>lderly Care Worker</span>
     <form class="form-group" #userName="ngForm" (ngSubmit)="onClickSubmit(userName.value)">
-      <span class="text"><i class="bi bi-envelope-at"></i>Email Address</span>
+      <span class="text"><i class="bi bi-envelope-at"></i>อืเมลพนักงาน</span>
       <input #email type="email" name="email" placeholder="email" ngModel>
-      <span class="text"> <i class="bi bi-file-lock2"></i>Password</span>
+      <span class="text"> <i class="bi bi-file-lock2"></i>รหัส</span>
       <input #password type="password" name="password" placeholder="password" ngModel>
       <br />
       <input *ngIf="alertError" class="error-sign" value="{{alertError}}">
       <br />
-      <input class="btn" type="submit" value="Sign In" style="color: #FFF;  background: #17a2b8;">
+      <input class="btn" type="submit" value="เข้าสู่ระบบ" style="color: #FFF;  background: #17a2b8;">
       <div class="forgot text-center">
         <p (click)="forgot = !forgot">ลืมรหัสผ่าน?</p>
       </div>

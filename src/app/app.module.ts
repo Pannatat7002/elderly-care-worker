@@ -11,13 +11,15 @@ import { SplashComponent } from './service/splash-service/splash/splash.componen
 import { LoadingServiceComponent } from './service/loading-service/loading-service.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     ForgotPageComponent,
     SigninPageComponent,
     SplashComponent,
-    LoadingServiceComponent
+    LoadingServiceComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
