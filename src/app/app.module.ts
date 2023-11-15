@@ -9,11 +9,12 @@ import { ForgotPageComponent } from './signin-page/component/forgot-page/forgot-
 import { SigninPageComponent } from './signin-page/signin-page.component';
 import { SplashComponent } from './service/splash-service/splash/splash.component';
 import { LoadingServiceComponent } from './service/loading-service/loading-service.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HomePageComponent } from './landing-page/component/home-page/home-page.component';
 import { TabInsightsComponent } from './landing-page/component/home-page/component/tab-insights/tab-insights.component';
+import { ManualConfigPageComponent } from './manual-config-page/manual-config-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { TabInsightsComponent } from './landing-page/component/home-page/compone
     LoadingServiceComponent,
     LandingPageComponent,
     HomePageComponent,
-    TabInsightsComponent
+    TabInsightsComponent,
+    ManualConfigPageComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,7 @@ import { TabInsightsComponent } from './landing-page/component/home-page/compone
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
     FormsModule,
+    ReactiveFormsModule ,
     HttpClientModule
 
 

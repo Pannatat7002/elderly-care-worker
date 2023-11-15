@@ -1,0 +1,42 @@
+<a class="bi bi-gear" style="font-size: 28px;" href="/"></a>
+
+<h3>selectUsere ({{userTestName}})</h3>
+<div class="select-option">
+    <button (click)="userTestName = 'Pannatat Saman';queryVitalSign();">Pannatat</button>
+    <button (click)="userTestName = 'Pannathon Saman';queryVitalSign();">Pannathon</button>
+    <button (click)="userTestName = 'สมเทส สโลบาย';queryVitalSign();">สมเทส สโลบาย</button>
+</div>
+<h3>selectOption</h3>
+<div class="select-option">
+    <button (click)="createObject()">createObject</button>
+    <button (click)="deleteDoc()">delete</button>
+</div>
+<h3>dataVitalSignHeader</h3>
+<!-- {{dataVitalSignHeader}} -->
+<div *ngFor="let item of dataVitalSignHeader;index as i;" class="select-option">
+    <div>
+        {{i+1}} <div class="."></div> {{item}}
+    </div>
+</div>
+<h3>selectTitle</h3>
+<div class="select-option">
+    <button (click)="_selectVitalSign = 'tempbody';queryVitalSign();">tempbody</button>
+    <button (click)="_selectVitalSign = 'heart rate';queryVitalSign();">heart rate</button>
+</div>
+<h3>Update ({{_selectVitalSign}})</h3>
+<div class="select-option">
+    <button (click)="queryVitalSign()">queryVitalSign</button>
+    <button (click)="updatePushData()">updatePushData</button>
+    <!-- <button (click)="updateDeleteObject()">updateDeleteObject</button> -->
+</div>
+<h3>dataVitalSign ({{_selectVitalSign}})</h3>
+<div class="select-option">
+    <button (click)="updatePushData()">ADD DATA</button>
+    <button (click)="updateDeleteAll()">Delete All</button>
+</div>
+<div class="select-Temp" *ngFor="let data of dataVitalSign;index as i">
+    <button (click)="updateDeleteObject(i)">{{i+1}} . {{data.temp}}</button>
+    <div>{{data.date}}</div>
+    <div>{{data?.data}}</div>
+    <div>id:{{data?.id}}</div>
+</div>

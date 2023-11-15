@@ -1,0 +1,47 @@
+
+@font-face {
+    font-family: 'db_heavent_regular';
+    src: url('../../assets/scss/fonts/DB_Heavent_Cond_v3.2.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+.select-option {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    button{
+        margin: 16px;
+        padding: 6px;
+        font-size: 18px;
+        font-family: cursive;
+        border-radius: 30px;
+        border: navajowhite;
+    }
+    button:hover{
+        scale: 1.1;
+        background-color: green;
+        color: #FFF;
+    }
+}
+.select-Temp{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    button{
+        margin: 6px;
+        padding: 6px;
+        font-size: 18px;
+        font-family: cursive;
+        border-radius: 30px;
+        border: navajowhite;
+    }
+    button:hover{
+        scale: 1.1;
+        background-color: green;
+        color: #FFF;
+    }
+}
+span{
+    font-size: 18px;
+    font-family: cursive;
+
+}

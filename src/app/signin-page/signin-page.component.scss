@@ -172,6 +172,9 @@ h1 {
 }
 
 .version {
+  display: flex;
+  align-items: center;
+
   position: absolute;
   bottom: 0;
   right: 12px;
