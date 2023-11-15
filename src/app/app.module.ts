@@ -12,6 +12,8 @@ import { LoadingServiceComponent } from './service/loading-service/loading-servi
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { HomePageComponent } from './landing-page/component/home-page/home-page.component';
+import { TabInsightsComponent } from './landing-page/component/home-page/component/tab-insights/tab-insights.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     SigninPageComponent,
     SplashComponent,
     LoadingServiceComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    HomePageComponent,
+    TabInsightsComponent
   ],
   imports: [
     BrowserModule,

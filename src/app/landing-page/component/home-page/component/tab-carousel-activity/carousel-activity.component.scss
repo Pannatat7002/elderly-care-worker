@@ -1,0 +1,36 @@
+.tab-appointment {
+    font-size: 24px;
+    letter-spacing: 1px;
+    padding-top: 18px;
+
+    .tables-appointment {
+        scroll-behavior: smooth;
+        width: 100%;
+        white-space: nowrap;
+        display: inline-block;
+        overflow-x: scroll;
+        overflow-y: visible;
+
+        .content-appointment {
+            margin: 5px;
+            height: 200px;
+            width: 125px;
+            background: #FFF;
+            border-radius: 6px;
+            display: inline-block;
+            white-space: normal;
+            box-shadow: 3px 3px 10px #c5c5c5;
+        }
+    }
+    .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        margin: 12px;
+        border-radius: 12px;
+        width: auto;
+        .carousel-caption {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}

@@ -34,26 +34,27 @@ export class SigninPageComponent implements OnInit {
     this.signin(result.email, result.password)
   }
 
-  signin(email: any, password: any) {
-    this.AuthService.SignIn(email, password).then((res: any) => {
+   signin(email: any, password: any) {
+    this.AuthService.SignIn(email, password).then(async (res: any) => {
       const accessToken: any = res.user._delegate.accessToken
       const userToken: any = this.AuthService.jwt_decode(accessToken)
-      this.workDataService.getUserProfile(userToken.email).then(async (res) => {
+      // this.workDataService.getUserProfile(userToken.email).then(async (res) => {
         const DataProfile: any = await getDocs(collection(firestore, "Users")); //get data getDataProfile
         DataProfile.forEach((doc: any) => {
           const dataUser = JSON.parse(JSON.stringify(doc.data()));
-          if (res.user[0].email === dataUser.email) {
+          console.log('dataUser',dataUser);
+          if (email === dataUser.email) {
             this.cookieService.set('accessToken', accessToken)
-            this.cookieService.set('userProfile', JSON.stringify(res.user[0]))
+            // this.cookieService.set('userProfile', JSON.stringify(res.user[0]))
             this.router.navigate(['/landing'])
           } else {
             this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
           }
         });
-      }).catch((err) => {
-        this.alertError = JSON.stringify("อีเมลไม่ถูกต้อง")
+      // }).catch((err) => {
+      //   this.alertError = JSON.stringify("อีเมลไม่ถูกต้อง")
 
-      })
+      // })
     }).catch((err) => {
       this.alertError = JSON.stringify(err.code)
     })

@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'db_heavent_regular';
+    src: url('../../../../assets/scss/fonts/DB_Heavent_Cond_v3.2.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container-xl {
+    background: #F0F2F5;
+    height: 100%;
+
+    .content-header {
+        background: #fd7e14;
+        border-radius: 0px 0px 15px 15px;
+        display: grid;
+        color: #FFF;
+
+        .content-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+
+            span {
+                padding: 16px;
+                font-size: 18px;
+
+                .bi-calendar3 {
+                    opacity: 0.8;
+                }
+
+                .bi-bell-fill {
+                    padding: 10px;
+                    height: 60px;
+                    width: 60px;
+                    border: 1px solid #FFF;
+                    border-radius: 15px;
+                }
+            }
+        }
+
+        .content-profile {
+            display: flex;
+            justify-content: left;
+
+            .image {
+                font-size: 48px;
+                padding: 8px;
+            }
+
+            .name {
+                font-size: 32px;
+
+                .first {
+                    border-radius: 15px;
+                    font-size: 18px;
+                    padding: 4px;
+                    margin: 8px;
+                    font-size: 18px;
+                    background: #17a2b8;
+                }
+
+                .sec {
+                    border-radius: 15px;
+                    font-size: 18px;
+                    padding: 4px;
+                    margin: 8px;
+                    background: #adb5bd;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .content-body {
+        width: 100%;
+        overflow: scroll;
+    }
+}

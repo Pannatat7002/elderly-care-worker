@@ -8,10 +8,10 @@
     <div class="header">
       <i class="bi bi-heart-pulse"></i><br>
     </div>
-    <span class="title-header"><span style="color: #17a2b8;
+    <span class="title-header"><span style="color: #fd7e14;
       font-weight: 600;
       font-size: 48px;
-      text-shadow: 5px 0px 12px #55a1f3;">E</span>lderly Care Worker</span>
+      text-shadow: 5px 0px 12px #fd7e14;">E</span>lderly Care Worker</span>
     <form class="form-group" #userName="ngForm" (ngSubmit)="onClickSubmit(userName.value)">
       <span class="text"><i class="bi bi-envelope-at"></i>อืเมลพนักงาน</span>
       <input #email type="email" name="email" placeholder="email" ngModel>
@@ -20,7 +20,7 @@
       <br />
       <input *ngIf="alertError" class="error-sign" value="{{alertError}}">
       <br />
-      <input class="btn" type="submit" value="เข้าสู่ระบบ" style="color: #FFF;  background: #17a2b8;">
+      <input class="btn" type="submit" value="เข้าสู่ระบบ" style="color: #FFF;  background: #fd7e14;">
       <div class="forgot text-center">
         <p (click)="forgot = !forgot">ลืมรหัสผ่าน?</p>
       </div>

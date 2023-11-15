@@ -1,0 +1,30 @@
+<div class="container-xl p-0">
+  <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #fd7e14;">
+    <div class="navbar-brand" style="font-size: 24px;">
+      <i class="bi bi-calendar3" style="padding-right: 1rem;"></i>
+      ชื่อผู้ใช้ : {{nameHeader}}
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="border: none;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav" style="font-size: 24px;">
+        <!-- <li class="nav-item" style="color: #FFF;border-bottom: 2px solid;">ชื่อผู้ใช้ : {{nameHeader}}</li> -->
+        <li class="nav-item">
+          <a class="nav-link" (click)="onNextPaths('profile')">ข้อมูลส่วนตัว</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" (click)="onNextPaths('post')">Story</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" (click)="SignOut()">ออกจากระบบ</a>
+        </li>    
+      </ul>
+    </div>  
+  </nav>
+    <div class="content-body">
+      <!-- <app-carousel-activity></app-carousel-activity> -->
+      <app-tab-insights (outPaths)="onNextPaths($event)"></app-tab-insights>
+      <!-- <app-tab-schedule></app-tab-schedule> -->
+    </div>
+</div>
