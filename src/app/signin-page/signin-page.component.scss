@@ -1,0 +1,180 @@
+@font-face {
+  font-family: 'db_heavent_regular';
+  src: url('../../assets/scss/fonts/DB_Heavent_Cond_v3.2.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  // font-family: 'db_heavent_regular';
+  margin: 0;
+  padding: 20px;
+  border-radius: 8px;
+  background: none;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 21px;
+  height: 56px;
+  // color: #ffffff;
+  padding-left: 21px;
+  border: none;
+  font-family: 'db_heavent_regular';
+  // font-family: 'db_heavent_regular';
+  font-size: 26px;
+  // background: #1982f3;
+}
+
+h1 {
+  text-align: center;
+  color: #17a2b8;
+
+}
+
+.containers {
+  padding: 0px;
+  height: 100vh;
+  width: 100%;
+  // background: linear-gradient(to top left, #0000ff 0%, #66ffff 100%);
+  position: relative;
+  overflow: hidden;
+  // background-image: url("https://www.appsheet.com/image/getremoteimageurl?url=https%3A%2F%2Fwww.appsheet.com%3A443%2Ffsimage.png%3Fappid%3D7cd1e497-7302-4534-86b1-b6e8592e188b%26datasource%3Dgoogle%26filename%3DDocId%3D1pW8QzYN8t0lA5JC_G91RCkaKovhVZpML%26signature%3D27462c020ccfde7d0e455dd9853368d0cec60a7413cf59142b6423a743ec8841%26tableprovider%3Dgoogle%26userid%3D777845&width=1920");
+  // background-repeat: no-repeat;
+  background-color: #F5F5F5;
+  // background-size: 100% 100vh;
+}
+.title-header {
+  font-size: 38px;
+  text-align: center;
+  line-height: 38px;
+  // letter-spacing: 3px;
+  color: #2F3C33;
+  // padding-bottom: 3rem;
+  padding-top: 1rem;
+}
+.error-sign{
+  color: red;
+    border: 2px solid red;
+    background: #fce8e8;
+    font-size: 26px;
+    height: 41px;
+}
+.header {
+  // height: 160px;
+  width: 100%;
+  border-radius: 0px 0px 48px 48px;
+  background-color: #FFFFFF;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    font-size: 100px;
+    color: #17a2b8;
+    opacity: 0.8;
+
+  }
+}
+
+.form-group {
+  margin-top: 2rem;
+  margin-bottom: 10px;
+  padding: 15px;
+  // font-size: 26px;
+
+  i {
+    font-size: 24px;
+    padding: 8px;
+  }
+
+  .forgot {
+    font-family: 'db_heavent_regular';
+    font-size: 24px;
+    font-weight: 500;
+    padding: 8px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+  }
+}
+
+// .form-group label {
+//   display: block;
+//   font-weight: bold;
+// }
+
+// .form-group input {
+//   width: 100%;
+//   padding: 5px;
+//   border: none;
+//   border-bottom: 2px solid black;
+// }
+
+// .form-group input[type="submit"] {
+//   // background-color: #6495ED;
+//   border-radius: 8px;
+//   color: white;
+//   border: none;
+//   cursor: pointer;
+//   padding: 10px;
+//   width: 100%;
+//   font-size: 24px;
+// }
+
+.text {
+  box-sizing: border-box;
+  // font-family: Nunito;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 19px;
+  // letter-spacing: -0.01em;
+  text-align: left;
+  margin-left: 15px;
+}
+
+.signin {
+  // border-radius: 74px;
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  // color: #adb5bd;
+  padding: 0;
+
+  position: absolute;
+  z-index: 2;
+}
+
+.box-effect1 {
+  right: -131px;
+  height: 600px;
+  width: 600px;
+  background-color: #FFF;
+  border-radius: 27px;
+  position: absolute;
+  rotate: 45deg;
+  top: 653px;
+  opacity: 0.5;
+}
+
+.key-effect {
+  // right: 309px;
+  position: absolute;
+  bottom: -135px;
+  // font-size: 200px;
+  // rotate: 45deg;
+  // opacity: 0.5;
+  font-size: 250px;
+  rotate: 37deg;
+  opacity: 0.3;
+}
+
+.version {
+  position: absolute;
+  bottom: 0;
+  right: 12px;
+  font-size: 18px;
+  color: #2F3C33;
+}

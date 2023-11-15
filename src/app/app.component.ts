@@ -8,8 +8,9 @@ import { firestore } from "../app/service/config/firebaseConfig";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  tutorial: any;
   title = 'elderly_care_worker';
+  eventLoading:boolean = false
+
   datafirestore: any
   dataYear: any = []
   querySigleObject: any
@@ -18,9 +19,23 @@ export class AppComponent {
     private db: AngularFirestore,
     // private firestore: AngularFirestore
   ) {
-    this.queryFireStore()
-    this.queryVitalSign()
+    // this.queryFireStore()
+    // this.queryVitalSign()
   }
+
+  Loading(event:boolean){
+    this.eventLoading = event
+  }
+
+
+
+
+
+
+
+
+
+
 
   async queryFireStore() {
     let object: any = []
