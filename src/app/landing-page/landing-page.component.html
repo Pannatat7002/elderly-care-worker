@@ -3,5 +3,6 @@
   <div class="container-fluid">
     <app-home-page (outPaths)="onNextPaths($event)" *ngIf="selectMode === 'home'"
     [userProfile]="userProfile"></app-home-page>
+    <app-work-schedule></app-work-schedule>
   </div>
 </html>

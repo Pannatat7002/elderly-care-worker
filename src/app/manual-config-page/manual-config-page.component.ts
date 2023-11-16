@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { collection, getDocs, getDoc, setDoc, doc, where, query, addDoc, updateDoc, deleteDoc, Timestamp, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { firestore } from "../../app/service/config/firebaseConfig";
 
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-manual-config-page',
   templateUrl: './manual-config-page.component.html',
@@ -12,21 +13,35 @@ export class ManualConfigPageComponent implements OnInit {
 
 
   datafirestore: any
-  dataYear: any = []
+  keysUser: any = []
   querySigleObject: any
   dataVitalSign: any = []
   dataVitalSignHeader: any = []
 
   userTestName: string = 'Pannatat Saman'
   currentVitalSign: any
-  currentTopicWorks: any =[]
+  currentTopicWorks: any = []
+  currentSubTopicWorks: any = []
 
-  _selectVitalSign: string = 'tempbody'
+  _selectMainTopic: string = 'tempbody'
+  _selectSubTopic: string = ''
+
+  //form
+  selectUsere:any = new FormControl('');
 
   ngOnInit(): void {
     // this.queryFireStore()
     this.queryVitalSign()
     this.queryTopicWorks()
+  }
+
+  createUser() {
+    this.userTestName =  this.selectUsere.value
+    this.selectUsere.setValue('');
+    if( this.userTestName){
+      console.log('selectUsere',this.selectUsere.value);
+      this.createObject()
+    }
   }
 
   async queryFireStore() {
@@ -38,11 +53,11 @@ export class ManualConfigPageComponent implements OnInit {
       const outerId = outerDoc.id;
       console.log('outerId', outerId);
       console.log('outerData', outerData);
-      object.push(outerData)
+      object.push(outerId)
 
     });
-    this.dataYear = object
-    console.log('dataYear', this.dataYear);
+    this.keysUser = object
+    console.log('dataYear', this.keysUser);
   }
 
   async querySigle() {
@@ -63,13 +78,14 @@ export class ManualConfigPageComponent implements OnInit {
     this.queryFireStore()
   }
 
-  async deleteDoc() { //Pass
+  async deleteDoc(iduser:any) { //Pass
     var data = [
-      this.userTestName,
+      iduser,
     ]
     data.forEach(async (res) => {
       await deleteDoc(doc(firestore, "data", res));
     })
+    this.queryVitalSign()
   }
   getRandomId() {
     return Math.floor(Math.random() * 1000000) + 1;
@@ -99,7 +115,7 @@ export class ManualConfigPageComponent implements OnInit {
       date: this.formattedDate()
     };
 
-    let pathUpdate: any = '2024' + "." + '1' + "." + 'vital_sign' + "." + this._selectVitalSign
+    let pathUpdate: any = '2024' + "." + '1' + "." + this._selectMainTopic + "." + this._selectSubTopic
     await updateDoc(doc(firestore, "data", this.userTestName), {
       [pathUpdate]: arrayUnion(docData)
     });
@@ -113,7 +129,7 @@ export class ManualConfigPageComponent implements OnInit {
       // date: this.formattedDate()
     };
 
-    let pathUpdate: any = '2024' + "." + '1' + "." + 'vital_sign' + "." + this._selectVitalSign
+    let pathUpdate: any = '2024' + "." + '1' + "." + 'vital_sign' + "." + this._selectMainTopic
     await updateDoc(doc(firestore, "data", this.userTestName), {
       [pathUpdate]: arrayUnion(docData)
     });
@@ -122,31 +138,29 @@ export class ManualConfigPageComponent implements OnInit {
 
   async updateDeleteObject(index?: any) {
     const docRef = doc(firestore, "data", this.userTestName);
-    this.currentVitalSign['2024']['1']['vital_sign'][this._selectVitalSign][index] = {};
+    this.currentVitalSign['2024']['1'][this._selectMainTopic][this._selectSubTopic][index] = {};
     await updateDoc(docRef, this.currentVitalSign);
     this.queryVitalSign()
   }
-
+  // this._selectMainTopic+ "." + this._selectSubTopic
   async updateDeleteAll() {
     const docRef = doc(firestore, "data", this.userTestName);
-    this.currentVitalSign['2024']['1']['vital_sign'][this._selectVitalSign] = {};
+    this.currentVitalSign['2024']['1'][this._selectMainTopic][this._selectSubTopic] = {};
     await updateDoc(docRef, this.currentVitalSign);
     this.queryVitalSign()
   }
 
   async queryVitalSign() { //pass
     this.dataVitalSign = []
+    this.queryFireStore()
     const docRef = doc(firestore, "data", this.userTestName);
     const docSnap = await getDoc(docRef);
     this.currentVitalSign = docSnap.data();
-    if (this.currentVitalSign['2024']['1']['vital_sign'][this._selectVitalSign].length >= 0) {
-      this.dataVitalSign = this.currentVitalSign['2024']['1']['vital_sign'][this._selectVitalSign]
-      this.dataVitalSignHeader = Object.keys(this.currentVitalSign['2024']['1']['vital_sign'])
-      // console.log('dataVitalSign', Object.keys(array));
-      // Object.keys(array).forEach((item)=>{
-      //   this.dataVitalSignHeader.push(item)
-      // })
-      // console.log('dataVitalSignHeader',this.dataVitalSignHeader);
+    console.log('this.currentVitalSign',this.currentVitalSign);
+    
+    if (this.currentVitalSign && this.currentVitalSign['2024'] && this.currentVitalSign['2024']['1'] && this.currentVitalSign['2024']['1'][this._selectMainTopic] && this.currentVitalSign['2024']['1'][this._selectMainTopic][this._selectSubTopic] && this.currentVitalSign['2024']['1'][this._selectMainTopic][this._selectSubTopic].length >= 0) {
+      this.dataVitalSign = this.currentVitalSign['2024']['1'][this._selectMainTopic][this._selectSubTopic]
+      this.dataVitalSignHeader = Object.keys(this.currentVitalSign['2024']['1'][this._selectMainTopic])
     }
   }
 
@@ -154,17 +168,25 @@ export class ManualConfigPageComponent implements OnInit {
     this.currentTopicWorks = []
     const docRef = doc(firestore, "manager", "mainTopicWorks");
     const docSnap = await getDoc(docRef);
-    let objectTopic:any = docSnap.data();
-    // console.log('objectTopic',Object.keys(objectTopic));
-    Object.keys(objectTopic).forEach((topic:any,i)=>{
-      console.log('topic',topic,objectTopic[topic]);
-      
-      if(objectTopic[topic]){
+    let objectTopic: any = docSnap.data();
+    Object.keys(objectTopic).forEach((topic: any, i) => {
+      if (objectTopic[topic]) {
         this.currentTopicWorks.push(topic)
       }
     })
-    console.log('currentTopicWorks', this.currentTopicWorks);
+  }
 
+  async querySubTopicWorks(topicGroup: any) { //pass
+    this._selectSubTopic = ''
+    this.currentSubTopicWorks = []
+    const docRef = doc(firestore, "manager", "subTopicWork");
+    const docSnap = await getDoc(docRef);
+    let objectTopic: any = docSnap.data();
+    Object.keys(objectTopic).forEach((topic: any, i) => {
+      if (objectTopic[topic].ative && objectTopic[topic].group == topicGroup) {
+        this.currentSubTopicWorks.push(topic)
+      }
+    })
   }
 
   returnVelue(velue: any) {

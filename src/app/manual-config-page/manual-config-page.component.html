@@ -1,30 +1,46 @@
 <a class="bi bi-gear" style="font-size: 28px;" href="/"></a>
 
 <h3>selectUsere ({{userTestName}})</h3>
+<label for="selectUsere">selectUsere: </label>
+<input id="selectUsere" type="text" [formControl]="selectUsere">
+<button type="button" (click)="createUser()">Update selectUsere</button>
+
 <div class="select-option">
-    <button (click)="userTestName = 'Pannatat Saman';queryVitalSign();">Pannatat</button>
+    <div *ngFor="let item of keysUser;">
+        <button (click)="userTestName = item;queryVitalSign();">{{item}} </button><span (click)="deleteDoc(item)">x</span>
+    </div>
+    <!-- <button (click)="userTestName = 'Pannatat Saman';queryVitalSign();">Pannatat</button>
     <button (click)="userTestName = 'Pannathon Saman';queryVitalSign();">Pannathon</button>
-    <button (click)="userTestName = 'สมเทส สโลบาย';queryVitalSign();">สมเทส สโลบาย</button>
+    <button (click)="userTestName = 'สมเทส สโลบาย';queryVitalSign();">สมเทส สโลบาย</button> -->
 </div>
-<h3>selectOption</h3>
+<!-- <h3>selectOption</h3>
 <div class="select-option">
     <button (click)="createObject()">createObject</button>
     <button (click)="deleteDoc()">delete</button>
-</div>
-<h3>selectTitleHeader</h3>
+</div> -->
+<h3>selectTopic</h3>
 <button (click)="queryTopicWorks()">queryTopicWorks</button>
-<div class="select-option" *ngFor="let item of currentTopicWorks;index as i;">
-    <button (click)="_selectVitalSign = item;queryVitalSign();">
+<div class="select-option" *ngFor="let topicGroup of currentTopicWorks;index as i;">
+    <button (click)="_selectMainTopic = topicGroup;querySubTopicWorks(topicGroup)">
+      {{i+1}}  {{topicGroup}}
+    </button>
+</div>
+<h3>selectSubTopic({{_selectMainTopic}})</h3>
+<!-- <button (click)="currentSubTopicWorks()">querySubTopicWorks</button> -->
+<div class="select-option" *ngFor="let item of currentSubTopicWorks;index as i;">
+    <button (click)="_selectSubTopic = item;queryVitalSign()">
       {{i+1}}  {{item}}
     </button>
 </div>
-<h3>Update ({{_selectVitalSign}})</h3>
+
+
+<h3>Update {{_selectMainTopic}} > {{_selectSubTopic}}</h3>
 <div class="select-option">
     <button (click)="queryVitalSign()">queryVitalSign</button>
     <button (click)="updatePushData()">updatePushData</button>
     <!-- <button (click)="updateDeleteObject()">updateDeleteObject</button> -->
 </div>
-<h3>dataVitalSign ({{_selectVitalSign}})</h3>
+<h3>dataVitalSign ({{_selectSubTopic}})</h3>
 <div class="select-option">
     <button (click)="updatePushData()">ADD DATA</button>
     <button (click)="updateDeleteAll()">Delete All</button>
