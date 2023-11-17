@@ -16,6 +16,7 @@ import { HomePageComponent } from './landing-page/component/home-page/home-page.
 import { TabInsightsComponent } from './landing-page/component/home-page/component/tab-insights/tab-insights.component';
 import { ManualConfigPageComponent } from './manual-config-page/manual-config-page.component';
 import { WorkScheduleComponent } from './landing-page/component/work-schedule/work-schedule.component';
+import { EmployeeProfileComponent } from './landing-page/component/employee-profile/employee-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { WorkScheduleComponent } from './landing-page/component/work-schedule/wo
     HomePageComponent,
     TabInsightsComponent,
     ManualConfigPageComponent,
-    WorkScheduleComponent
+    WorkScheduleComponent,
+    EmployeeProfileComponent
   ],
   imports: [
     BrowserModule,

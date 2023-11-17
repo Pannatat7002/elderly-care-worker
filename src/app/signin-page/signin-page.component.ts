@@ -29,8 +29,6 @@ export class SigninPageComponent implements OnInit {
     }
   }
   onClickSubmit(result: any) {
-    console.log("You have email : " + result.email);
-    console.log("You have password : " + result.password);
     this.signin(result.email, result.password)
   }
 
@@ -38,23 +36,21 @@ export class SigninPageComponent implements OnInit {
     this.AuthService.SignIn(email, password).then(async (res: any) => {
       const accessToken: any = res.user._delegate.accessToken
       const userToken: any = this.AuthService.jwt_decode(accessToken)
-      // this.workDataService.getUserProfile(userToken.email).then(async (res) => {
         const DataProfile: any = await getDocs(collection(firestore, "Users")); //get data getDataProfile
         DataProfile.forEach((doc: any) => {
           const dataUser = JSON.parse(JSON.stringify(doc.data()));
-          console.log('dataUser',dataUser);
-          if (email === dataUser.email) {
-            this.cookieService.set('accessToken', accessToken)
-            // this.cookieService.set('userProfile', JSON.stringify(res.user[0]))
-            this.router.navigate(['/landing'])
+          const roleUser = dataUser.role
+          if(roleUser.toUpperCase() === "EMPLOYEE"||roleUser.toUpperCase() === "ADMIN"){
+            if (email === dataUser.email) {
+              this.cookieService.set('accessToken', accessToken)
+              this.router.navigate(['/landing'])
+            } else {
+              this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
+            }
           } else {
-            this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
+            this.alertError = JSON.stringify("ท่านไม่มีสิทธิเข้าใช้งาน กรุณาติดต่อ 095-805-7052")
           }
         });
-      // }).catch((err) => {
-      //   this.alertError = JSON.stringify("อีเมลไม่ถูกต้อง")
-
-      // })
     }).catch((err) => {
       this.alertError = JSON.stringify(err.code)
     })
@@ -69,22 +65,6 @@ export class SigninPageComponent implements OnInit {
     console.log('1');
 
   }
-
-  // forget() {
-  //   const auth = getAuth();
-  //   console.log('forget auth',auth);
-
-  //   sendPasswordResetEmail(auth,'pannatat7002@gmail.com')
-  //     .then(() => {
-  //       // Password reset email sent!
-  //       // ..
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       // ..
-  //     });
-  // }
 
   closeforGet(evet: boolean) {
     this.forgot = evet

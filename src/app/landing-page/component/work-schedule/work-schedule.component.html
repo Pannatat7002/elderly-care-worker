@@ -1,54 +1,37 @@
-<div class="container-xl">
-    <div class="work-type">
-        <h3>วันนี้</h3>
-        <div class="table-work-daily">
-            <div class="work-content">
-
+  <div class="work-type">
+    <div class="table-work-daily">
+      <div class="work-content">
+        <span>วันนี้ 3 มกราคม 2556</span>
+        <span>เริ่มงาน</span>
+      </div>
+      <ul class="list-group">
+        <div *ngFor="let data of workList;">
+          <li *ngIf="!data.status" class="list-group-item">
+            <div class="workName">
+              <span>{{data.workName}}</span>
+              <span class="detail">{{data.elderName}}</span>
             </div>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    งานทำความสะอาด
-                  <span class="badge badge-primary badge-pill">12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    งานวัดสัญญาณชีพ
-                  <span class="badge badge-primary badge-pill">50</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  จ่ายยา
-                  <span class="badge badge-primary badge-pill">99</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    ตรวจสอบความเรียบร้อย
-                  <span class="badge badge-primary badge-pill">99</span>
-                </li>
-              </ul>
+            <div class="workTime">{{data.workTime}}</div>
+          </li>
         </div>
+      </ul>
     </div>
-    <div class="work-type">
-        <h3>เสร็จสิ้น</h3>
-        <div class="table-work-daily">
-            <div class="work-content">
-
+    <div class="table-work-daily">
+      <div class="work-content">
+        <span>เสร็จสิ้น</span>
+        <span>ส่งงาน</span>
+      </div>
+      <ul class="list-group">
+        <div *ngFor="let data of workList;">
+          <li *ngIf="data.status" class="list-group-item">
+            <div class="workName">
+              <span>{{data.workName}}</span>
+              <span class="detail">{{data.elderName}}</span>
             </div>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  ทำความสะอาด
-                  <span class="badge badge-primary badge-pill">12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  วัดสัญญาณชีพ
-                  <span class="badge badge-primary badge-pill">50</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  จ่ายยา
-                  <span class="badge badge-primary badge-pill">99</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    ตรวจสอบความเรียบร้อย
-                  <span class="badge badge-primary badge-pill">99</span>
-                </li>
-              </ul>
+            <div class="workTime">8.18 น.</div>
+          </li>
         </div>
+      </ul>
     </div>
-</div>
+
+  </div>

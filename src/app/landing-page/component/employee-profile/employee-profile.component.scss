@@ -1,0 +1,82 @@
+.container-lg {
+    // display: flex;
+    // height: 80vh;
+    width: 100%;
+    padding: 0;
+    height: 100vh;
+
+    .header-title {
+        background-color: #fd7e14;
+        border-radius: 0px 0px 14px 14px;
+        color: #FFF;
+        display: grid;
+        position: relative;
+        margin-bottom: 4rem;
+
+        .butBack {
+            font-size: 28px;
+            height: auto;
+            margin: 15px;
+            display: flex;
+        }
+
+        .responsive {
+            display: flex;
+            justify-content: center;
+
+            .imgProfile {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // height: 85px;
+                // width: 85px;
+                height: 120px;
+                width: 120px;
+                border-radius: 30px;
+                background: #9b9b9b;
+                border: 4px solid #FFF;
+                font-size: 58px;
+                box-shadow: 0px 0px 12px gray;
+
+                bottom: -72px;
+            }
+        }
+    }
+
+    .profile-body {
+        // width: 100%;
+        font-size: 24px;
+        display: flex;
+        justify-content: left;
+        margin: 15px;
+
+        .personal-name {
+            width: 100%;
+            font-weight: 600;
+            padding: 6px;
+
+            .personal-show {
+                margin: 4px;
+                font-weight: 500;
+                background: #FFF;
+                height: 38px;
+                display: grid;
+                justify-items: left;
+                align-items: center;
+                font-size: 24px;
+                padding-left: 53px;
+                border-radius: 27px;
+            }
+        }
+    }
+
+
+
+    .buttout {
+        width: 100%;
+        font-size: 24px;
+        margin: 15px;
+        margin-bottom: 4rem;
+    }
+}

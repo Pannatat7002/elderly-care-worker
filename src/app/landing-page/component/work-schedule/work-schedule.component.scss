@@ -1,0 +1,41 @@
+.work-type {
+    font-family: 'db_heavent_regular';
+
+    .table-work-daily {
+        .work-content{
+            display: grid;
+            grid-template-columns: 80% 20%;
+            align-items: center;
+            padding-left: 6px;
+            font-size: 32px;
+            padding: 6px;
+            span{
+                text-align: left;
+            }
+        }
+        .list-group-item {
+            display: grid;
+            grid-template-columns: 80% 20%;
+            align-items: center;
+            overflow: hidden;
+            // display: flex;
+            // justify-content: space-between;
+            // align-items: center;
+            .workName{
+                display: grid;
+                color: black;
+                font-size: 26px;
+                padding: 6px;
+                .detail{
+                    font-size: 24px;
+                    color: lightcoral;
+                    padding-left: 2rem;
+                }
+            }
+            .workTime {
+                color: #6c757d;
+                font-size: 28px;
+            }
+        }
+    }
+}
