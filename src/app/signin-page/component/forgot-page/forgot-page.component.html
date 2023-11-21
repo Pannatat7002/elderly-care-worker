@@ -1,10 +1,10 @@
 <app-loading-service *ngIf="timeOutLoading === false" (timeOutLoading)="loading($event)"></app-loading-service>
 <div [hidden]="!timeOutLoading" class="containers">
     <div class="headers">
-        <div class="butBack" (click)="closeForGet()">
-            <div class="bi bi-arrow-left" style="cursor: pointer;">            
+        <div class="butBack">
+            <a  href="/" class="bi bi-arrow-left" style="cursor: pointer;color: black;">            
                 <!-- <a rel="stylesheet" href="/signin-page" ></a> -->
-            </div>
+            </a>
         </div>
         <div>Forgot Password</div>
         <div class="title-header">Select which methods you’d like to reset.</div>

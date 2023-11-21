@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <app-home-page (outPaths)="onNextPaths($event)"
     [userProfile]="userProfile" *ngIf="selectMode === 'work-schedule'"></app-home-page>
-    <app-work-schedule *ngIf="selectMode === 'work-schedule'"></app-work-schedule >
+    <!-- <app-work-schedule *ngIf="selectMode === 'work-schedule'"></app-work-schedule > -->
     <app-employee-profile *ngIf="selectMode === 'emprofile'" (onBackPath)="onNextPaths($event)"></app-employee-profile>
   </div>
 </html>

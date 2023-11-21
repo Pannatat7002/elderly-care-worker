@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 // import { AuthService } from '../../../../service/auth-service/auth.service'
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+
 @Component({
   selector: 'app-forgot-page',
   templateUrl: './forgot-page.component.html',
@@ -13,7 +15,10 @@ export class ForgotPageComponent implements OnInit {
 
   @Output() closeforGet = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(
+    private router: Router,
+
+  ) { }
 
   ngOnInit(): void {
   }
@@ -23,10 +28,10 @@ export class ForgotPageComponent implements OnInit {
     this.timeOutLoading = event
   }
 
-  closeForGet() {
-    // console.log('closeForGet');
-    this.closeforGet.emit(false)
-  }
+  // closeForGet() {
+  //   // console.log('closeForGet');
+  //   this.closeforGet.emit(false)
+  // }
 
   forget(velue: any) {
     const auth = getAuth();
@@ -34,12 +39,12 @@ export class ForgotPageComponent implements OnInit {
     // console.log('data', velue.email);
     if (velue.email) {
       sendPasswordResetEmail(auth, velue.email).then(() => {
-        this.closeForGet()
+        this.router.navigate([''])
       }).catch((error) => {
         this.errorCode = error.code;
         this.errorMessage = error.message;
         setTimeout(() => {                           // <<<---using ()=> syntax
-          this.closeForGet()
+          this.router.navigate([''])
         }, 3000);
 
       });

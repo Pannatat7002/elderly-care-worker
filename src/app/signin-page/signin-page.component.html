@@ -1,7 +1,7 @@
 <!-- <img width="100%" style="height: 59vh;" src="https://www.appsheet.com/image/getremoteimageurl?url=https%3A%2F%2Fwww.appsheet.com%3A443%2Ffsimage.png%3Fappid%3D7cd1e497-7302-4534-86b1-b6e8592e188b%26datasource%3Dgoogle%26filename%3DDocId%3D1pW8QzYN8t0lA5JC_G91RCkaKovhVZpML%26signature%3D27462c020ccfde7d0e455dd9853368d0cec60a7413cf59142b6423a743ec8841%26tableprovider%3Dgoogle%26userid%3D777845&width=1920" alt=""> -->
 <!-- <app-loading-service class="" *ngIf="timeOutLoading === false" (timeOutLoading)="loading($event)"></app-loading-service> -->
 <app-splash *ngIf="!timeOutLoading" (timeOutLoading)="loading($event)"></app-splash>
-<div class="containers">
+<div [hidden]="!timeOutLoading"  class="containers">
   <!-- <div class="header"></div> -->
 
   <body class="signin">
@@ -22,7 +22,9 @@
       <br />
       <input class="btn" type="submit" value="เข้าสู่ระบบ" style="color: #FFF;  background: #fd7e14;">
       <div class="forgot text-center">
-        <p (click)="forgot = !forgot">ลืมรหัสผ่าน?</p>
+        <!-- <p (click)="forgot = !forgot">ลืมรหัสผ่าน?</p> -->
+        <a class="bi bi-gear" style="font-size: 28px;cursor: pointer;color: black;" href="/forgot-password">ลืมรหัสผ่าน?</a>
+
       </div>
     </form>
   </body>
@@ -32,4 +34,4 @@
   </div>
 </div>
 
-<app-forgot-page *ngIf="forgot" (closeforGet)="closeforGet($event)"></app-forgot-page>
+<!-- <app-forgot-page *ngIf="forgot" (closeforGet)="closeforGet($event)"></app-forgot-page> -->

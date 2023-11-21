@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { collection, getDocs, getDoc, setDoc, doc, where, query, addDoc, updateDoc, deleteDoc, Timestamp, arrayUnion, arrayRemove } from 'firebase/firestore';
+import { firestore } from "../../service/config/firebaseConfig";
 @Injectable({
   providedIn: 'root'
 })
@@ -28,4 +29,32 @@ export class WorkDatabaseService {
     var url = `https://njy-follow-app-6580f-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userName}/${date.year}/${date.month}.json`
     return this.http.get(url).toPromise();
   }
+
+    //Firebase getData Firestore
+    async querySigle(collectionName: string, fieldName: string, field: string) {
+      const data = query(collection(firestore, collectionName), where(fieldName, "==", field));
+      let userProfile: any
+      const querySnapshot = await getDocs(data);
+      querySnapshot.forEach((doc) => {
+        userProfile = doc.data()
+      });
+      return userProfile
+    }
+  
+  
+    async queryTopicWorks(collectionName: string, fieldName: string) { //pass
+      let currentTopicWorks:any[] = []
+      const docRef = doc(firestore, collectionName, fieldName);
+      const docSnap = await getDoc(docRef);
+      let objectTopic: any = docSnap.data();
+      return objectTopic
+    }
+  
+    async querySubTopicWorks(collectionName: string, fieldName: string) { //pass
+      let currentSubTopicWorks: any[] = []
+      const docRef = doc(firestore, collectionName, fieldName);
+      const docSnap = await getDoc(docRef);
+      let objectSubTopic: any = docSnap.data();
+      return objectSubTopic
+    }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit,Output,EventEmitter,Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab-insights',
@@ -8,12 +9,15 @@ import { Component, OnInit,Output,EventEmitter,Input } from '@angular/core';
 export class TabInsightsComponent implements OnInit {
   @Output() outPaths = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(
+    private router: Router,
+
+  ) { }
 
   ngOnInit(): void {
   }
   onNextPaths(path:string){
-    // this.router.navigate([''])
-    this.outPaths.emit(path)
+    this.router.navigate(['/work-Schedule'])
+    // this.outPaths.emit(path)
   }
 }

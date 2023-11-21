@@ -17,6 +17,7 @@ import { TabInsightsComponent } from './landing-page/component/home-page/compone
 import { ManualConfigPageComponent } from './manual-config-page/manual-config-page.component';
 import { WorkScheduleComponent } from './landing-page/component/work-schedule/work-schedule.component';
 import { EmployeeProfileComponent } from './landing-page/component/employee-profile/employee-profile.component';
+import { WorkDatabaseService } from './service/work-service/work-database.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,7 @@ import { EmployeeProfileComponent } from './landing-page/component/employee-prof
 
 
   ],
-  providers: [],
+  providers: [WorkDatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
