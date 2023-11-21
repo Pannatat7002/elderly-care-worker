@@ -12,7 +12,7 @@ import { WorkDatabaseService } from "../../../service/work-service/work-database
 })
 export class HomePageComponent implements OnInit {
   @Output() outPaths = new EventEmitter<string>();
-  @Input() userProfile: any = '-'
+  // @Input() userProfile: any = '-'
   employeeName:any
   pincode:any
   constructor(
@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit {
     if (!Token || Token === undefined) {
       this.router.navigate([''])
     }
-    this.querySigle()
+    // this.querySigle()
   }
 
   onNextPaths(path:string){
@@ -35,27 +35,27 @@ export class HomePageComponent implements OnInit {
     this.outPaths.emit(path)
   }
 
-  SignOut() {
-    this.cookieService.delete('accessToken')
-    this.cookieService.deleteAll('accessToken')
-    this.AuthService.SignOut().then(() => {
-      setTimeout(() => {                           // <<<---using ()=> syntax
-        this.router.navigate([''])
-      }, 1000);
-    })
-  }
+  // SignOut() {
+  //   this.cookieService.delete('accessToken')
+  //   this.cookieService.deleteAll('accessToken')
+  //   this.AuthService.SignOut().then(() => {
+  //     setTimeout(() => {                           // <<<---using ()=> syntax
+  //       this.router.navigate([''])
+  //     }, 1000);
+  //   })
+  // }
 
-  async querySigle() {
-    const data = query(collection(firestore, 'Users'), where("email", "==", "pannatat@gmail.com"));
-    console.log('Sigle data', data);
-    const querySnapshot = await getDocs(data);
-    querySnapshot.forEach((doc) => {
-      const userProfile = doc.data()
-      this.employeeName = userProfile['name'] || ""
-      this.pincode = userProfile['pincode'] || ""
-    });
-    this.queryMainTopic()
-  }
+  // async querySigle() {
+  //   const data = query(collection(firestore, 'Users'), where("email", "==", "pannatat@gmail.com"));
+  //   console.log('Sigle data', data);
+  //   const querySnapshot = await getDocs(data);
+  //   querySnapshot.forEach((doc) => {
+  //     const userProfile = doc.data()
+  //     this.employeeName = userProfile['name'] || ""
+  //     this.pincode = userProfile['pincode'] || ""
+  //   });
+  //   this.queryMainTopic()
+  // }
 
   async queryMainTopic(){
     this.WorkService.queryTopicWorks('manager','mainTopicWorks').then((res:any)=>{

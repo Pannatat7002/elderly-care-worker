@@ -18,6 +18,8 @@ import { ManualConfigPageComponent } from './manual-config-page/manual-config-pa
 import { WorkScheduleComponent } from './landing-page/component/work-schedule/work-schedule.component';
 import { EmployeeProfileComponent } from './landing-page/component/employee-profile/employee-profile.component';
 import { WorkDatabaseService } from './service/work-service/work-database.service';
+import { NavBarComponent } from './landing-page/component/nav-bar/nav-bar.component';
+import { BackNavbarComponent } from './landing-page/component/back-navbar/back-navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,9 @@ import { WorkDatabaseService } from './service/work-service/work-database.servic
     TabInsightsComponent,
     ManualConfigPageComponent,
     WorkScheduleComponent,
-    EmployeeProfileComponent
+    EmployeeProfileComponent,
+    NavBarComponent,
+    BackNavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,30 @@
+.navbar{
+    a{
+        color: #FFF;
+    }
+    background-color: #fd7e14;
+    border-radius: 0px 0px 14px 14px;        
+    color: #FFF;
+    .navbar-brand{
+        width: 100%;
+        font-size: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-collapse{
+        .navbar-nav{
+           .nav-item{
+               display: flex;
+               align-items: center;
+               font-size: 20px;
+            //    color: #FFF;
+            .nav-link{
+                padding: 6px;
+                color: #FFF;
+            }
+           } 
+        }
+    }
+
+}

@@ -1,37 +1,40 @@
-  <div class="work-type">
-    <div class="table-work-daily">
-      <div class="work-content">
-        <span>วันนี้ 3 มกราคม 2556</span>
-        <span>เริ่มงาน</span>
-      </div>
-      <ul class="list-group">
-        <div *ngFor="let data of workList;">
-          <li *ngIf="!data.status" class="list-group-item">
-            <div class="workName">
-              <span>{{data.workName}}</span>
-              <span class="detail">{{data.elderName}}</span>
-            </div>
-            <div class="workTime">{{data.workTime}}</div>
-          </li>
+<!-- <app-nav-bar></app-nav-bar> -->
+<div>
+  <app-back-navbar></app-back-navbar>
+    <div class="work-type">
+      <div class="table-work-daily">
+        <div class="work-content">
+          <span>วันนี้ 3 มกราคม 2556</span>
+          <span>เริ่มงาน</span>
         </div>
-      </ul>
-    </div>
-    <div class="table-work-daily">
-      <div class="work-content">
-        <span>เสร็จสิ้น</span>
-        <span>ส่งงาน</span>
+        <ul class="list-group">
+          <div *ngFor="let data of workList;">
+            <li *ngIf="!data.status" class="list-group-item">
+              <div class="workName">
+                <span>{{data.workName}}</span>
+                <span class="detail">{{data.elderName}}</span>
+              </div>
+              <div class="workTime">{{data.workTime}}</div>
+            </li>
+          </div>
+        </ul>
       </div>
-      <ul class="list-group">
-        <div *ngFor="let data of workList;">
-          <li *ngIf="data.status" class="list-group-item">
-            <div class="workName">
-              <span>{{data.workName}}</span>
-              <span class="detail">{{data.elderName}}</span>
-            </div>
-            <div class="workTime">8.18 น.</div>
-          </li>
+      <div class="table-work-daily">
+        <div class="work-content">
+          <span>เสร็จสิ้น</span>
+          <span>ส่งงาน</span>
         </div>
-      </ul>
+        <ul class="list-group">
+          <div *ngFor="let data of workList;">
+            <li *ngIf="data.status" class="list-group-item">
+              <div class="workName">
+                <span>{{data.workName}}</span>
+                <span class="detail">{{data.elderName}}</span>
+              </div>
+              <div class="workTime">8.18 น.</div>
+            </li>
+          </div>
+        </ul>
+      </div>
     </div>
-
-  </div>
+</div>
