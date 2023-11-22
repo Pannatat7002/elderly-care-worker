@@ -1,49 +1,44 @@
 <div class="container-lg">
-    <div class="header-title">
-        <div (click)="onBack()" class="butBack bi bi-backspace" style="cursor: pointer;">
-            <div style="margin-left: 18px;">ข้อมูลพนักงาน</div>
-        </div>
+  <app-back-navbar [topicHeader] = "_topicHeader"></app-back-navbar>
+  <div class="profile-body row">
+    <div class="personal-name">
+      ชื่อ-นามสกุล
+      <div class="personal-show">
+        ปัณทัต สมาน
+      </div>
     </div>
-
-    <div class="profile-body row">
-        <div class="personal-name">
-            ชื่อ-นามสกุล
-            <div class="personal-show">
-                ปัณทัต สมาน
-            </div>
-        </div>
-        <div class="personal-name">
-            เบอร์ติดต่อ
-            <div class="personal-show">
-                098-805-7052
-            </div>
-        </div>
-        <div class="personal-name">
-            อายุ
-            <div class="personal-show">
-                20 ปี
-            </div>
-        </div>
-        <div class="personal-name">
-            เริ่มงาน
-            <div class="personal-show">
-                11/17/2556
-            </div>
-        </div>
-        <div class="personal-name">
-            ช่วงเวลา
-            <div class="personal-show">
-                6.00 > 22.00 น. 
-            </div>
-        </div>
-        <!-- <button class="btn btn-primary buttout" (click)="SignOut()">ออกจากระบบ</button> -->
+    <div class="personal-name">
+      เบอร์ติดต่อ
+      <div class="personal-show">
+        098-805-7052
+      </div>
     </div>
+    <div class="personal-name">
+      อายุ
+      <div class="personal-show">
+        20 ปี
+      </div>
+    </div>
+    <div class="personal-name">
+      เริ่มงาน
+      <div class="personal-show">
+        11/17/2556
+      </div>
+    </div>
+    <div class="personal-name">
+      ช่วงเวลา
+      <div class="personal-show">
+        6.00 > 22.00 น.
+      </div>
+    </div>
+    <!-- <button class="btn btn-primary buttout" (click)="SignOut()">ออกจากระบบ</button> -->
+  </div>
 
 
 
 
 
-    <!-- <div class="profile-body row">
+  <!-- <div class="profile-body row">
       <table class="table">
         <tbody>
           <tr>

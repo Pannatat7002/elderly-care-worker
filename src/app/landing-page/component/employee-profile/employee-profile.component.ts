@@ -7,9 +7,9 @@ import { Component,Output,EventEmitter} from '@angular/core';
 })
 export class EmployeeProfileComponent {
   @Output() onBackPath = new EventEmitter<string>();
-
+  _topicHeader:string = 'ข้อมูลพนักงาน'
   onBack() {
     // console.log('onBack');
-    this.onBackPath.emit('work-schedule')
+    // this.onBackPath.emit('work-schedule')
   }
 }

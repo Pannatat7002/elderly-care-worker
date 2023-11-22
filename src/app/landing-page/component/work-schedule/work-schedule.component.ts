@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class WorkScheduleComponent implements OnInit {
   workList: any = []
+  _topicHeader:string = 'ตารางงาน'
 
   constructor() { }
 
