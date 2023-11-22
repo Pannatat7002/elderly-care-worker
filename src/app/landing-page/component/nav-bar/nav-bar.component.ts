@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { collection, getDocs, getDoc, setDoc, doc, where, query, addDoc, updateDoc, deleteDoc, Timestamp, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { firestore } from "../../../service/config/firebaseConfig";
-import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from '../../../service/cookie-service/cookie.service';
 import { AuthService } from '../../../service/auth-service/auth.service'
 import { Router } from '@angular/router';
 
@@ -38,8 +38,8 @@ export class NavBarComponent {
   }
 
   SignOut() {
-    this.cookieService.delete('accessToken')
-    this.cookieService.deleteAll('accessToken')
+    this.cookieService.clearAllCookies()
+    // this.cookieService.deleteAll('accessToken')
     this.AuthService.SignOut().then(() => {
       setTimeout(() => {                           // <<<---using ()=> syntax
         this.router.navigate([''])

@@ -4,7 +4,9 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { WorkDatabaseService } from '../../app/service/work-service/work-database.service';
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { firestore } from "../../app/service/config/firebaseConfig"
-import { CookieService } from 'ngx-cookie-service';
+// import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from '../../app/service/cookie-service/cookie.service';
+
 @Component({
   selector: 'app-signin-page',
   templateUrl: './signin-page.component.html',
@@ -23,7 +25,7 @@ export class SigninPageComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-     const Token = await this.cookieService.get('accessToken')
+     const Token = await this.cookieService.getCookie('accessToken')
     if(!!Token){
       this.router.navigate(['/landing'])
     }
@@ -42,7 +44,7 @@ export class SigninPageComponent implements OnInit {
           const roleUser = dataUser.role
           if(roleUser.toUpperCase() === "EMPLOYEE"||roleUser.toUpperCase() === "ADMIN"){
             if (email === dataUser.email) {
-              this.cookieService.set('accessToken', accessToken)
+              this.cookieService.setCookie('accessToken', accessToken)
               this.router.navigate(['/landing'])
             } else {
               this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")

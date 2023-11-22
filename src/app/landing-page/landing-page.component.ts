@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth-service/auth.service'
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { WorkDatabaseService } from '../service/work-service/work-database.service';
-import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from '../service/cookie-service/cookie.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -33,11 +33,11 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
     this.getPosition()
     this.queryTimeNumber()
-    const Token = this.cookieService.get('accessToken')
+    const Token = this.cookieService.getCookie('accessToken')
     if (!Token || Token === undefined) {
       this.router.navigate([''])
     } else {
-      this.userProfile = JSON.parse(this.cookieService.get('userProfile'))
+      this.userProfile = this.cookieService.getCookie('userProfile')
       this.getUserProfile(this.userProfile.ender)
     }
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit,Output,EventEmitter,Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from '../../../service/cookie-service/cookie.service';
 import { AuthService } from '../../../service/auth-service/auth.service'
 import { collection, getDocs, getDoc, setDoc, doc, where, query, addDoc, updateDoc, deleteDoc, Timestamp, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { firestore } from "../../../service/config/firebaseConfig";
@@ -23,7 +23,7 @@ export class HomePageComponent implements OnInit {
     ) { }
     
     ngOnInit(): void {
-    const Token = this.cookieService.get('accessToken')
+    const Token = this.cookieService.getCookie('accessToken')
     if (!Token || Token === undefined) {
       this.router.navigate([''])
     }
