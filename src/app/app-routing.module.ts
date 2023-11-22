@@ -28,8 +28,8 @@ const routes: Routes = [
   // ,
   // { path: '', redirectTo: '/home', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent }
-  // { path: 'manualConfig', component: ManualConfigPageComponent },
-  // { path: 'forgot-password', component: ForgotPageComponent },
+  { path: 'manualConfig', component: ManualConfigPageComponent },
+  { path: 'forgot-password', component: ForgotPageComponent },
   // { path: 'work-Schedule', component: WorkScheduleComponent },
 
   // { path: 'signin-page', component: SigninPageComponent }
