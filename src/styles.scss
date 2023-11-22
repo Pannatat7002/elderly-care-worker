@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'db_heavent_regular';
+    src: url('assets/scss/fonts/DB_Heavent_Cond_v3.2.ttf');
+    font-weight: normal;
+    font-style: normal; 
+  }
 html {
     overflow: scroll;
     overflow-x: hidden;
