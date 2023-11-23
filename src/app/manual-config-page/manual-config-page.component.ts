@@ -193,4 +193,61 @@ export class ManualConfigPageComponent implements OnInit {
     return Object.values(velue)
   }
 
+
+
+  resizeImage(base64: string): Promise<string> {
+    const settings = {
+      max_width: 320,
+      max_height: 200
+    }
+
+    const canvas = document.createElement('canvas');
+    const ctx:any = canvas.getContext("2d");
+
+    const canvasCopy = document.createElement("canvas");
+    const copyCtx:any = canvasCopy.getContext("2d");
+
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        let ratio = 1;
+        if (img.width > settings.max_width) {
+          ratio = settings.max_width / img.width;
+        } else if (img.height > settings.max_height) {
+          ratio = settings.max_height / img.height;
+        }
+        canvasCopy.width = img.width;
+        canvasCopy.height = img.height;
+        copyCtx.drawImage(img, 0, 0);
+
+        canvas.width = img.width * ratio;
+        canvas.height = img.height * ratio;
+        ctx.drawImage(canvasCopy, 0, 0, canvasCopy.width, canvasCopy.height, 0, 0, canvas.width, canvas.height);
+
+        const data = canvas.toDataURL('image/png');
+        resolve(data);
+      };
+      img.onerror = (error) => {
+        reject('Face recognition resize image error.');
+      };
+      img.src = base64;
+    });
+  }
+
+  onNext() {
+    Promise.all([
+      // this.resizeImage(this.readFacePhotoUrl),
+      // this.resizeImage(this.takeFacePhotoUrl)
+    ]).then((values) => {
+      // this.faceRecognitionService.setImageFaceRecog(values[0], values[1]);
+      // this.facecompare({
+      //   cardBase64Imgs: this.replaceImageBase64(values[0]),
+      //   selfieBase64Imgs: this.replaceImageBase64(values[1])
+      // });
+
+    }).catch((error) => {
+      // this.alertService.setpopupMessage(error);
+      // this.alertService.openPopup();
+    });
+  }
 }

@@ -22,18 +22,10 @@ const routes: Routes = [
       { path: 'home', component: HomePageComponent },
       { path: 'works', component: WorkScheduleComponent },
       { path: 'profile', component: EmployeeProfileComponent },
-      // { path: 'details/:id', component: ProductDetailsComponent }
     ]
   },
-  // ,
-  // { path: '', redirectTo: '/home', pathMatch: 'full' },
-  // { path: '**', component: PageNotFoundComponent }
   { path: 'manualConfig', component: ManualConfigPageComponent },
   { path: 'forgot-password', component: ForgotPageComponent },
-  // { path: 'work-Schedule', component: WorkScheduleComponent },
-
-  // { path: 'signin-page', component: SigninPageComponent }
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
