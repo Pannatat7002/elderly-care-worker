@@ -62,8 +62,8 @@ export class TabInsightsComponent implements OnInit {
     // return this.sanitizer.bypassSecurityTrustUrl(base64);
   }
 
-  onNextPaths(path:string){
-    this.router.navigate(['/work-Schedule'])
+  onNextPaths(){
+    this.router.navigate(['/landing/works'])
     // this.outPaths.emit(path)
   }
 }
