@@ -72,18 +72,28 @@ export class ManualConfigPageComponent implements OnInit {
 
   async createObject() {
     const docData = {
-      name: this.userTestName,
+      recipient: this.userTestName,
     }
-    await setDoc(doc(firestore, "data", this.userTestName), docData);
+    await setDoc(doc(firestore, "customer", this.userTestName), docData);
+    await setDoc(doc(firestore, "dailywork", this.userTestName), docData);
+
     this.queryFireStore()
   }
+
+  // async createdailyworkObject() {
+  //   const docData = {
+  //     recipient: this.userTestName,
+  //   }
+  //   await setDoc(doc(firestore, "dailywork", this.userTestName), docData);
+  //   this.queryFireStore()
+  // }
 
   async deleteDoc(iduser:any) { //Pass
     var data = [
       iduser,
     ]
     data.forEach(async (res) => {
-      await deleteDoc(doc(firestore, "data", res));
+      await deleteDoc(doc(firestore, "customer", res));
     })
     this.queryVitalSign()
   }
@@ -116,7 +126,7 @@ export class ManualConfigPageComponent implements OnInit {
     };
 
     let pathUpdate: any = '2024' + "." + '1' + "." + this._selectMainTopic + "." + this._selectSubTopic
-    await updateDoc(doc(firestore, "data", this.userTestName), {
+    await updateDoc(doc(firestore, "customer", this.userTestName), {
       [pathUpdate]: arrayUnion(docData)
     });
     this.queryVitalSign()
@@ -130,21 +140,21 @@ export class ManualConfigPageComponent implements OnInit {
     };
 
     let pathUpdate: any = '2024' + "." + '1' + "." + 'vital_sign' + "." + this._selectMainTopic
-    await updateDoc(doc(firestore, "data", this.userTestName), {
+    await updateDoc(doc(firestore, "customer", this.userTestName), {
       [pathUpdate]: arrayUnion(docData)
     });
     this.queryVitalSign()
   }
 
   async updateDeleteObject(index?: any) {
-    const docRef = doc(firestore, "data", this.userTestName);
+    const docRef = doc(firestore, "customer", this.userTestName);
     this.currentVitalSign['2024']['1'][this._selectMainTopic][this._selectSubTopic][index] = {};
     await updateDoc(docRef, this.currentVitalSign);
     this.queryVitalSign()
   }
   // this._selectMainTopic+ "." + this._selectSubTopic
   async updateDeleteAll() {
-    const docRef = doc(firestore, "data", this.userTestName);
+    const docRef = doc(firestore, "customer", this.userTestName);
     this.currentVitalSign['2024']['1'][this._selectMainTopic][this._selectSubTopic] = {};
     await updateDoc(docRef, this.currentVitalSign);
     this.queryVitalSign()
@@ -153,7 +163,7 @@ export class ManualConfigPageComponent implements OnInit {
   async queryVitalSign() { //pass
     this.dataVitalSign = []
     this.queryFireStore()
-    const docRef = doc(firestore, "data", this.userTestName);
+    const docRef = doc(firestore, "customer", this.userTestName);
     const docSnap = await getDoc(docRef);
     this.currentVitalSign = docSnap.data();
     console.log('this.currentVitalSign',this.currentVitalSign);
@@ -169,8 +179,8 @@ export class ManualConfigPageComponent implements OnInit {
     const docRef = doc(firestore, "manager", "mainTopicWorks");
     const docSnap = await getDoc(docRef);
     let objectTopic: any = docSnap.data();
-    Object.keys(objectTopic).forEach((topic: any, i) => {
-      if (objectTopic[topic]) {
+    Object.keys(objectTopic.data).forEach((topic: any, i) => {
+      if (objectTopic['data'][topic]) {
         this.currentTopicWorks.push(topic)
       }
     })

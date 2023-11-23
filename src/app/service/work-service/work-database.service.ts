@@ -42,7 +42,7 @@ export class WorkDatabaseService {
     }
   
   
-    async queryTopicWorks(collectionName: string, fieldName: string) { //pass
+    async queryTopicWorks(collectionName: string, fieldName: string): Promise<any> { //pass
       let currentTopicWorks:any[] = []
       const docRef = doc(firestore, collectionName, fieldName);
       const docSnap = await getDoc(docRef);
@@ -50,7 +50,7 @@ export class WorkDatabaseService {
       return objectTopic
     }
   
-    async querySubTopicWorks(collectionName: string, fieldName: string) { //pass
+    async querySubTopicWorks(collectionName: string, fieldName: string): Promise<any> { //pass
       let currentSubTopicWorks: any[] = []
       const docRef = doc(firestore, collectionName, fieldName);
       const docSnap = await getDoc(docRef);

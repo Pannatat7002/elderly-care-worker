@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WorkDatabaseService} from '../../../service/work-service/work-database.service';
 
 @Component({
   selector: 'app-work-schedule',
@@ -10,13 +11,19 @@ export class WorkScheduleComponent implements OnInit {
   workList: any = []
   _topicHeader:string = 'ตารางงาน'
 
-  constructor() { }
+  constructor(
+    private WorkService:WorkDatabaseService
+  ) { }
 
   ngOnInit(): void {
     this.craeteWorkList()
   }
 
   craeteWorkList() {
+    // this.WorkService.queryTopicWorks('manager','mainTopicWorks').then((item:any)=>{
+    //   console.log('item',item.data);
+      
+    // })
     this.workList = [
       {
         workName: "จัดน้ำหัวเตียง",

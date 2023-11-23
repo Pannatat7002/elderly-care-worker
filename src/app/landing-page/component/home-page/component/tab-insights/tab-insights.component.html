@@ -1,10 +1,40 @@
 <div class="tab-insights">
-    <div class="pl-3 pr-3" style="display: flex;justify-content: space-between;">
-        <span>งานประจำวัน</span>
-        <i class="bi bi-three-dots"></i>
-    </div>
 
-    <div class="health-insights p-2">
+    <div *ngIf="nameSubTopic.length <= 0">
+        <div class="pl-3 pr-3" style="display: flex;justify-content: space-between;">
+            <span>งานประจำวัน</span>
+            <!-- <i class="bi bi-three-dots"></i> -->
+        </div>
+        <div class="health-insights p-2">
+            <div *ngFor="let topic of nameTopic;">
+                <div style="display: grid;justify-content: center;" (click)="querymenuSubTopic(topic)">
+                    <img  class="insight-show" [src]="byPass(topic)"
+                        style="background-size: cover;background-repeat: no-repeat">
+                    <div class="content-title">
+                        <div class="title" style="text-align: center;">{{topic}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="nameSubTopic.length > 0">
+        <div class="pl-3 pr-3" style="display: flex;justify-content: space-between;">
+            <span (click)="nameSubTopic = []">กลับ</span>
+            <!-- <i class="bi bi-three-dots"></i> -->
+        </div>
+        <div class="health-insights p-2">
+            <div *ngFor="let subtopic of nameSubTopic;">
+                <div style="display: grid;justify-content: center;">
+                    <img href="/landing/works" class="insight-show" [src]="byPass(subtopic)"
+                        style="background-size: cover;background-repeat: no-repeat">
+                    <div class="content-title">
+                        <div class="title" style="text-align: center;">{{subtopic}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="health-insights p-2">
         <a href="/landing/works" (click)="onNextPaths('heart rate')" class="insight-show"  style="background-size: cover;background-repeat: no-repeat;background-image: url('../../../../../../assets//images/insights/pexels-bich-tran-636246.jpg')">
             <div class="content-title">
                 <div class="title" style="border-bottom: 5px solid rgb(220, 142, 53);">งานวันนี้</div>
@@ -25,7 +55,7 @@
                 <div class="title" style="border-bottom: 5px solid #e83e8c;">รายงาน</div>
             </div>
         </a>
-    </div>
+    </div> -->
 </div>
 <!-- <div class="tab-insights">
     <div class="pl-3 pr-3" style="display: flex;justify-content: space-between;">
