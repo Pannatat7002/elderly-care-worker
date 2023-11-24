@@ -20,7 +20,7 @@ export class ManagerPageComponent {
     const DataProfile: any = await getDocs(collection(firestore, "Users")); //get data getDataProfile
     DataProfile.forEach((doc: any) => {
       // const dataUser = JSON.parse(JSON.stringify(doc.data()));
-      console.log('getUserID',doc.id, ' => ', doc.data());
+      // console.log('getUserID',doc.id, ' => ', doc.data());
 
     })
   }

@@ -40,6 +40,23 @@ export class WorkDatabaseService {
       });
       return userProfile
     }
+
+    async queryCollection(collectionName:any) {
+      let object: any = []
+      const outerCollectionRef = collection(firestore, collectionName);
+      const outerQuerySnapshot = await getDocs(outerCollectionRef);
+      return outerQuerySnapshot
+      // outerQuerySnapshot.forEach(async (outerDoc) => {
+      //   const outerData = outerDoc.data();
+      //   const outerId = outerDoc.id;
+      //   console.log('outerId', outerId);
+      //   console.log('outerData', outerData);
+      //   object.push(outerId)
+  
+      // });
+      // // this.keysUser = object
+      // // console.log('dataYear', this.keysUser);
+    }
   
   
     async queryTopicWorks(collectionName: string, fieldName: string): Promise<any> { //pass
