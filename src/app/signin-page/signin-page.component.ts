@@ -25,8 +25,8 @@ export class SigninPageComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-     const Token = await this.cookieService.getCookie('accessToken')
-    if(!!Token){
+    const Token = await this.cookieService.getCookie('accessToken')
+    if (!!Token) {
       this.router.navigate(['/landing'])
     }
   }
@@ -34,25 +34,43 @@ export class SigninPageComponent implements OnInit {
     this.signin(result.email, result.password)
   }
 
-   signin(email: any, password: any) {
+  signin(email: any, password: any) {
     this.AuthService.SignIn(email, password).then(async (res: any) => {
       const accessToken: any = res.user._delegate.accessToken
       const userToken: any = this.AuthService.jwt_decode(accessToken)
-        const DataProfile: any = await getDocs(collection(firestore, "Users")); //get data getDataProfile
-        DataProfile.forEach((doc: any) => {
-          const dataUser = JSON.parse(JSON.stringify(doc.data()));
-          const roleUser = dataUser.role
-          if(roleUser.toUpperCase() === "EMPLOYEE"||roleUser.toUpperCase() === "ADMIN"){
+      const DataProfile: any = await getDocs(collection(firestore, "Users")); //get data getDataProfile
+      DataProfile.forEach((doc: any) => {
+        const dataUser = JSON.parse(JSON.stringify(doc.data()));
+        const roleUser = dataUser.role
+        switch (roleUser.toUpperCase()) {
+          case "EMPLOYEE":
             if (email === dataUser.email) {
               this.cookieService.setCookie('accessToken', accessToken)
               this.router.navigate(['/landing'])
             } else {
               this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
-            }
-          } else {
+            } break;
+          case "MANAGER":
+            if (email === dataUser.email) {
+              this.cookieService.setCookie('accessToken', accessToken)
+              this.router.navigate(['/manager'])
+            } else {
+              this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
+            } break;
+          case "ADMIN":
+            if (email === dataUser.email) {
+              this.cookieService.setCookie('accessToken', accessToken)
+              this.router.navigate(['/landing'])
+            } else {
+              this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
+            } break;
+          default:
             this.alertError = JSON.stringify("ท่านไม่มีสิทธิเข้าใช้งาน กรุณาติดต่อ 095-805-7052")
-          }
-        });
+            break;
+        }
+
+
+      });
     }).catch((err) => {
       this.alertError = JSON.stringify(err.code)
     })

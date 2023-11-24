@@ -24,6 +24,19 @@ const routes: Routes = [
       { path: 'profile', component: EmployeeProfileComponent },
     ]
   },
+  // {
+  //   path: 'manager', component: ManagerPageComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       pathMatch: 'full',
+  //       redirectTo: '/landing/home'
+  //     },
+  //     { path: 'home', component: HomePageComponent },
+  //     { path: 'works', component: WorkScheduleComponent },
+  //     { path: 'profile', component: EmployeeProfileComponent },
+  //   ]
+  // },
   { path: 'manualConfig', component: ManualConfigPageComponent },
   { path: 'forgot-password', component: ForgotPageComponent },
 ];
