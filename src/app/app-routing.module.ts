@@ -12,14 +12,14 @@ const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
   { path: 'signin-page', component: SigninPageComponent },
   {
-    path: 'landing', component: LandingPageComponent,
+    path: 'employee', component: LandingPageComponent,
     children: [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/landing/home'
+        redirectTo: '/employee/landing'
       },
-      { path: 'home', component: HomePageComponent },
+      { path: 'landing', component: HomePageComponent },
       { path: 'works', component: WorkScheduleComponent },
       { path: 'profile', component: EmployeeProfileComponent },
     ]

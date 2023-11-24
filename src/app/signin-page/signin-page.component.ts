@@ -27,7 +27,7 @@ export class SigninPageComponent implements OnInit {
   async ngOnInit() {
     const Token = await this.cookieService.getCookie('accessToken')
     if (!!Token) {
-      this.router.navigate(['/landing'])
+      this.router.navigate(['/employee'])
     }
   }
   onClickSubmit(result: any) {
@@ -46,7 +46,7 @@ export class SigninPageComponent implements OnInit {
           case "EMPLOYEE":
             if (email === dataUser.email) {
               this.cookieService.setCookie('accessToken', accessToken)
-              this.router.navigate(['/landing'])
+              this.router.navigate(['/employee'])
             } else {
               this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
             } break;
