@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { collection, getDocs, getDoc, setDoc, doc, where, query, addDoc, updateDoc, deleteDoc, Timestamp, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { firestore } from "../../../service/config/firebaseConfig";
 import { CookieService } from '../../../service/cookie-service/cookie.service';
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class NavBarComponent {
   employeeName:any
   pincode:any
+  @Input() userEmail: string = 'pannatat@gmail.com'; // decorate the property with @Input()
 
   constructor(
     private cookieService: CookieService,
@@ -26,7 +27,7 @@ export class NavBarComponent {
   }
 
   async querySigle() {
-    const data = query(collection(firestore, 'Users'), where("email", "==", "pannatat@gmail.com"));
+    const data = query(collection(firestore, 'Users'), where("email", "==", this.userEmail));
     console.log('Sigle data', data);
     const querySnapshot = await getDocs(data);
     querySnapshot.forEach((doc) => {

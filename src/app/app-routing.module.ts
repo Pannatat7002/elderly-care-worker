@@ -7,6 +7,9 @@ import { ForgotPageComponent } from './signin-page/component/forgot-page/forgot-
 import { WorkScheduleComponent } from './landing-page/component/work-schedule/work-schedule.component';
 import { EmployeeProfileComponent } from './landing-page/component/employee-profile/employee-profile.component';
 import { HomePageComponent } from './landing-page/component/home-page/home-page.component';
+import { ManagerPageComponent } from './manager-page/manager-page.component';
+import { DashboardComponent } from './manager-page/container/dashboard/dashboard.component';
+import { CreateUserComponent } from './manager-page/container/component/create-user/create-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
@@ -24,19 +27,20 @@ const routes: Routes = [
       { path: 'profile', component: EmployeeProfileComponent },
     ]
   },
-  // {
-  //   path: 'manager', component: ManagerPageComponent,
-  //   children: [
-  //     {
-  //       path: '',
-  //       pathMatch: 'full',
-  //       redirectTo: '/landing/home'
-  //     },
-  //     { path: 'home', component: HomePageComponent },
-  //     { path: 'works', component: WorkScheduleComponent },
-  //     { path: 'profile', component: EmployeeProfileComponent },
-  //   ]
-  // },
+  {
+    path: 'manager', component: ManagerPageComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: '/manager/dashboard'
+      },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'createuser', component: CreateUserComponent },
+      { path: 'works', component: WorkScheduleComponent },
+      { path: 'profile', component: EmployeeProfileComponent },
+    ]
+  },
   { path: 'manualConfig', component: ManualConfigPageComponent },
   { path: 'forgot-password', component: ForgotPageComponent },
 ];

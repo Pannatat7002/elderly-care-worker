@@ -20,6 +20,9 @@ import { EmployeeProfileComponent } from './landing-page/component/employee-prof
 import { WorkDatabaseService } from './service/work-service/work-database.service';
 import { NavBarComponent } from './landing-page/component/nav-bar/nav-bar.component';
 import { BackNavbarComponent } from './landing-page/component/back-navbar/back-navbar.component';
+import { ManagerPageComponent } from './manager-page/manager-page.component';
+import { DashboardComponent } from './manager-page/container/dashboard/dashboard.component';
+// import { NavBarMgComponent } from './manager-page/container/component/nav-bar-mg/nav-bar-mg.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +37,10 @@ import { BackNavbarComponent } from './landing-page/component/back-navbar/back-n
     WorkScheduleComponent,
     EmployeeProfileComponent,
     NavBarComponent,
-    BackNavbarComponent
+    BackNavbarComponent,
+    ManagerPageComponent,
+    DashboardComponent,
+    // NavBarMgComponent
   ],
   imports: [
     BrowserModule,

@@ -18,8 +18,8 @@
         </div>
     </div>
     <div *ngIf="nameSubTopic.length > 0">
-        <div class="pl-3 pr-3" style="display: flex;justify-content: space-between;">
-            <span (click)="nameSubTopic = []">กลับ</span>
+        <div (click)="nameSubTopic = []" class="pl-3 pr-3" style="display: flex;justify-content: start;align-items: center;" >
+            <div>หน้าหลัก</div> / <div>{{selectTopic}}</div>
             <!-- <i class="bi bi-three-dots"></i> -->
         </div>
         <div class="health-insights p-2">

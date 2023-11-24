@@ -1,0 +1,2 @@
+<app-loading-service *ngIf="timeOutLoading === false" (timeOutLoading)="loading($event)"></app-loading-service>
+<router-outlet class="main" *ngIf="timeOutLoading === true" ></router-outlet>

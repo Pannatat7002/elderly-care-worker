@@ -27,11 +27,12 @@ export class SigninPageComponent implements OnInit {
   async ngOnInit() {
     const Token = await this.cookieService.getCookie('accessToken')
     if (!!Token) {
-      this.router.navigate(['/employee'])
+      // this.router.navigate(['/employee'])
     }
   }
   onClickSubmit(result: any) {
     this.signin(result.email, result.password)
+    // this.SignUp(result.email, result.password)
   }
 
   signin(email: any, password: any) {
@@ -73,6 +74,18 @@ export class SigninPageComponent implements OnInit {
       });
     }).catch((err) => {
       this.alertError = JSON.stringify(err.code)
+    })
+  }
+  SignUp(email: any, password: any) {
+    this.AuthService.SignUp(email, password).then(async (res: any) => {
+      console.log('SignUp',res);
+      
+    }).catch((err) => {
+      if(err == "auth/email-already-in-use"){
+        this.alertError = 'อีเมลถูกใช้งานแล้ว หรือ ติดต่อ 095-805-7052'
+    } else{
+      this.alertError = JSON.stringify(err.code)
+    }
     })
   }
 
