@@ -10,6 +10,8 @@ import { HomePageComponent } from './landing-page/component/home-page/home-page.
 import { ManagerPageComponent } from './manager-page/manager-page.component';
 import { DashboardComponent } from './manager-page/container/dashboard/dashboard.component';
 import { CreateUserComponent } from './manager-page/container/component/create-user/create-user.component';
+import { MenuTopicComponent } from './manager-page/container/component/menu-topic/menu-topic.component';
+import { EmployeeManagerComponent } from './manager-page/container/component/employee-manager/employee-manager.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
@@ -33,9 +35,17 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/manager/dashboard'
+        redirectTo: '/manager/dashboard/menu'
       },
-      { path: 'dashboard', component: DashboardComponent },
+      {
+        path: 'dashboard', component: DashboardComponent,
+        children: [
+          { path: 'menu', component: MenuTopicComponent },
+          { path: 'employee', component: EmployeeManagerComponent },
+          // { path: 'works', component: WorkScheduleComponent },
+          // { path: 'profile', component: EmployeeProfileComponent },
+        ]
+      },
       { path: 'createuser', component: CreateUserComponent },
       { path: 'works', component: WorkScheduleComponent },
       { path: 'profile', component: EmployeeProfileComponent },

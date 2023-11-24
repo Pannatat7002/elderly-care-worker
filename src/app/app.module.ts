@@ -22,6 +22,8 @@ import { NavBarComponent } from './landing-page/component/nav-bar/nav-bar.compon
 import { BackNavbarComponent } from './landing-page/component/back-navbar/back-navbar.component';
 import { ManagerPageComponent } from './manager-page/manager-page.component';
 import { DashboardComponent } from './manager-page/container/dashboard/dashboard.component';
+import { MenuTopicComponent } from './manager-page/container/component/menu-topic/menu-topic.component';
+import { CreateUserComponent } from './manager-page/container/component/create-user/create-user.component';
 // import { NavBarMgComponent } from './manager-page/container/component/nav-bar-mg/nav-bar-mg.component';
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { DashboardComponent } from './manager-page/container/dashboard/dashboard
     BackNavbarComponent,
     ManagerPageComponent,
     DashboardComponent,
+    CreateUserComponent,
+    MenuTopicComponent
     // NavBarMgComponent
   ],
   imports: [
@@ -49,7 +53,8 @@ import { DashboardComponent } from './manager-page/container/dashboard/dashboard
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule ,
-    HttpClientModule
+    HttpClientModule,
+    
 
 
   ],
