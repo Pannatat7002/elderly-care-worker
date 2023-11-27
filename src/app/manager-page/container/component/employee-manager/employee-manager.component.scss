@@ -1,24 +1,69 @@
 .container-em {
     font-family: 'db_heavent_regular';
+    display: block;
+    justify-content: center;
+    button{
+        border: none;
+        font-size: 32px;
+        // font-family: 'db_heavent_regular';
+        padding: 12px;    
+        cursor: pointer;
+    }
     .content-em {
-        // background-color: rgb(250, 215, 215);
-        display: grid;
-        // justify-content: flex-start;
-        // grid-template-columns: 50% 50%;
-        .list-em {
-            font-size: 24px;
+
+        .personImg {
+            font-size: 45PX;
+            color: #6c757d;
+            margin: 8px;
             display: flex;
-            justify-content: start;
-            align-items: center;
-            margin: 6px;
-            padding: 6px;
-            height: 50px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .list-em {
+            display: flex;
             background: #FFF;
             border-radius: 6px;
-            // justify-content: center;
-            // align-items: flex-end;
-            .tab-em{
-                color: black;
+            padding: 8px;
+
+            .media-body {
+                // display: flex;
+                // justify-content: space-between;
+                font-size: 24px;
+                // align-items: end;
+
+                .media {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    // border: 1px solid black;
+                    // border-radius: 8px;
+                    margin: 6px;
+                    .media-body{
+                        display: grid;
+                        // grid-template-columns: 70% 30%;
+                    }
+                }
+            }
+
+            // .media{
+            //     display: flex;
+            //     justify-content: center;
+            //     align-items: center;
+            // }
+            .tab-em {
+                color: rgba(0, 0, 0, 0.644);
+            }
+
+            .tool-bar {
+                display: grid;
+                grid-template-columns: 70% 30%;
+                // justify-content: space-around;
+                align-items: center;
+
+                div {
+                    font-size: 24px;
+                }
             }
         }
     }

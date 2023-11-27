@@ -1,23 +1,36 @@
-<!-- <app-back-navbar></app-back-navbar> -->
-<button (click)="back()">back</button>
 <div class="container-em">
-    <!-- <div class="content-em">
-        <div *ngFor="let dataem of currentEmployee;" class="list-em">
-            {{dataem.employee}}
+  <button (click)="back()">back</button>
+  <div style="text-align: center;"><h2>ข้อมูลบุคลากรและการแบ่งงาน</h2></div>
+  <div class="container mt-2 content-em" *ngFor="let dataem of currentEmployee;">
+    <div class="list-em" (click)="selectEmployee(dataem)">
+      <div class="personImg">
+        <i class=" bi bi-person-square"></i>
+      </div>
+      <div class="media-body">
+        <div class="tool-bar">
+          <div>{{dataem.employee}}</div>
+          <div class="bi bi-pencil-square text-right"></div>
+          <div><small>ปฎิบัติงานช่วง 7.30 - 17.30น.</small></div>
         </div>
-    </div> -->
-    <div class="container mt-3 content-em" *ngFor="let dataem of currentEmployee;">
-        <div class="media border p-3" style="background: #FFF;">
-          <div style="font-size: 40px;width: 60px;" class="bi bi-person-square"></div>
-          <div class="media-body">
-            <h4>{{dataem.employee}}</h4>
-            <div class="media p-2" *ngFor="let item of objectDuties(dataem);">
-                <div style="font-size: 40px;width: 60px;" class="bi bi-person-square"></div>
-                <div class="media-body">
-                <h4>{{item}}<small><br><i>เข้า 25 มกราคม 2566</i></small></h4>
-              </div>
-            </div>  
+        <div *ngIf="_selcetEmp === dataem.employee && currentDuies.length > 0">
+          <div  class="media" *ngFor="let item of currentDuies;">
+            <div class="personImg">
+              <i class=" bi bi-person-square"></i>
+            </div>
+            <div class="media-body">
+              <div>{{item}}</div>
+              <div><small>ปฎิบัติงานช่วง 7.30 - 17.30น.</small></div>
+              <div class="bi bi-pencil-square text-right"></div>
+            </div>
           </div>
         </div>
+        <div *ngIf="_selcetEmp === dataem.employee && currentDuies.length <= 0">
+          <div  class="media" >
+            <span>ไม่พบช้อมูล</span>
+          </div>
+        </div>
+        
       </div>
+    </div>
+  </div>
 </div>

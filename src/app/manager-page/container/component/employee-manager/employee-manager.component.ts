@@ -10,7 +10,9 @@ import { Location } from '@angular/common'
   styleUrls: ['./employee-manager.component.scss']
 })
 export class EmployeeManagerComponent {
-  currentEmployee: any
+  currentEmployee: any = []
+  currentDuies:any = []
+  _selcetEmp:any = ''
   constructor(
     private router: Router,
     private WorkService: WorkDatabaseService,
@@ -27,22 +29,27 @@ export class EmployeeManagerComponent {
     this.WorkService.queryCollection('employee').then((data: any) => {
       data.forEach(async (outerDoc:any) => {
         const outerData = outerDoc.data();
-        const outerId = outerDoc.id;
         this.currentEmployee.push(outerData)
       });
-      // this.keysUser = object
-      console.log('currentEmployee', this.currentEmployee);
+      this._selcetEmp =  this.currentEmployee[0].employee || ''
     })
   }
 
     objectDuties(duties:any){
-      // Object.keys(duties['Set duties'])
-      return Object.keys(duties['Set duties'])
+      this.currentDuies = []
+      Object.keys(duties['Set duties']).forEach((res:any)=>{
+        if(duties['Set duties'][res]){
+          this.currentDuies.push(res)
+        }
+      })
     }
 
-    back(): void {
-    console.log('back');
-    
+    back(): void {    
     this.location.back()
+  }
+
+  selectEmployee(data:any){
+    this._selcetEmp = data.employee
+    this.objectDuties(data)
   }
 }
