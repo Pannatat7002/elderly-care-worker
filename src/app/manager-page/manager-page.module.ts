@@ -14,7 +14,7 @@ import { EmployeeManagerComponent } from './container/component/employee-manager
     // CreateUserComponent,
     // MenuTopicComponent
   
-    EmployeeManagerComponent
+    // EmployeeManagerComponent
   ],
   imports: [
     CommonModule

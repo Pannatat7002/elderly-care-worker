@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { WorkDatabaseService } from 'src/app/service/work-service/work-database.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-employee-manager',
@@ -13,7 +14,8 @@ export class EmployeeManagerComponent {
   constructor(
     private router: Router,
     private WorkService: WorkDatabaseService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private location:Location
   ) {}
 
   ngOnInit(): void {
@@ -23,17 +25,24 @@ export class EmployeeManagerComponent {
   async queryEmployee() { //pass
     this.currentEmployee = []
     this.WorkService.queryCollection('employee').then((data: any) => {
-      // console.log('queryCollection', data);
       data.forEach(async (outerDoc:any) => {
         const outerData = outerDoc.data();
         const outerId = outerDoc.id;
-        // console.log('outerId', outerId);
-        // console.log('outerData', outerData);
         this.currentEmployee.push(outerData)
-  
       });
       // this.keysUser = object
       console.log('currentEmployee', this.currentEmployee);
     })
+  }
+
+    objectDuties(duties:any){
+      // Object.keys(duties['Set duties'])
+      return Object.keys(duties['Set duties'])
+    }
+
+    back(): void {
+    console.log('back');
+    
+    this.location.back()
   }
 }

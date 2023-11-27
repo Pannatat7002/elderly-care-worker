@@ -1,5 +1,23 @@
-<div class="list-shift">
-    <div>
-        
-    </div>
+<!-- <app-back-navbar></app-back-navbar> -->
+<button (click)="back()">back</button>
+<div class="container-em">
+    <!-- <div class="content-em">
+        <div *ngFor="let dataem of currentEmployee;" class="list-em">
+            {{dataem.employee}}
+        </div>
+    </div> -->
+    <div class="container mt-3 content-em" *ngFor="let dataem of currentEmployee;">
+        <div class="media border p-3" style="background: #FFF;">
+          <div style="font-size: 40px;width: 60px;" class="bi bi-person-square"></div>
+          <div class="media-body">
+            <h4>{{dataem.employee}}</h4>
+            <div class="media p-2" *ngFor="let item of objectDuties(dataem);">
+                <div style="font-size: 40px;width: 60px;" class="bi bi-person-square"></div>
+                <div class="media-body">
+                <h4>{{item}}<small><br><i>เข้า 25 มกราคม 2566</i></small></h4>
+              </div>
+            </div>  
+          </div>
+        </div>
+      </div>
 </div>
