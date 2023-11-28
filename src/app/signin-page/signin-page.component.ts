@@ -37,41 +37,43 @@ export class SigninPageComponent implements OnInit {
 
   signin(email: any, password: any) {
     this.AuthService.SignIn(email, password).then(async (res: any) => {
-      const accessToken: any = res.user._delegate.accessToken
+            const accessToken: any = res.user._delegate.accessToken
       const userToken: any = this.AuthService.jwt_decode(accessToken)
       const DataProfile: any = await getDocs(collection(firestore, "Users")); //get data getDataProfile
+      let roleUser:any = []
       DataProfile.forEach((doc: any) => {
         const dataUser = JSON.parse(JSON.stringify(doc.data()));
-        const roleUser = dataUser.role
-        switch (roleUser.toUpperCase()) {
-          case "EMPLOYEE":
-            if (email === dataUser.email) {
-              this.cookieService.setCookie('accessToken', accessToken)
-              this.router.navigate(['/employee'])
-            } else {
-              this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
-            } break;
-          case "MANAGER":
-            if (email === dataUser.email) {
-              this.cookieService.setCookie('accessToken', accessToken)
-              this.router.navigate(['/manager'])
-            } else {
-              this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
-            } break;
-          case "ADMIN":
-            if (email === dataUser.email) {
-              this.cookieService.setCookie('accessToken', accessToken)
-              this.router.navigate(['/landing'])
-            } else {
-              this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
-            } break;
-          default:
-            this.alertError = JSON.stringify("ท่านไม่มีสิทธิเข้าใช้งาน กรุณาติดต่อ 095-805-7052")
-            break;
+        roleUser = {
+          role:dataUser.role,
+          email:dataUser.email
         }
-
-
       });
+      switch (roleUser.role.toUpperCase()) {
+        case "EMPLOYEE":
+          if (email.toUpperCase() === roleUser.email.toUpperCase()) {
+            this.cookieService.setCookie('accessToken', accessToken)
+            this.router.navigate(['/employee'])
+          } else {
+            this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
+          } break;
+        case "MANAGER":
+          if (email.toUpperCase() === roleUser.email.toUpperCase()) {
+            this.cookieService.setCookie('accessToken', accessToken)
+            this.router.navigate(['/manager'])
+          } else {
+            this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
+          } break;
+        case "ADMIN":
+          if (email.toUpperCase() === roleUser.email.toUpperCase()) {
+            this.cookieService.setCookie('accessToken', accessToken)
+            this.router.navigate(['/landing'])
+          } else {
+            this.alertError = JSON.stringify("ไม่พบข้อมูลในระบบ")
+          } break;
+        default:
+          this.alertError = JSON.stringify("ท่านไม่มีสิทธิเข้าใช้งาน กรุณาติดต่อ 095-805-7052")
+          break;
+      }
     }).catch((err) => {
       this.alertError = JSON.stringify(err.code)
     })
@@ -89,7 +91,7 @@ export class SigninPageComponent implements OnInit {
     })
   }
 
-  loading(event: any) {
+   loading(event: any) {
     console.log('event', event);
     this.timeOutLoading = event
   }
