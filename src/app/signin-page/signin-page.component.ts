@@ -17,6 +17,8 @@ export class SigninPageComponent implements OnInit {
   userProfile: any
   timeOutLoading: boolean = false
   forgot: boolean = false;
+  ipAddress:any
+  roleUser:any
   constructor(
     private AuthService: AuthService,
     private router: Router,
@@ -25,6 +27,11 @@ export class SigninPageComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
+    this.AuthService.getIpAddress().then((ip)=>{
+      this.ipAddress = ip;
+      console.log('this.ipAddress',this.ipAddress);
+      
+    })
     this.checkNavigate()
   }
   onClickSubmit(result: any) {
@@ -85,7 +92,7 @@ export class SigninPageComponent implements OnInit {
   }
 
   async checkNavigate() {
-    if (await this.AuthService.checkActive()) {
+    if (await this.AuthService.checkActive() !== null) {
       console.log('1');
       const data = await this.AuthService.checkActive()
       const DataProfile: any = await getDocs(collection(firestore, "Users")); //get data getDataProfile
@@ -98,23 +105,22 @@ export class SigninPageComponent implements OnInit {
       });
 
       console.log(roleUser.toUpperCase());
-      switch (roleUser.toUpperCase()) {
-        case "EMPLOYEE":
-          this.router.navigate(['/employee'])
-          break;
-        case "MANAGER":
-          this.router.navigate(['/manager'])
-          break;
-        case "ADMIN":
-          this.router.navigate(['/landing'])
-          break;
-        default:
-          this.alertError = JSON.stringify("ท่านไม่มีสิทธิเข้าใช้งาน กรุณาติดต่อ 095-805-7052")
-          break;
-
-      }
+      this.roleUser = roleUser.toUpperCase()
+      setTimeout(() => {    
+        switch (roleUser.toUpperCase()) {
+          case "EMPLOYEE":
+            this.router.navigate(['/employee'])
+            break;
+          case "MANAGER":
+            this.router.navigate(['/manager'])
+            break;
+          default:
+            this.alertError = JSON.stringify("ท่านไม่มีสิทธิเข้าใช้งาน กรุณาติดต่อ 095-805-7052")
+            break;
+        }
+      }, 1000);
     } else {
-      console.log('2');
+      // this.router.navigate(['/landing'])
     }
     // })
   }
@@ -123,6 +129,7 @@ export class SigninPageComponent implements OnInit {
   loading(event: any) {
     console.log('event', event);
     this.timeOutLoading = event
+    // this.checkNavigate()
   }
 
   submit() {

@@ -31,7 +31,7 @@ export class LandingPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.checkExpire()
+    // this.checkExpire()
     this.getPosition()
     this.queryTimeNumber()
       this.userProfile = this.cookieService.getCookie('userProfile')
@@ -44,11 +44,11 @@ export class LandingPageComponent implements OnInit {
     this.timeOutLoading = event
   }
 
-  SignOut() {
-    this.AuthService.SignOut().then(() => {
-      this.router.navigate([''])
-    })
-  }
+  // SignOut() {
+  //   this.AuthService.SignOut().then(() => {
+  //     this.router.navigate([''])
+  //   })
+  // }
 
 
   getUserProfile(user: string) {

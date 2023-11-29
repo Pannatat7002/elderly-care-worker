@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { jwtDecode } from "jwt-decode";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import axios from 'axios';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +12,11 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 export class AuthService {
 
   constructor(
-    public afAuth: AngularFireAuth // Inject Firebase auth service
+    public afAuth: AngularFireAuth, // Inject Firebase auth service
+    private router: Router,
+    private cookieService: CookieService,
+
+
   ) { }
 
   jwt_decode(token: string) {
@@ -24,7 +31,14 @@ export class AuthService {
   }
 
   SignOut() {
-    return signOut(getAuth())
+    localStorage.clear()
+    sessionStorage.clear()
+    this.cookieService.deleteAll()
+    signOut(getAuth())
+    setTimeout(() => {                           // <<<---using ()=> syntax
+      this.router.navigate([''])
+    }, 1000);
+    // return signOut(getAuth())
   }
   getAuth() {
     return getAuth()
@@ -32,10 +46,20 @@ export class AuthService {
 
   async checkActive(): Promise<any> { //pass
     return new Promise((resolve) => {
-      this.afAuth.onAuthStateChanged((user) => {console.log('onAuthStateChanged',user);
-      
+      this.afAuth.onAuthStateChanged((user) => {
+        console.log('onAuthStateChanged', user);
+
         resolve(user);
       });
     });
+  }
+
+  getIpAddress() {
+    return axios.get('https://api.ipify.org?format=json')
+      .then(response => response.data.ip)
+      .catch(error => {
+        console.error('Error getting IP address:', error);
+        return null;
+      });
   }
 }

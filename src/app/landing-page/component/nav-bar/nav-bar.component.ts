@@ -42,11 +42,7 @@ export class NavBarComponent {
   SignOut() {
     this.cookieService.clearAllCookies()
     // this.cookieService.deleteAll('accessToken')
-    this.AuthService.SignOut().then(() => {
-      setTimeout(() => {                           // <<<---using ()=> syntax
-        this.router.navigate([''])
-      }, 1000);
-    })
+    this.AuthService.SignOut()
   }
 
   basePaths() {
