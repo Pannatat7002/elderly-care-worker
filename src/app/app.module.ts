@@ -26,6 +26,7 @@ import { MenuTopicComponent } from './manager-page/container/component/menu-topi
 import { CreateUserComponent } from './manager-page/container/component/create-user/create-user.component';
 import { EmployeeManagerComponent } from './manager-page/container/component/employee-manager/employee-manager.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NavBarMgComponent } from './manager-page/container/component/nav-bar-mg/nav-bar-mg.component';
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     FormsModule,
     ReactiveFormsModule ,
     HttpClientModule,
+    BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable

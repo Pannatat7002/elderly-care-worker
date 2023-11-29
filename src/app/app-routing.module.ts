@@ -15,9 +15,13 @@ import { EmployeeManagerComponent } from './manager-page/container/component/emp
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
-  { path: 'signin-page', component: SigninPageComponent },
+  {
+    path: 'signin-page', component: SigninPageComponent,
+    data: { animation: 'AboutPage' }
+  },
   {
     path: 'employee', component: LandingPageComponent,
+    data: { animation: 'AboutPage' },
     children: [
       {
         path: '',
@@ -31,6 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'manager', component: ManagerPageComponent,
+    data: { animation: 'HomePage' },
     children: [
       {
         path: '',
@@ -43,8 +48,14 @@ const routes: Routes = [
       { path: 'createuser', component: CreateUserComponent },
     ]
   },
-  { path: 'manualConfig', component: ManualConfigPageComponent },
-  { path: 'forgot-password', component: ForgotPageComponent },
+  {
+    path: 'manualConfig', component: ManualConfigPageComponent,
+    data: { animation: 'AboutPage' }
+  },
+  {
+    path: 'forgot-password', component: ForgotPageComponent,
+    data: { animation: 'AboutPage' }
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

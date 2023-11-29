@@ -21,7 +21,7 @@ export class ManagerPageComponent {
   ) { }
 
   ngOnInit(): void {
-    // this.checkExpire()
+    this.checkExpire()
     this.getUserID()
   }
   
@@ -42,7 +42,7 @@ export class ManagerPageComponent {
   async checkExpire(){
     this.pathName = location.pathname.replace('menu','')
     if (await this.AuthService.checkActive() === null) {
-      this.router.navigate(['/signin-page'])
+      this.AuthService.SignOut()    
     } else {
       console.log('checkExpire M',);
       

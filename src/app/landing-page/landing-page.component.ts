@@ -31,7 +31,7 @@ export class LandingPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.checkExpire()
+    this.checkExpire()
     this.getPosition()
     this.queryTimeNumber()
       this.userProfile = this.cookieService.getCookie('userProfile')
@@ -89,7 +89,7 @@ export class LandingPageComponent implements OnInit {
   async checkExpire(){
     this.pathName = location.pathname.replace('landing','')
     if (await this.AuthService.checkActive() === null) {
-      this.router.navigate(['/signin-page'])
+      this.AuthService.SignOut()    
     } else{
       
     }
