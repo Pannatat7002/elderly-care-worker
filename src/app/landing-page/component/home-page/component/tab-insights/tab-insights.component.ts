@@ -63,7 +63,7 @@ export class TabInsightsComponent implements OnInit {
   }
 
   onNextPaths(){
-    this.router.navigate(['/landing/works'])
+    this.router.navigate(['/employee/works'])
     // this.outPaths.emit(path)
   }
 }

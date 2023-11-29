@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { jwtDecode } from "jwt-decode";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 
 @Injectable({
   providedIn: 'root'
@@ -17,18 +17,25 @@ export class AuthService {
   }
 
   SignIn(email: string, password: string) {
-    return this.afAuth.signInWithEmailAndPassword(email, password)
+    return signInWithEmailAndPassword(getAuth(), email, password)
   }
   SignUp(email: string, password: string) {
-    return this.afAuth.createUserWithEmailAndPassword(email, password)
+    return createUserWithEmailAndPassword(getAuth(), email, password)
   }
 
   SignOut() {
-    return this.afAuth.signOut()
+    return signOut(getAuth())
   }
   getAuth() {
-    const auth = getAuth();
-    console.log('auth',auth);
-    
+    return getAuth()
+  }
+
+  async checkActive(): Promise<any> { //pass
+    return new Promise((resolve) => {
+      this.afAuth.onAuthStateChanged((user) => {console.log('onAuthStateChanged',user);
+      
+        resolve(user);
+      });
+    });
   }
 }

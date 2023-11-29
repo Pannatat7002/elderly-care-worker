@@ -22,7 +22,7 @@ export class LandingPageComponent implements OnInit {
   currentMonth:any
   currentDay:any
   defaultDateTime:any
-  
+  pathName:any
   constructor(
     private AuthService: AuthService,
     private router: Router,
@@ -31,15 +31,11 @@ export class LandingPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.checkExpire()
     this.getPosition()
     this.queryTimeNumber()
-    const Token = this.cookieService.getCookie('accessToken')
-    if (!Token || Token === undefined) {
-      this.router.navigate([''])
-    } else {
       this.userProfile = this.cookieService.getCookie('userProfile')
       this.getUserProfile(this.userProfile.ender)
-    }
   }
 
   loading(event: any) {
@@ -88,5 +84,14 @@ export class LandingPageComponent implements OnInit {
       year:this.currentYear
     }
     // alert(JSON.stringify(this.defaultDateTime));
+  }
+
+  async checkExpire(){
+    this.pathName = location.pathname.replace('landing','')
+    if (await this.AuthService.checkActive() === null) {
+      this.router.navigate(['/signin-page'])
+    } else{
+      
+    }
   }
 }

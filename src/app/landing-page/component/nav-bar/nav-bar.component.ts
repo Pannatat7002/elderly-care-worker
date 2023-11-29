@@ -12,18 +12,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
-  employeeName:any
-  pincode:any
+  employeeName: any
+  pincode: any
   @Input() userEmail: string = 'pannatat@gmail.com'; // decorate the property with @Input()
+  @Input() basepath: string = ''; // decorate the property with @Input()
 
   constructor(
     private cookieService: CookieService,
     private AuthService: AuthService,
     private router: Router,
-    ) { }
-    
-    ngOnInit(): void {
-      this.querySigle()
+  ) { }
+
+  ngOnInit(): void {
+    this.querySigle()
   }
 
   async querySigle() {
@@ -46,5 +47,15 @@ export class NavBarComponent {
         this.router.navigate([''])
       }, 1000);
     })
+  }
+
+  basePaths() {
+    setTimeout(() => {
+      console.log('this.basepath +profile', this.basepath + 'profile');
+      // <<<---using ()=> syntax
+      // this.pathName = location.pathname.replace('menu', '')
+      // console.log('pathName', this.pathName);
+      this.router.navigate([this.basepath + 'profile'])
+    }, 1000);
   }
 }

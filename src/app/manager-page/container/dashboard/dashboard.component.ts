@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+  pathName: any
 
+  constructor() { }
+
+  ngOnInit(): void {
+    this.pathName = location.pathname.replace('menu','')
+    console.log('pathName', this.pathName);
+  }
 }

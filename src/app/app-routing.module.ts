@@ -35,20 +35,12 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/manager/dashboard/menu'
+        redirectTo: '/manager/menu'
       },
-      {
-        path: 'dashboard', component: DashboardComponent,
-        children: [
-          { path: 'menu', component: MenuTopicComponent },
-          { path: 'employee', component: EmployeeManagerComponent },
-          // { path: 'works', component: WorkScheduleComponent },
-          // { path: 'profile', component: EmployeeProfileComponent },
-        ]
-      },
-      { path: 'createuser', component: CreateUserComponent },
-      { path: 'works', component: WorkScheduleComponent },
+      { path: 'menu', component: MenuTopicComponent },
+      { path: 'employee', component: EmployeeManagerComponent },
       { path: 'profile', component: EmployeeProfileComponent },
+      { path: 'createuser', component: CreateUserComponent },
     ]
   },
   { path: 'manualConfig', component: ManualConfigPageComponent },

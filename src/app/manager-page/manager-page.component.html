@@ -1,2 +1,7 @@
 <app-loading-service *ngIf="timeOutLoading === false" (timeOutLoading)="loading($event)"></app-loading-service>
-<router-outlet class="main" *ngIf="timeOutLoading === true" ></router-outlet>
+<div class="container-xl p-0">
+    <app-nav-bar [userEmail]="'manager@gmail.com'" [basepath]="pathName"></app-nav-bar>
+    <div class="content-body">
+        <router-outlet></router-outlet>
+    </div>
+</div>

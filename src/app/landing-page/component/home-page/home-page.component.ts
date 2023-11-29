@@ -15,6 +15,7 @@ export class HomePageComponent implements OnInit {
   // @Input() userProfile: any = '-'
   employeeName:any
   pincode:any
+  pathName:any
   constructor(
     private router: Router,
     private cookieService: CookieService,
@@ -27,6 +28,8 @@ export class HomePageComponent implements OnInit {
     if (!Token || Token === undefined) {
       this.router.navigate([''])
     }
+    // this.pathName = location.pathname.replace('landing','')
+    // console.log('pathName', this.pathName);
     // this.querySigle()
   }
 

@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { WorkDatabaseService } from 'src/app/service/work-service/work-database.service';
+import { AuthService } from '../../../../../app/service/auth-service/auth.service'
 
 @Component({
   selector: 'app-menu-topic',
@@ -17,11 +18,13 @@ export class MenuTopicComponent {
 constructor(
   private router: Router,
   private WorkService:WorkDatabaseService,
-  private sanitizer: DomSanitizer
+  private sanitizer: DomSanitizer,
+  private AuthService: AuthService,
 
 ){}
 
   ngOnInit(): void {
+    // this.AuthService.checkActive()
     this.querymenuTopic()
     // this.querymenuSubTopic()
   }
@@ -48,7 +51,9 @@ constructor(
   selectTopicMenu(topic:any){
     console.log('topic',topic);
     if(topic == "บุคลากร"){
-      this.router.navigate(['/manager/dashboard/employee'])
+      this.router.navigate(['/manager/employee'])
+    } else {
+      // this.router.navigate(['/employee/landing/works'])
     }
   }
 }
