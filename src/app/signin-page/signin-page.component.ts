@@ -125,7 +125,7 @@ export class SigninPageComponent implements OnInit {
     // })
   }
   href(paths:string){
-    this.router.navigate([paths])
+        this.router.navigate([paths])
 
   }
 

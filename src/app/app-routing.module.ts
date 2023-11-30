@@ -17,11 +17,11 @@ const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
   {
     path: 'signin-page', component: SigninPageComponent,
-    data: { animation: 'AboutPage' }
+    data: { animation: 'Signin-page' }
   },
   {
     path: 'employee', component: LandingPageComponent,
-    data: { animation: 'AboutPage' },
+    data: { animation: 'Landing-page' },
     children: [
       {
         path: '',
@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'manager', component: ManagerPageComponent,
-    data: { animation: 'HomePage' },
+    data: { animation: 'Landing-page' },
     children: [
       {
         path: '',
@@ -50,11 +50,11 @@ const routes: Routes = [
   },
   {
     path: 'manualConfig', component: ManualConfigPageComponent,
-    data: { animation: 'AboutPage' }
+    data: { animation: 'Landing-page' }
   },
   {
     path: 'forgot-password', component: ForgotPageComponent,
-    data: { animation: 'AboutPage' }
+    data: { animation: 'Landing-page' }
   },
 ];
 @NgModule({

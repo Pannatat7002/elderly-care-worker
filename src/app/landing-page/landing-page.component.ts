@@ -28,7 +28,7 @@ export class LandingPageComponent implements OnInit {
     private router: Router,
     private workDataService: WorkDatabaseService,
     private cookieService: CookieService,
-  ) { }
+      ) { }
 
   ngOnInit(): void {
     this.checkExpire()
@@ -49,7 +49,7 @@ export class LandingPageComponent implements OnInit {
   //     this.router.navigate([''])
   //   })
   // }
-
+  
 
   getUserProfile(user: string) {
     this.workDataService.getHistory(user).then((res) => {

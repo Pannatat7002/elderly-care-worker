@@ -1,8 +1,8 @@
-<app-loading-service *ngIf="timeOutLoading === false" (timeOutLoading)="loading($event)"></app-loading-service>
-<div [hidden]="!timeOutLoading" class="containers">
+<!-- <app-loading-service *ngIf="timeOutLoading === false" (timeOutLoading)="loading($event)"></app-loading-service> -->
+<div class="containers">
     <div class="headers">
         <div class="butBack">
-            <a  href="/" class="bi bi-arrow-left" style="cursor: pointer;color: black;">            
+            <a  (click)="href('/signin-page')" class="bi bi-arrow-left" style="cursor: pointer;color: black;">            
                 <!-- <a rel="stylesheet" href="/signin-page" ></a> -->
             </a>
         </div>

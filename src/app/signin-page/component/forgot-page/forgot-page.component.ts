@@ -27,7 +27,10 @@ export class ForgotPageComponent implements OnInit {
     // console.log('event', event);
     this.timeOutLoading = event
   }
+  href(paths: string) {
+    this.router.navigate([paths])
 
+  }
   // closeForGet() {
   //   // console.log('closeForGet');
   //   this.closeforGet.emit(false)

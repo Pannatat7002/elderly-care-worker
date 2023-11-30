@@ -34,10 +34,11 @@ export class AuthService {
     localStorage.clear()
     sessionStorage.clear()
     this.cookieService.deleteAll()
-    signOut(getAuth())
-    setTimeout(() => {                           // <<<---using ()=> syntax
-      this.router.navigate([''])
-    }, 1000);
+    signOut(getAuth()).then((res)=>{
+      setTimeout(() => {                           // <<<---using ()=> syntax
+        this.router.navigate(['/signin-page'])
+      }, 2000);
+    })
     // return signOut(getAuth())
   }
   getAuth() {

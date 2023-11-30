@@ -1,7 +1,7 @@
 <!-- <img width="100%" style="height: 59vh;" src="https://www.appsheet.com/image/getremoteimageurl?url=https%3A%2F%2Fwww.appsheet.com%3A443%2Ffsimage.png%3Fappid%3D7cd1e497-7302-4534-86b1-b6e8592e188b%26datasource%3Dgoogle%26filename%3DDocId%3D1pW8QzYN8t0lA5JC_G91RCkaKovhVZpML%26signature%3D27462c020ccfde7d0e455dd9853368d0cec60a7413cf59142b6423a743ec8841%26tableprovider%3Dgoogle%26userid%3D777845&width=1920" alt=""> -->
 <!-- <app-loading-service class="" *ngIf="timeOutLoading === false" (timeOutLoading)="loading($event)"></app-loading-service> -->
-<app-splash *ngIf="!timeOutLoading" (timeOutLoading)="loading($event)"></app-splash>
-<div [hidden]="!timeOutLoading"  class="containers">
+<!-- <app-splash *ngIf="!timeOutLoading" (timeOutLoading)="loading($event)"></app-splash> -->
+<div  class="containers">
   <!-- <div class="header"></div> -->
 
   <body class="signin">
@@ -28,13 +28,15 @@
       <div class="forgot text-center">
         <!-- <p (click)="forgot = !forgot">ลืมรหัสผ่าน?</p> -->
         <a class="bi bi-gear" style="font-size: 28px;cursor: pointer;color: black;" (click)="href('/forgot-password')">ลืมรหัสผ่าน?</a>
+        <a class="bi bi-gear" style="font-size: 28px;" (click)="href('/manualConfig')">setting</a>
 
       </div>
     </form>
   </body>
   <div class="key-effect bi bi-file-lock2"></div>
-  <div class="version">Ver 2.6.0 ip:{{ipAddress}}{{roleUser}}
-    <a class="bi bi-gear" style="font-size: 28px;" (click)="href('/manualConfig')"></a>
+  <div class="version">Ver 2.7.0 
+    ip:{{ipAddress}}{{roleUser}}
+    <!-- <a class="bi bi-gear" style="font-size: 28px;" (click)="href('/manualConfig')"></a> -->
   </div>
 </div>
 

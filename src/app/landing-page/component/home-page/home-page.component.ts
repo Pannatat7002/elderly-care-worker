@@ -24,10 +24,10 @@ export class HomePageComponent implements OnInit {
     ) { }
     
     ngOnInit(): void {
-    const Token = this.cookieService.getCookie('accessToken')
-    if (!Token || Token === undefined) {
-      this.router.navigate([''])
-    }
+    // const Token = this.cookieService.getCookie('accessToken')
+    // if (!Token || Token === undefined) {
+    //   this.router.navigate([''])
+    // }
     // this.pathName = location.pathname.replace('landing','')
     // console.log('pathName', this.pathName);
     // this.querySigle()

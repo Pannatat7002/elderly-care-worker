@@ -18,7 +18,7 @@ export class ManagerPageComponent {
   constructor(
     private AuthService:AuthService,
     private router:Router,
-  ) { }
+      ) { }
 
   ngOnInit(): void {
     this.checkExpire()

@@ -1,4 +1,4 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule, isDevMode,APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {config} from '../../src/app/service/config/firebaseConfig'
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +28,23 @@ import { EmployeeManagerComponent } from './manager-page/container/component/emp
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NavBarMgComponent } from './manager-page/container/component/nav-bar-mg/nav-bar-mg.component';
+
+export function loadCrucialData() {
+  return function() {
+    // or use UserService
+    WorkDatabaseService
+    return delay(3000);
+  }
+}
+
+export function delay(delay: number) {
+  return function() {
+    return new Promise(function(resolve) {
+        setTimeout(resolve, delay);
+    });
+  }
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,15 +78,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
     
 
 
   ],
-  providers: [WorkDatabaseService],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      useFactory: loadCrucialData()
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

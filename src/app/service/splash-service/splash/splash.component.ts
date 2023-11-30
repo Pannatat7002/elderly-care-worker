@@ -10,12 +10,12 @@ export class SplashComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-        setTimeout(() => {    
-      console.log('timeOutLoading',this.timeOutLoading);
+    //     setTimeout(() => {    
+    //   console.log('timeOutLoading',this.timeOutLoading);
       
-      this.timeOutLoading.emit(true)
-      // this.timeout = false;
-    }, 2000);
+    //   this.timeOutLoading.emit(true)
+    //   // this.timeout = false;
+    // }, 2000);
   }
 
 }
