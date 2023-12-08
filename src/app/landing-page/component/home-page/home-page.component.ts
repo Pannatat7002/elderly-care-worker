@@ -24,6 +24,7 @@ export class HomePageComponent implements OnInit {
     ) { }
     
     ngOnInit(): void {
+      this.checkExpire()
     // const Token = this.cookieService.getCookie('accessToken')
     // if (!Token || Token === undefined) {
     //   this.router.navigate([''])
@@ -36,6 +37,15 @@ export class HomePageComponent implements OnInit {
   onNextPaths(path:string){
     // this.router.navigate([''])
     this.outPaths.emit(path)
+  }
+
+  async checkExpire(){
+    this.pathName = location.pathname.replace('landing','')
+    if (await this.AuthService.checkActive() === null) {
+      this.AuthService.SignOut()    
+    } else{
+      
+    }
   }
 
   // SignOut() {

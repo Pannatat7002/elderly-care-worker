@@ -31,7 +31,7 @@ export class LandingPageComponent implements OnInit {
       ) { }
 
   ngOnInit(): void {
-    this.checkExpire()
+    // this.checkExpire()
     this.getPosition()
     this.queryTimeNumber()
       this.userProfile = this.cookieService.getCookie('userProfile')
