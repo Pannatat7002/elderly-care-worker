@@ -21,7 +21,7 @@ export class ManagerPageComponent {
       ) { }
 
   ngOnInit(): void {
-    this.checkExpire()
+    // this.checkExpire()
     this.getUserID()
   }
   

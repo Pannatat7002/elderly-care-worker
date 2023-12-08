@@ -18,10 +18,10 @@ export const slideInAnimation =
       query(':leave', animateChild(), { optional: true }),
       group([
         query(':leave', [
-          animate('300ms ease-out', style({ right: '100%' }))
+          animate('120ms ease-out', style({ right: '100%' }))
         ], { optional: true }),
         query(':enter', [
-          animate('300ms ease-out', style({ right: '0%' }))
+          animate('120ms ease-out', style({ right: '0%' }))
         ], { optional: true }),
       ]),
     ]),
@@ -41,10 +41,10 @@ export const slideInAnimation =
       query(':leave', animateChild(), { optional: true }),
       group([
         query(':leave', [
-          animate('300ms ease-out', style({ left: '100%' }))
+          animate('120ms ease-out', style({ left: '100%' }))
         ], { optional: true }),
         query(':enter', [
-          animate('300ms ease-out', style({ left: '0%' }))
+          animate('120ms ease-out', style({ left: '0%' }))
         ], { optional: true }),
       ]),
     ]),

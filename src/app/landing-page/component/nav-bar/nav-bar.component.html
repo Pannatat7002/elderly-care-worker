@@ -1,7 +1,6 @@
-<nav class="navbar navbar-expand-md navbar-dark">
+<!-- <nav class="navbar navbar-expand-md navbar-dark">
     <div class="navbar-brand">
       <div class="bi bi-person">ชื่อผู้ใช้ : {{employeeName}}</div>
-      <!-- <div>รหัส : {{pincode}}</div> -->
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar"
       style="border: none;">
@@ -13,14 +12,21 @@
           <i class="bi bi-person-lines-fill"></i>
           <a class="nav-link"(click)="basePaths()">ข้อมูลพนักงาน</a>
         </li>
-        <!-- <li class="nav-item">
-          <i class="bi bi-person-lines-fill"></i>
-          <a class="nav-link">ระบบแผนงาน</a>
-        </li> -->
+
         <li class="nav-item">
           <i class="bi bi-door-closed"></i>
           <a class="nav-link" (click)="SignOut()">ออกจากระบบ</a>
         </li>
       </ul>
     </div>
-  </nav>
+  </nav> -->
+
+<nav class="navbar navbar-expand-sm  navbar-dark fixed-top">
+  <div class="navbar-brand">
+    <div style="display: flex;align-items: center;">
+      <i style="font-size: 38px; padding-right: 8px;" class="bi bi-person-circle"></i>
+      <div (click)="basePaths()" style="font-size: 20px;">ชื่อ {{employeeName}}</div>
+    </div>
+  </div>
+  <a class="navbar-brand" href="#" style="cursor: pointer;" (click)="SignOut()">ออก</a>
+</nav>

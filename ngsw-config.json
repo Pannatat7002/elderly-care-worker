@@ -8,7 +8,7 @@
       "resources": {
         "files": [
           "/favicon.ico",
-          "/index.html",
+          "/app/signin-page/signin-page.component.html",
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
