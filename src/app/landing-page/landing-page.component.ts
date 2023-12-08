@@ -22,7 +22,7 @@ export class LandingPageComponent implements OnInit {
   currentMonth:any
   currentDay:any
   defaultDateTime:any
-  pathName:any
+  // pathName:any
   constructor(
     private AuthService: AuthService,
     private router: Router,
@@ -31,7 +31,7 @@ export class LandingPageComponent implements OnInit {
       ) { }
 
   ngOnInit(): void {
-    // this.checkExpire()
+    this.checkExpire()
     this.getPosition()
     this.queryTimeNumber()
       this.userProfile = this.cookieService.getCookie('userProfile')
@@ -87,7 +87,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   async checkExpire(){
-    this.pathName = location.pathname.replace('landing','')
+    // this.pathName = location.pathname.replace('landing','')
     if (await this.AuthService.checkActive() === null) {
       this.AuthService.SignOut()    
     } else{

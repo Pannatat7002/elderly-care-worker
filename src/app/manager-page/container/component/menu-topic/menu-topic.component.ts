@@ -25,8 +25,9 @@ constructor(
 ){}
 
   ngOnInit(): void {
+    this.pathName = location.pathname.replace('menu','')
     // this.AuthService.checkActive()
-    this.checkExpire()
+    // this.checkExpire()
     this.querymenuTopic()
     // this.querymenuSubTopic()
   }
@@ -59,13 +60,13 @@ constructor(
     }
   }
 
-  async checkExpire(){
-    this.pathName = location.pathname.replace('menu','')
-    if (await this.AuthService.checkActive() === null) {
-      this.AuthService.SignOut()    
-    } else {
-      console.log('checkExpire M',);
+  // async checkExpire(){
+  //   this.pathName = location.pathname.replace('menu','')
+  //   if (await this.AuthService.checkActive() === null) {
+  //     this.AuthService.SignOut()    
+  //   } else {
+  //     console.log('checkExpire M',);
       
-    }
-  }
+  //   }
+  // }
 }

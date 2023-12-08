@@ -13,7 +13,7 @@ export class ManagerPageComponent {
   timeout: boolean = true;
   timeOutLoading: boolean = false;
   
-  pathName: any
+  // pathName: any
 
   constructor(
     private AuthService:AuthService,
@@ -21,7 +21,7 @@ export class ManagerPageComponent {
       ) { }
 
   ngOnInit(): void {
-    // this.checkExpire()
+    this.checkExpire()
     this.getUserID()
   }
   
@@ -40,7 +40,7 @@ export class ManagerPageComponent {
     this.timeOutLoading = event
   }
   async checkExpire(){
-    this.pathName = location.pathname.replace('menu','')
+    // this.pathName = location.pathname.replace('menu','')
     if (await this.AuthService.checkActive() === null) {
       this.AuthService.SignOut()    
     } else {
