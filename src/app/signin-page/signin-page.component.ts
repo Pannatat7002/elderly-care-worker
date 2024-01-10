@@ -27,16 +27,20 @@ export class SigninPageComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.AuthService.getIpAddress().then((ip)=>{
-      this.ipAddress = ip;
-      console.log('this.ipAddress',this.ipAddress);
+    // this.AuthService.getIpAddress().then((ip)=>{
+    //   this.ipAddress = ip;
+    //   console.log('this.ipAddress',this.ipAddress);
       
-    })
+    // })
     this.checkNavigate()
   }
-  onClickSubmit(result: any) {
+  onClickSubmit1(result: any) {
     this.signin(result.email, result.password)
-    // this.SignUp(result.email, result.password)
+    console.log('result1',result);
+  }
+  onClickSubmit2(result: any) {
+    this.signin(result.emailA, result.passwordA)
+    console.log('result2',result);
   }
 
   signin(email: any, password: any) {

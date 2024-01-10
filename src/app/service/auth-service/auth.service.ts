@@ -55,12 +55,12 @@ export class AuthService {
     });
   }
 
-  getIpAddress() {
-    return axios.get('https://api.ipify.org?format=json')
-      .then(response => response.data.ip)
-      .catch(error => {
-        console.error('Error getting IP address:', error);
-        return null;
-      });
-  }
+  // getIpAddress() {
+  //   return axios.get('https://api.ipify.org?format=json')
+  //     .then(response => response.data.ip)
+  //     .catch(error => {
+  //       console.error('Error getting IP address:', error);
+  //       return null;
+  //     });
+  // }
 }

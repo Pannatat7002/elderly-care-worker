@@ -28,6 +28,8 @@ import { EmployeeManagerComponent } from './manager-page/container/component/emp
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NavBarMgComponent } from './manager-page/container/component/nav-bar-mg/nav-bar-mg.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 export function loadCrucialData() {
   return function() {
@@ -76,6 +78,8 @@ export function delay(delay: number) {
     ReactiveFormsModule ,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatTabsModule,
+    MatCheckboxModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'

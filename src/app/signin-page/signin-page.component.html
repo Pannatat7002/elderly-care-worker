@@ -1,43 +1,66 @@
-<!-- <img width="100%" style="height: 59vh;" src="https://www.appsheet.com/image/getremoteimageurl?url=https%3A%2F%2Fwww.appsheet.com%3A443%2Ffsimage.png%3Fappid%3D7cd1e497-7302-4534-86b1-b6e8592e188b%26datasource%3Dgoogle%26filename%3DDocId%3D1pW8QzYN8t0lA5JC_G91RCkaKovhVZpML%26signature%3D27462c020ccfde7d0e455dd9853368d0cec60a7413cf59142b6423a743ec8841%26tableprovider%3Dgoogle%26userid%3D777845&width=1920" alt=""> -->
-<!-- <app-loading-service class="" *ngIf="timeOutLoading === false" (timeOutLoading)="loading($event)"></app-loading-service> -->
-<!-- <app-splash *ngIf="!timeOutLoading" (timeOutLoading)="loading($event)"></app-splash> -->
-<div  class="containers">
-  <!-- <div class="header"></div> -->
+<div class="containers">
 
   <body class="signin">
-    <div class="header">
+    <!-- <div class="header">
       <i class="bi bi-heart-pulse"></i><br>
+    </div> -->
+    <div class="title-header">
+      <span style="color: #6f42c1;
+      font-weight: 600;
+      font-size: 48px;
+      text-shadow: 5px 0px 12px #6f42c1;">E
+      </span>lderly Care
     </div>
-    <span class="title-header"><span style="color: #6f42c1;
-      font-weight: 600;
-      font-size: 48px;
-      text-shadow: 5px 0px 12px #6f42c1;">E</span>lderly Care</span>
-    <!-- <span class="title-header"><span style="color: #6f42c1;
-      font-weight: 600;
-      font-size: 48px;
-      text-shadow: 5px 0px 12px #6f42c1;">E</span>lderly Care Worker</span> -->
-    <form class="form-group" #userName="ngForm" (ngSubmit)="onClickSubmit(userName.value)">
-      <span class="text"><i class="bi bi-envelope-at"></i>รหัสพนักงาน</span>
-      <input #email type="email" name="email" placeholder="email" ngModel>
-      <span class="text"> <i class="bi bi-file-lock2"></i>รหัส</span>
-      <input #password type="password" name="password" placeholder="password" ngModel>
-      <br />
-      <input *ngIf="alertError" class="error-sign" value="{{alertError}}">
-      <br />
-      <input class="btn" type="submit" value="เข้าสู่ระบบ" style="color: #FFF;  background: #6f42c1;">
-      <div class="forgot text-center">
-        <!-- <p (click)="forgot = !forgot">ลืมรหัสผ่าน?</p> -->
-        <a class="bi bi-gear" style="font-size: 28px;cursor: pointer;color: black;" (click)="href('/forgot-password')">ลืมรหัสผ่าน?</a>
-        <a class="bi bi-gear" style="font-size: 28px;" (click)="href('/manualConfig')">setting</a>
-
-      </div>
-    </form>
+    <mat-tab-group>
+      <mat-tab label="ผู้ดูแล" style="background: #0095ff;color: #FFF;">
+        <form class="form-group" #userName="ngForm" (ngSubmit)="onClickSubmit1(userName.value)">
+          <span class="text"><i class="bi bi-envelope-at"></i>รหัสพนักงาน</span>
+          <input #email type="email" name="email" placeholder="email" ngModel>
+          <span class="text"> <i class="bi bi-file-lock2"></i>รหัส</span>
+          <input #password type="password" name="password" placeholder="password" ngModel>
+          <br />
+          <section class="text example-section">
+            <mat-checkbox class="example-margin" style="font-weight: 300;">จำรหัส?</mat-checkbox>
+          </section>
+          <!-- <span class="text">pincode</span>
+          <input #password type="number" name="pincode" placeholder="กรุณาระบุ PIN 6 หลัก" ngModel> -->
+          <input *ngIf="alertError" class="error-sign" value="{{alertError}}">
+          <br />
+          <input class="btn" type="submit" value="เข้าสู่ระบบ" style="color: #FFF;  background: #6f42c1;">
+          <br>
+          <div class="forgot text-center">
+            <a class="bi bi-gear" style="font-size: 26px;cursor: pointer;color: black;"
+              (click)="href('/forgot-password')">ลืมรหัสผ่าน?</a>
+            <br />
+            <a class="bi bi-gear" style="font-size: 22px;" (click)="href('/manualConfig')">setting</a>
+          </div>
+        </form>
+      </mat-tab>
+      <mat-tab label="ผู้จัดการ" style="background: #ff990b;color: #FFF;">
+        <form class="form-group" #userNameA="ngForm" (ngSubmit)="onClickSubmit2(userNameA.value)">
+          <span class="text"><i class="bi bi-envelope-at"></i>อีเมล</span>
+          <input #emailA type="email" name="emailA" placeholder="email" ngModel>
+          <span class="text"> <i class="bi bi-file-lock2"></i>รหัส</span>
+          <input #passwordA type="password" name="passwordA" placeholder="password" ngModel>
+          <br />
+          <span class="text">pincode</span>
+          <input #pincode type="number" name="pincode" placeholder="กรุณาระบุ PIN 6 หลัก" ngModel>
+          <input *ngIf="alertError" class="error-sign" value="{{alertError}}">
+          <br />
+          <input class="btn" type="submit" value="เข้าสู่ระบบ" style="color: #FFF;  background: #6f42c1;">
+          <br>
+          <div class="forgot text-center">
+            <a class="bi bi-gear" style="font-size: 26px;cursor: pointer;color: black;"
+              (click)="href('/forgot-password')">ลืมรหัสผ่าน?</a>
+            <br />
+            <a class="bi bi-gear" style="font-size: 22px;" (click)="href('/manualConfig')">setting</a>
+          </div>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
   </body>
   <div class="key-effect bi bi-file-lock2"></div>
   <div class="version">Ver 2.8.0
-    <!-- ip:{{ipAddress}}{{roleUser}} -->
-    <!-- <a class="bi bi-gear" style="font-size: 28px;" (click)="href('/manualConfig')"></a> -->
   </div>
 </div>
 
-<!-- <app-forgot-page *ngIf="forgot" (closeforGet)="closeforGet($event)"></app-forgot-page> -->
