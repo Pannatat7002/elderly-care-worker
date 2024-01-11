@@ -1,12 +1,72 @@
 <app-nav-bar [userEmail]="'manager@gmail.com'" [basepath]="pathName"></app-nav-bar>
-
 <div class="tab-insights">
-
-    <div >
-        <div class="pl-3 pr-3" style="display: flex;justify-content: space-between;">
-            <span>งานประจำวัน</span>
+  <div class="alert alert-info">
+    <strong>ประกาศ!</strong>ประชาสัมพันธ์ ปี 2024...
+  </div>
+    <div class="pl-3 pr-3" style="display: flex;justify-content: space-between;font-size: 32px;">
+        <span>สร้างาน</span>
+    </div>
+    <div class="manager-group p-2">
+        <div class="insight-show" (click)="selectTopicMenu('สร้างงานกลุ่ม')" style="background-image: url(./../../../../../assets/images/insights/pexels-bich-tran-636246.jpg);background-size: cover;background-repeat: no-repeat"> 
+            <div class="content-title">
+                <div class="title" style="text-align: center;">ส่วนรวม</div>
+            </div>
         </div>
-        <div class="health-insights p-2">
+        <div class="insight-show" (click)="selectTopicMenu('สร้างงานเฉพาะบุคคล')">
+            <div class="content-title">
+                <div class="title" style="text-align: center;">สร้างงานเฉพาะบุคคล</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pl-3 pr-3" style="display: flex;justify-content: space-between;font-size: 32px;">
+        <span>นิติบุคคล</span>
+    </div>
+    <div class="Legal-Entity-group p-2">
+        <div class="insight-show" (click)="selectTopicMenu('รายชื่อพนักงาน')">
+            <div class="content-title">
+                <div class="title" style="text-align: center;">รายชื่อพนักงาน</div>
+            </div>
+        </div>
+        <div class="insight-show" (click)="selectTopicMenu('รายชื่อลูกค้า')">
+            <div class="content-title">
+                <div class="title" style="text-align: center;">รายชื่อลูกค้า</div>
+            </div>
+        </div>
+        <div class="insight-show" (click)="selectTopicMenu('คะแนนสะสม')">
+            <div class="content-title">
+                <div class="title" style="text-align: center;">คะแนนสะสม</div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="manager-others p-2">
+        <div class="insight-show" (click)="selectTopicMenu('สร้างงานเฉพาะบุคคล')">
+            <div class="content-title">
+                <div class="title" style="text-align: center;">คะแนนสะสม</div>
+            </div>
+        </div>
+    </div> -->
+    <div class="pl-3 pr-3" style="display: flex;justify-content: space-between;font-size: 32px;">
+        <span>อื่นๆ</span>
+    </div>
+    <div class="manager-others p-2">
+        <div class="insight-show" (click)="selectTopicMenu('กำหนดการต่างๆ')">
+            <div class="content-title">
+                <div class="title" style="text-align: center;">กำหนดการต่างๆ</div>
+            </div>
+        </div>
+        <div class="insight-show" (click)="selectTopicMenu('รายงาน')">
+            <div class="content-title">
+                <div class="title" style="text-align: center;">รายงาน</div>
+            </div>
+        </div>
+        <div class="insight-show" (click)="selectTopicMenu('แจ้งเหตุด่วน')">
+            <div class="content-title">
+                <div class="title" style="text-align: center;">แจ้งเหตุด่วน</div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="health-insights p-2">
             <div *ngFor="let topic of nameTopic;">
                 <div style="display: grid;justify-content: center;" (click)="selectTopicMenu(topic)">
                     <img  class="insight-show" [src]="byPass(topic)"
@@ -16,62 +76,5 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- <div *ngIf="nameSubTopic.length > 0">
-        <div (click)="nameSubTopic = []" class="pl-3 pr-3" style="display: flex;justify-content: start;align-items: center;" >
-            <div>หน้าหลัก</div> / <div>{{selectTopic}}</div>
-        </div>
-        <div class="health-insights p-2">
-            <div *ngFor="let subtopic of nameSubTopic;">
-                <div style="display: grid;justify-content: center;" (click)="onNextPaths()">
-                    <img href="/landing/works" class="insight-show" [src]="byPass(subtopic)"
-                        style="background-size: cover;background-repeat: no-repeat">
-                    <div class="content-title">
-                        <div class="title" style="text-align: center;">{{subtopic}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <!-- <div class="health-insights p-2">
-        <a href="/landing/works" (click)="onNextPaths('heart rate')" class="insight-show"  style="background-size: cover;background-repeat: no-repeat;background-image: url('../../../../../../assets//images/insights/pexels-bich-tran-636246.jpg')">
-            <div class="content-title">
-                <div class="title" style="border-bottom: 5px solid rgb(220, 142, 53);">งานวันนี้</div>
-            </div>
-        </a>
-        <a href="/landing/works" class="insight-show" style="background-size: cover;background-repeat: no-repeat;background-image: url('../../../../../../assets//images/insights/pexels-bich-tran-636246.jpg')">
-            <div class="content-title">
-                <div class="title" style="border-bottom: 5px solid #008e1a;">เบิกของใช้</div>
-            </div>
-        </a>
-        <a href="/landing/works" class="insight-show" style="background-size: cover;background-repeat: no-repeat;background-image: url('../../../../../../assets//images/insights/pexels-bich-tran-636246.jpg')">
-            <div class="content-title">
-                <div class="title" style="border-bottom: 5px solid #001a8e;">งานนอกสถานที่</div>
-            </div>
-        </a>
-        <a href="/landing/works" class="insight-show" style="background-size: cover;background-repeat: no-repeat;background-image: url('../../../../../../assets//images/insights/pexels-bich-tran-636246.jpg')">
-            <div class="content-title">
-                <div class="title" style="border-bottom: 5px solid #e83e8c;">รายงาน</div>
-            </div>
-        </a>
-    </div> -->
+        </div> -->
 </div>
-<!-- <div class="tab-insights">
-    <div class="pl-3 pr-3" style="display: flex;justify-content: space-between;">
-        <span>อื่นๆ</span>
-        <i class="bi bi-three-dots"></i>
-    </div>
-    <div class="health-insights p-2">
-        <div (click)="onNextPaths('daily food')" class="insight-show" style="background-size: cover;background-repeat: no-repeat;background-image: url('../../../../../../../assets/images/icons/home-page-image/aade08b106b96275952b991b874760d6.jpg')">
-            <div class="content-title">
-                <div class="title" style="border-bottom: 5px solid #ffc107;">กำหนดการ</div>
-            </div>
-        </div>
-        <div (click)="onNextPaths('cleaning work')" class="insight-show" style="background-size: cover;background-repeat: no-repeat;background-image: url('../../../../../../../assets/images/icons/home-page-image/TescoLotus-Tile4-1200x768.jpg')">
-            <div class="content-title">
-                <div class="title" style="border-bottom: 5px solid #07a4ff;">งานทำความสะอาด</div>
-            </div>
-        </div>
-    </div>
-</div> -->

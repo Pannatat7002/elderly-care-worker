@@ -22,11 +22,18 @@
   </nav> -->
 
 <nav class="navbar navbar-expand-sm  navbar-dark fixed-top">
+  <a class="navbar-brand logout" href="#" style="
+    cursor: pointer;
+    font-size: 28px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background: #c5c5c573;" (click)="SignOut()"><i class="bi bi-door-open"></i></a>
   <div class="navbar-brand">
     <div style="display: flex;align-items: center;">
-      <i style="font-size: 38px; padding-right: 8px;" class="bi bi-person-circle"></i>
-      <div (click)="basePaths()" style="font-size: 20px;">ชื่อ {{employeeName}}</div>
+      <!-- <div (click)="basePaths()" style="font-size: 20px;padding-right: 8px;">{{employeeName}}</div> -->
+      <div (click)="basePaths()" style="font-size: 20px;padding-right: 8px;">Pannatat Saman</div>
+      <i style="font-size: 38px; " class="bi bi-person-circle"></i>
     </div>
   </div>
-  <a class="navbar-brand" href="#" style="cursor: pointer;" (click)="SignOut()">ออก</a>
 </nav>

@@ -16,11 +16,12 @@ body {
 input {
   width: 100%;
   margin-bottom: 1rem;
-  border-radius: 21px;
+  // border-radius: 12px 12px 0px 0px ;
   height: 56px;
   // color: #ffffff;
   padding-left: 21px;
-  border: none;
+  border:none;
+  border-bottom: 2px solid #999797;
   font-family: 'db_heavent_regular';
   // font-family: 'db_heavent_regular';
   font-size: 26px;

@@ -53,7 +53,7 @@ constructor(
 
   selectTopicMenu(topic:any){
     console.log('topic',topic);
-    if(topic == "บุคลากร"){
+    if(topic == "รายชื่อพนักงาน"){
       this.router.navigate(['/manager/employee'])
     } else {
       // this.router.navigate(['/employee/landing/works'])

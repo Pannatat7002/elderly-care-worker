@@ -19,6 +19,7 @@ export class SigninPageComponent implements OnInit {
   forgot: boolean = false;
   ipAddress:any
   roleUser:any
+  flageSaveData:any
   constructor(
     private AuthService: AuthService,
     private router: Router,

@@ -1,6 +1,6 @@
 <div class="containers">
 
-  <body class="signin">
+  <body class="signin ">
     <!-- <div class="header">
       <i class="bi bi-heart-pulse"></i><br>
     </div> -->
@@ -15,39 +15,39 @@
       <mat-tab label="ผู้ดูแล" style="background: #0095ff;color: #FFF;">
         <form class="form-group" #userName="ngForm" (ngSubmit)="onClickSubmit1(userName.value)">
           <span class="text"><i class="bi bi-envelope-at"></i>รหัสพนักงาน</span>
-          <input #email type="email" name="email" placeholder="email" ngModel>
+          <input #email type="email" name="email" placeholder="รหัส 6 หลัก" ngModel>
           <span class="text"> <i class="bi bi-file-lock2"></i>รหัส</span>
-          <input #password type="password" name="password" placeholder="password" ngModel>
-          <br />
+          <input #password type="password" name="password" placeholder="123456.." ngModel>
+          <!-- <br />
           <section class="text example-section">
-            <mat-checkbox class="example-margin" style="font-weight: 300;">จำรหัส?</mat-checkbox>
-          </section>
+            <mat-checkbox class="example-margin" style="font-weight: 300;">จดจำ?</mat-checkbox>
+          </section> -->
           <!-- <span class="text">pincode</span>
           <input #password type="number" name="pincode" placeholder="กรุณาระบุ PIN 6 หลัก" ngModel> -->
           <input *ngIf="alertError" class="error-sign" value="{{alertError}}">
           <br />
-          <input class="btn" type="submit" value="เข้าสู่ระบบ" style="color: #FFF;  background: #6f42c1;">
+          <input class="btn" type="submit" value="เข้าสู่ระบบ" style="color: #FFF;  background: #6f42c1;border-radius: 12px;">
           <br>
           <div class="forgot text-center">
             <a class="bi bi-gear" style="font-size: 26px;cursor: pointer;color: black;"
               (click)="href('/forgot-password')">ลืมรหัสผ่าน?</a>
-            <br />
-            <a class="bi bi-gear" style="font-size: 22px;" (click)="href('/manualConfig')">setting</a>
+            <!-- <br />
+            <a class="bi bi-gear" style="font-size: 22px;" (click)="href('/manualConfig')">setting</a> -->
           </div>
         </form>
       </mat-tab>
       <mat-tab label="ผู้จัดการ" style="background: #ff990b;color: #FFF;">
         <form class="form-group" #userNameA="ngForm" (ngSubmit)="onClickSubmit2(userNameA.value)">
           <span class="text"><i class="bi bi-envelope-at"></i>อีเมล</span>
-          <input #emailA type="email" name="emailA" placeholder="email" ngModel>
+          <input #emailA type="email" name="emailA" placeholder="example@gmail.com" ngModel>
           <span class="text"> <i class="bi bi-file-lock2"></i>รหัส</span>
-          <input #passwordA type="password" name="passwordA" placeholder="password" ngModel>
+          <input #passwordA type="password" name="passwordA" placeholder="123456.." ngModel>
           <br />
           <span class="text">pincode</span>
           <input #pincode type="number" name="pincode" placeholder="กรุณาระบุ PIN 6 หลัก" ngModel>
           <input *ngIf="alertError" class="error-sign" value="{{alertError}}">
           <br />
-          <input class="btn" type="submit" value="เข้าสู่ระบบ" style="color: #FFF;  background: #6f42c1;">
+          <input class="btn" type="submit" value="เข้าสู่ระบบ" style="color: #FFF;  background: #6f42c1;border-radius: 12px;">
           <br>
           <div class="forgot text-center">
             <a class="bi bi-gear" style="font-size: 26px;cursor: pointer;color: black;"
@@ -60,7 +60,7 @@
     </mat-tab-group>
   </body>
   <div class="key-effect bi bi-file-lock2"></div>
-  <div class="version">Ver 2.8.0
+  <div class="version">Ver 2.8.1
   </div>
 </div>
 
