@@ -2,14 +2,33 @@
     font-family: 'db_heavent_regular';
     display: block;
     justify-content: center;
-    button{
-        border: none;
-        background: none;
-        font-size: 32px;
-        // font-family: 'db_heavent_regular';
-        padding: 12px;    
-        cursor: pointer;
+
+    .tools{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 1rem;
+        button{
+            background: #6f42c1;
+            padding: 12px;
+            color: #FFF;
+            cursor: pointer;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 24px;
+            border: none;
+            font-size: 26px;
+        }
     }
+
+    .table{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
     .content-em {
 
         .personImg {
@@ -22,11 +41,9 @@
         }
 
         .list-em {
-            display: flex;
-            background: #FFF;
-            border-radius: 6px;
-            padding: 8px;
-            border: 2px solid #6c757d;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            border-bottom: 2px solid #6c757d;
             .media-body {
                 // display: flex;
                 // justify-content: space-between;

@@ -13,6 +13,7 @@ export class EmployeeManagerComponent {
   currentEmployee: any = []
   currentDuies:any = []
   _selcetEmp:any = ''
+  _topicHeader:string = 'รายชื่อพนักงาน'
   constructor(
     private router: Router,
     private WorkService: WorkDatabaseService,

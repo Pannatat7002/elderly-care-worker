@@ -1,36 +1,75 @@
 <div class="container-em">
-  <button (click)="back()"><i class="bi bi-arrow-left-circle-fill" style="font-size: 48px;color:#6f42c1;"></i></button>
-  <div style="text-align: center;"><h2>ข้อมูลบุคลากรและการแบ่งงาน</h2></div>
-  <div class="container mt-2 content-em" *ngFor="let dataem of currentEmployee;">
-    <div class="list-em" (click)="selectEmployee(dataem)">
-      <div class="personImg">
-        <i class=" bi bi-person-square"></i>
+  <!-- <button (click)="back()"><i class="bi bi-arrow-left-circle-fill" style="font-size: 48px;color:#6f42c1;"></i></button> -->
+  <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
+  <div class="container tools">
+    <button data-toggle="modal" data-target="#formCreateEM">+ เพิ่มรายชื่อพนักงาน</button>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>ชื่อ</th>
+      <th>เพศ</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let dataem of currentEmployee;">
+    <tr>
+      <td>0001</td>
+      <td>{{dataem.employee}}</td>
+      <td>ชาย</td>
+      <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
+      <td><button type="button" class="btn btn-danger">ลบ</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="modal fade" id="formCreateEM">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">เพิ่มรายชื่อพนักงาน</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div class="media-body">
-        <div class="tool-bar">
-          <div>{{dataem.employee}}</div>
-          <div class="bi bi-pencil-square text-right"></div>
-          <div><small>ปฎิบัติงานช่วง 7.30 - 17.30น.</small></div>
-        </div>
-        <div *ngIf="_selcetEmp === dataem.employee && currentDuies.length > 0">
-          <div  class="media" *ngFor="let item of currentDuies;">
-            <div class="personImg">
-              <i class=" bi bi-person-square"></i>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="container">
+          <h2>ข้อมูลพนักงาน</h2>
+          <form action="/action_page.php">
+            <div class="form-group">
+              <label for="name">ชื่อ-นามสกุล:</label>
+              <input type="text" class="form-control" id="text" placeholder="ชื่อ-นามสกุล" name="text">
             </div>
-            <div class="media-body">
-              <div>{{item}}</div>
-              <div><small>ปฎิบัติงานช่วง 7.30 - 17.30น.</small></div>
-              <div class="bi bi-pencil-square text-right"></div>
+            <div class="form-group">
+              <label for="pwd">รหัสพนักงาน:</label>
+              <input type="text" class="form-control" id="pwd" placeholder="กรอกรหัสพนักงาน" name="pswd">
             </div>
-          </div>
+            <div class="form-group">
+              <label for="pwd">รหัส:</label>
+              <input type="password" class="form-control" id="pass1" placeholder="" name="pass1">
+              <input type="password" class="form-control" id="pass2" placeholder="" name="pass2">
+            </div>
+            <!-- <div class="form-group form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+              </label>
+            </div> -->
+            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+          </form>
         </div>
-        <div *ngIf="_selcetEmp === dataem.employee && currentDuies.length <= 0">
-          <div  class="media" >
-            <span>ไม่พบช้อมูล</span>
-          </div>
-        </div>
-        
       </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer" style="display: flex;justify-content: space-between;">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">ยืนยัน</button>
+      </div>
+
     </div>
   </div>
 </div>
