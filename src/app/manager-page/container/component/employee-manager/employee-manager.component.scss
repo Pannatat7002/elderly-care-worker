@@ -21,12 +21,27 @@
             border: none;
             font-size: 26px;
         }
+        i{
+            padding: 12px;
+            color: #6f42c1;
+            cursor: pointer;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 24px;
+            border: none;
+            font-size: 42px;
+        }
     }
 
     .table{
         display: flex;
         justify-content: start;
         align-items: center;
+        thead>tr>th{
+            width: auto;
+        }
     }
 
     .content-em {
