@@ -36,7 +36,7 @@ export class CreateUserComponent {
 
   async createObject(result:any) {
     const docData = result
-    await setDoc(doc(firestore, "Caregivers",this.getRandomId()), docData);
+    await setDoc(doc(firestore, "Caregivers",result.employeeId), docData);
     this.location.back()
   }
 

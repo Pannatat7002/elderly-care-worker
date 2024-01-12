@@ -3,7 +3,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { WorkDatabaseService } from 'src/app/service/work-service/work-database.service';
 import { Location } from '@angular/common'
-
+import { collection, getDocs, getDoc, setDoc, doc, where, query, addDoc, updateDoc, deleteDoc, Timestamp, arrayUnion, arrayRemove } from 'firebase/firestore';
+import { firestore } from "../../../../../app/service/config/firebaseConfig";
 @Component({
   selector: 'app-employee-manager',
   templateUrl: './employee-manager.component.html',
@@ -14,6 +15,7 @@ export class EmployeeManagerComponent {
   currentDuies:any = []
   _selcetEmp:any = ''
   _topicHeader:string = 'รายชื่อพนักงาน'
+  selectUser:any = []
   constructor(
     private router: Router,
     private WorkService: WorkDatabaseService,
@@ -59,5 +61,15 @@ export class EmployeeManagerComponent {
 
   goToCreateUSer(){
     this.router.navigate(['/manager/form-user'])
+  }
+
+  deleteUser(data:any){
+    this.selectUser = data
+  }
+
+  
+  async deleteDoc() { //Pass
+    await deleteDoc(doc(firestore, "Caregivers", this.selectUser.employeeId));
+    this.queryEmployee()
   }
 }
