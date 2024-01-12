@@ -3,14 +3,16 @@
   <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
   <div class="container tools">
     <button (click)="goToCreateUSer()">+ เพิ่มรายชื่อพนักงาน</button>
+    <i (click)="queryEmployee()" class="bi bi-arrow-clockwise"></i>
   </div>
 </div>
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
       <th>ชื่อ-นามสกุล</th>
       <th>เบอร์ติดต่อ</th>
+      <th>วันเกิด</th>
       <th>เพศ</th>
       <th>comment</th>
       <th></th>
@@ -19,11 +21,12 @@
   </thead>
   <tbody *ngFor="let dataem of currentEmployee;">
     <tr>
-      <td>0001</td>
-      <td>{{dataem.employee}}</td>
-      <td>23/01/2545</td>
-      <td>ชาย</td>
-      <td></td>
+      <td>{{dataem.id}}</td>
+      <td>{{dataem.name}}</td>
+      <td>{{dataem.mobile}}</td>
+      <td>{{dataem.dateofbirth}}</td>
+      <td>{{dataem.gender}}</td>
+      <td>{{dataem.comment}}</td>
       <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
       <td><button type="button" class="btn btn-danger">ลบ</button></td>
     </tr>
