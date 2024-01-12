@@ -13,6 +13,7 @@ import { DashboardComponent } from './manager-page/container/dashboard/dashboard
 import { MenuTopicComponent } from './manager-page/container/component/menu-topic/menu-topic.component';
 import { EmployeeManagerComponent } from './manager-page/container/component/employee-manager/employee-manager.component';
 import { CreateUserComponent } from './manager-page/form-create/create-user/create-user.component';
+import { UpdateUserComponent } from './manager-page/form-create/update-user/update-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
@@ -46,7 +47,8 @@ const routes: Routes = [
       { path: 'menu', component: MenuTopicComponent },
       { path: 'employee', component: EmployeeManagerComponent },
       { path: 'profile', component: EmployeeProfileComponent },
-      { path: 'form-user', component: CreateUserComponent,data: { animation: 'Signin-page' } },
+      { path: 'form-Create', component: CreateUserComponent,data: { animation: 'Signin-page' } },
+      { path: 'form-Update', component: UpdateUserComponent,data: { animation: 'Signin-page' } },
     ]
   },
   {

@@ -2,21 +2,21 @@
   <!-- <button (click)="back()"><i class="bi bi-arrow-left-circle-fill" style="font-size: 48px;color:#6f42c1;"></i></button> -->
   <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
   <div class="container tools">
-    <button (click)="goToCreateUSer()">+ เพิ่มรายชื่อพนักงาน</button>
+    <button (click)="goToCreateUser()">+ เพิ่มรายชื่อพนักงาน</button>
     <i (click)="queryEmployee()" class="bi bi-arrow-clockwise"></i>
   </div>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
+      <th>userID</th>
       <th>ชื่อ-นามสกุล</th>
       <th>เบอร์ติดต่อ</th>
       <th>วันเกิด</th>
       <th>เพศ</th>
       <th>comment</th>
       <th></th>
-      <th></th>
+      <!-- <th></th> -->
     </tr>
   </thead>
   <tbody *ngFor="let dataem of currentEmployee;">
@@ -24,10 +24,10 @@
       <td>{{dataem.employeeId}}</td>
       <td>{{dataem.name}}</td>
       <td>{{dataem.mobileNo}}</td>
-      <td>{{dataem.dateofbirth}}</td>
+      <td>{{dataem.DateOfBirth}}</td>
       <td>{{dataem.optradio}}</td>
       <td>{{dataem.comment}}</td>
-      <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
+      <td><button type="button" class="btn btn-warning" (click)="goToUpdateUser(dataem)">แก้ไข</button></td>
       <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser" (click)="deleteUser(dataem)">ลบ</button></td>
     </tr>
   </tbody>

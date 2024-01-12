@@ -30,11 +30,11 @@ export class CreateUserComponent {
     } else if(result.pass1 !== result.pass2){
       this.alertError = JSON.stringify("กรุณากรอกรหัสผ่านให้ถูกต้อง")
     } else {
-      this.createObject(result)
+      this.createUser(result)
     }
   }
 
-  async createObject(result:any) {
+  async createUser(result:any) {
     const docData = result
     await setDoc(doc(firestore, "Caregivers",result.employeeId), docData);
     this.location.back()

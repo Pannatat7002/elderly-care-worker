@@ -59,8 +59,11 @@ export class EmployeeManagerComponent {
     this.objectDuties(data)
   }
 
-  goToCreateUSer(){
-    this.router.navigate(['/manager/form-user'])
+  goToCreateUser(){
+    this.router.navigate(['/manager/form-Create'])
+  }
+  goToUpdateUser(data:any){
+    this.router.navigate(['/manager/form-Update'],{ queryParams: { ID: data.employeeId }})
   }
 
   deleteUser(data:any){

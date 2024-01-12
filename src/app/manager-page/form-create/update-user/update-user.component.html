@@ -1,0 +1,41 @@
+<div class="container-em">
+    <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
+  </div>
+  <!-- Modal body -->
+  <div class="modal-body">
+    <div class="container">
+      <!-- <h3>ข้อมูลพนักงาน</h3> -->
+      <form class="form-group" #FormCreateUser="ngForm" (ngSubmit)="submitFormCreate(FormCreateUser.value)">
+        <label for="name">ชื่อ-นามสกุล :</label>
+        <input name="name" type="text" class="form-control" placeholder="{{userData.name}}" ngModel required>
+        <label for="mobileNo">เบอร์ติดต่อ :</label>
+        <input name="mobileNo" type="text" class="form-control" placeholder="{{userData.mobileNo}}" ngModel required>
+        <label for="DateOfBirth">วันเกิด :</label>
+        <input #DateOfBirth type="date" class="form-control" name="DateOfBirth" placeholder="{{userData.date}}" ngModel required>
+        <label for="gender">เพศ :</label>
+        <div class="form-check">
+          <label class="form-check-label" for="radio1">
+            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="ชาย" checked ngModel >ชาย
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="radio2">
+            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="หญิง" ngModel>หญิง
+          </label>
+        </div>
+        <br>
+        <label for="employeeId">userID :</label>
+        <input disabled type="text" class="form-control" name="employeeId" placeholder="{{userData.employeeId}}" ngModel required>
+        <label for="pass1">สร้างรหัสผ่าน :</label>
+        <input type="text" class="form-control" name="pass1" placeholder="{{userData.pass1}}" ngModel required>
+        <label for="pass2">ยืนยันรหัสผ่าน :</label>
+        <input type="text" class="form-control" name="pass2" placeholder="{{userData.pass2}}" ngModel required>
+        <label for="comment">Comment :</label>
+        <textarea class="form-control" rows="5" name="comment"  placeholder="{{userData.comment}}" ngModel></textarea>
+        <input *ngIf="alertError" class="error-sign" value="{{alertError}}">
+        <div class="modal-footer" style="display: flex;justify-content: right;">
+          <input class="btn" type="submit" value="ยืนยัน" style="color: #FFF;  background: #6f42c1;border-radius: 12px;">
+        </div>
+      </form>
+    </div>
+  </div>

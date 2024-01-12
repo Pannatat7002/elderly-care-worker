@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CreateUserComponent } from './manager-page/form-create/create-user/create-user.component';
+import { UpdateUserComponent } from './manager-page/form-create/update-user/update-user.component';
 
 export function loadCrucialData() {
   return function() {
@@ -66,7 +67,8 @@ export function delay(delay: number) {
     DashboardComponent,
     CreateUserComponent,
     MenuTopicComponent,
-    EmployeeManagerComponent
+    EmployeeManagerComponent,
+    UpdateUserComponent
     // NavBarMgComponent
   ],
   imports: [
