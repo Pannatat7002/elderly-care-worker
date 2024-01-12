@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'db_heavent_regular';
+  src: url('../../../assets/scss/fonts/DB_Heavent_Cond_v3.2.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #6f42c1;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+  margin: auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container-loading {
+  position: relative;
+  z-index: 90;
+  width: 100%;
+    overflow: hidden;
+  height: 100vh;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: #6f42c1;
+}
+
+.inner {
+  padding: 12px;
+  height: max-content;
+  width: max-content;
+  justify-content: center;
+  justify-items: center;
+  position: relative;
+}
+
+.loading-Content {
+  margin: auto;
+  color: #FFF;
+  // font-family: cursive;
+  text-align: center;
+  position: relative;
+  z-index: 84;
+  .loading-text {
+    font-size: 36px;
+    padding: 18px;
+  }
+
+  .title {
+    font-size: 16px;
+    padding: 18px;
+  }
+
+  .box1 {
+    position: absolute;
+    opacity: 0.4;
+    background: #a2d2ff;
+    // inset: 0;
+    z-index: 100;
+    top: 229.1370849609375px;
+    border-radius: 72px;
+    width: 159.99999726171663px;
+    height: 223.9999961664033px;
+    left: 129px;
+    rotate: 119deg;
+  }
+  .box2 {
+    position: absolute;
+    opacity: 0.5;
+    background: #a2d2ff;
+    inset: 0;
+    top: -307.8629150391px;
+    border-radius: 72px;
+    width: 159.9999972617px;
+    height: 223.9999961664px;
+    left: -115px;
+    rotate: 61deg;
+
+  }
+  .box3 {
+    inset: 0;
+    position: absolute;
+    opacity: 0.8;
+    background: #a2d2ff;
+    // z-index: 83;
+    top: -189.86291503910002px;
+    border-radius: 72px;
+    width: 159.9999972617px;
+    height: 223.9999961664px;
+    rotate: 61deg;
+    left: 171px;
+  }
+}
+
+.myProgress {
+  width: 100%;
+  background-color: grey;
+}
+
+.myBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}

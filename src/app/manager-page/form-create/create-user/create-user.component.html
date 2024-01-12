@@ -1,57 +1,53 @@
 <div class="container-em">
   <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
 </div>
-  <!-- Modal body -->
-    <div class="modal-body">
-      <div class="container">
-        <!-- <h3>ข้อมูลพนักงาน</h3> -->
-        <form action="/action_page.php">
-          <div class="form-group">
-            <label for="name">ชื่อ-นามสกุล :</label>
-            <input type="text" class="form-control" id="text" placeholder="ชื่อ-นามสกุล">
-            <label for="name">เบอร์ติดต่อ :</label>
-            <input type="text" class="form-control" id="text" placeholder="09X-XXX-XXXX">
-            <label for="name">รูปถ่าย :</label>
-            <script>
-              // Add the following code if you want the name of the file appear on select
-              $(".custom-file-input").on("change", function () {
-                var fileName = $(this).val().split("\\").pop();
-                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-              });
-              </script>
-            <div class="custom-file mb-3">
-              <input type="file" class="custom-file-input" id="customFile" name="filename">
-              <label class="custom-file-label" for="customFile">Choose file</label>
-            </div>
-            <label for="employeeId">วันเกิด :</label>
-            <input type="date" class="form-control" id="DateOfBirth" placeholder="--/--/----">
-            <label for="name">เพศ :</label>
-            <div class="form-check">
-              <label class="form-check-label" for="radio1">
-                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>ชาย
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label" for="radio2">
-                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">หญิง
-              </label>
-            </div>
-            <br>
-            <label for="employeeId">รหัสพนักงาน :</label>
-            <input type="text" class="form-control" id="employeeId" placeholder="employeeId">
-            <label for="pass1">สร้างรหัสผ่าน :</label>
-            <input type="password" class="form-control" id="pass1" placeholder="******">
-            <label for="pass2">ยืนยันรหัสผ่าน :</label>
-            <input type="password" class="form-control" id="pass2" placeholder="******">
-            <label for="comment">Comment :</label>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
-          </div>
-        </form>
+<!-- Modal body -->
+<div class="modal-body">
+  <div class="container">
+    <!-- <h3>ข้อมูลพนักงาน</h3> -->
+    <form class="form-group" #FormCreateUser="ngForm" (ngSubmit)="submitFormCreate(FormCreateUser.value)">
+      <label for="name">ชื่อ-นามสกุล :</label>
+      <input name="name" type="text" class="form-control" placeholder="" ngModel required>
+      <label for="mobileNo">เบอร์ติดต่อ :</label>
+      <input name="mobileNo" type="text" class="form-control" placeholder="" ngModel required>
+      <!-- <label for="image">รูปถ่าย :</label>
+        <script>
+          // Add the following code if you want the name of the file appear on select
+          $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+          });
+        </script>
+        <div class="custom-file mb-3">
+          <input #image type="file" class="custom-file-input" id="image" name="image">
+          <label class="custom-file-label" for="image">Choose file</label>
+        </div> -->
+      <label for="DateOfBirth">วันเกิด :</label>
+      <input #DateOfBirth type="date" class="form-control" name="DateOfBirth" placeholder="" ngModel required>
+      <label for="gender">เพศ :</label>
+      <div class="form-check">
+        <label class="form-check-label" for="radio1">
+          <input type="radio" class="form-check-input" id="radio1" name="optradio" value="ชาย" checked ngModel >ชาย
+        </label>
       </div>
-    </div>
-  
-    <!-- Modal footer -->
-    <div class="modal-footer" style="display: flex;justify-content: right;">
-      <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button> -->
-      <button type="button" class="btn btn-success" data-dismiss="modal">ยืนยัน</button>
-    </div>
+      <div class="form-check">
+        <label class="form-check-label" for="radio2">
+          <input type="radio" class="form-check-input" id="radio2" name="optradio" value="หญิง" ngModel>หญิง
+        </label>
+      </div>
+      <br>
+      <label for="employeeId">userID :</label>
+      <input type="text" class="form-control" name="employeeId" placeholder="" ngModel required>
+      <label for="pass1">สร้างรหัสผ่าน :</label>
+      <input type="text" class="form-control" name="pass1" placeholder="" ngModel required>
+      <label for="pass2">ยืนยันรหัสผ่าน :</label>
+      <input type="text" class="form-control" name="pass2" placeholder="" ngModel required>
+      <label for="comment">Comment :</label>
+      <textarea class="form-control" rows="5" name="comment" ngModel></textarea>
+      <input *ngIf="alertError" class="error-sign" value="{{alertError}}">
+      <div class="modal-footer" style="display: flex;justify-content: right;">
+        <input class="btn" type="submit" value="ยืนยัน" style="color: #FFF;  background: #6f42c1;border-radius: 12px;">
+      </div>
+    </form>
+  </div>
+</div>

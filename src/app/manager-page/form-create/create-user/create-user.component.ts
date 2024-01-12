@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { collection, getDocs, getDoc, setDoc, doc, where, query, addDoc, updateDoc, deleteDoc, Timestamp, arrayUnion, arrayRemove } from 'firebase/firestore';
+import { firestore } from "../../../../app/service/config/firebaseConfig";
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-create-user',
@@ -8,8 +11,11 @@ import { Router } from '@angular/router';
 })
 export class CreateUserComponent {
   _topicHeader:string = 'เพิ่มรายชื่อพนักงาน'
+  alertError: any
+
   constructor(
     private router: Router,
+    private location: Location,
 
   ){
 
@@ -18,4 +24,24 @@ export class CreateUserComponent {
   // goToCreateUSer(){
   //   this.router.navigate(['/manager/form-user'])
   // }
+  submitFormCreate(result: any) {
+    if(result.name == "" || result.mobileNo == "" || result.gender == "" || result.employeeId == "" || result.DateOfBirth == "" || result.pass1 == "" || result.pass2 == ""){
+      this.alertError = JSON.stringify("กรุณากรอกข้อมูลให้ครบทุกช่อง")
+    } else if(result.pass1 !== result.pass2){
+      this.alertError = JSON.stringify("กรุณากรอกรหัสผ่านให้ถูกต้อง")
+    } else {
+      this.createObject(result)
+    }
+  }
+
+  async createObject(result:any) {
+    const docData = result
+    await setDoc(doc(firestore, "Caregivers",this.getRandomId()), docData);
+    this.location.back()
+  }
+
+  getRandomId() {
+    return "00"+Math.floor(Math.random() * 1000) + 1
+
+  }
 }
