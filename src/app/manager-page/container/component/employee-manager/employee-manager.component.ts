@@ -33,7 +33,9 @@ export class EmployeeManagerComponent {
         this.currentEmployee.push(outerData)
       });
       this._selcetEmp =  this.currentEmployee[0].employee || ''
+      console.log('this.currentEmployee',this.currentEmployee);
     })
+    
   }
 
     objectDuties(duties:any){
@@ -52,5 +54,9 @@ export class EmployeeManagerComponent {
   selectEmployee(data:any){
     this._selcetEmp = data.employee
     this.objectDuties(data)
+  }
+
+  goToCreateUSer(){
+    this.router.navigate(['/manager/form-user'])
   }
 }

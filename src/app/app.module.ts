@@ -23,13 +23,13 @@ import { BackNavbarComponent } from './landing-page/component/back-navbar/back-n
 import { ManagerPageComponent } from './manager-page/manager-page.component';
 import { DashboardComponent } from './manager-page/container/dashboard/dashboard.component';
 import { MenuTopicComponent } from './manager-page/container/component/menu-topic/menu-topic.component';
-import { CreateUserComponent } from './manager-page/container/component/create-user/create-user.component';
 import { EmployeeManagerComponent } from './manager-page/container/component/employee-manager/employee-manager.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NavBarMgComponent } from './manager-page/container/component/nav-bar-mg/nav-bar-mg.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CreateUserComponent } from './manager-page/form-create/create-user/create-user.component';
 
 export function loadCrucialData() {
   return function() {

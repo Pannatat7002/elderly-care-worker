@@ -2,15 +2,17 @@
   <!-- <button (click)="back()"><i class="bi bi-arrow-left-circle-fill" style="font-size: 48px;color:#6f42c1;"></i></button> -->
   <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
   <div class="container tools">
-    <button data-toggle="modal" data-target="#formCreateEM">+ เพิ่มรายชื่อพนักงาน</button>
+    <button (click)="goToCreateUSer()">+ เพิ่มรายชื่อพนักงาน</button>
   </div>
 </div>
 <table class="table">
   <thead>
     <tr>
       <th>ID</th>
-      <th>ชื่อ</th>
+      <th>ชื่อ-นามสกุล</th>
+      <th>เบอร์ติดต่อ</th>
       <th>เพศ</th>
+      <th>comment</th>
       <th></th>
       <th></th>
     </tr>
@@ -19,57 +21,11 @@
     <tr>
       <td>0001</td>
       <td>{{dataem.employee}}</td>
+      <td>23/01/2545</td>
       <td>ชาย</td>
+      <td></td>
       <td><button type="button" class="btn btn-warning">แก้ไข</button></td>
       <td><button type="button" class="btn btn-danger">ลบ</button></td>
     </tr>
   </tbody>
 </table>
-
-<div class="modal fade" id="formCreateEM">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">เพิ่มรายชื่อพนักงาน</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <div class="container">
-          <h2>ข้อมูลพนักงาน</h2>
-          <form action="/action_page.php">
-            <div class="form-group">
-              <label for="name">ชื่อ-นามสกุล:</label>
-              <input type="text" class="form-control" id="text" placeholder="ชื่อ-นามสกุล" name="text">
-            </div>
-            <div class="form-group">
-              <label for="pwd">รหัสพนักงาน:</label>
-              <input type="text" class="form-control" id="pwd" placeholder="กรอกรหัสพนักงาน" name="pswd">
-            </div>
-            <div class="form-group">
-              <label for="pwd">รหัส:</label>
-              <input type="password" class="form-control" id="pass1" placeholder="" name="pass1">
-              <input type="password" class="form-control" id="pass2" placeholder="" name="pass2">
-            </div>
-            <!-- <div class="form-group form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember"> Remember me
-              </label>
-            </div> -->
-            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-          </form>
-        </div>
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer" style="display: flex;justify-content: space-between;">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">ยืนยัน</button>
-      </div>
-
-    </div>
-  </div>
-</div>

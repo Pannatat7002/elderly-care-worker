@@ -9,9 +9,10 @@ import { EmployeeProfileComponent } from './landing-page/component/employee-prof
 import { HomePageComponent } from './landing-page/component/home-page/home-page.component';
 import { ManagerPageComponent } from './manager-page/manager-page.component';
 import { DashboardComponent } from './manager-page/container/dashboard/dashboard.component';
-import { CreateUserComponent } from './manager-page/container/component/create-user/create-user.component';
+// import { CreateUserComponent } from './manager-page/container/component/create-user/create-user.component';
 import { MenuTopicComponent } from './manager-page/container/component/menu-topic/menu-topic.component';
 import { EmployeeManagerComponent } from './manager-page/container/component/employee-manager/employee-manager.component';
+import { CreateUserComponent } from './manager-page/form-create/create-user/create-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
@@ -45,7 +46,7 @@ const routes: Routes = [
       { path: 'menu', component: MenuTopicComponent },
       { path: 'employee', component: EmployeeManagerComponent },
       { path: 'profile', component: EmployeeProfileComponent },
-      { path: 'createuser', component: CreateUserComponent },
+      { path: 'form-user', component: CreateUserComponent,data: { animation: 'Signin-page' } },
     ]
   },
   {
