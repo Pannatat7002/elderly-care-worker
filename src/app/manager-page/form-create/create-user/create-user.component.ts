@@ -25,7 +25,7 @@ export class CreateUserComponent {
   //   this.router.navigate(['/manager/form-user'])
   // }
   submitFormCreate(result: any) {
-    if(result.name == "" || result.mobileNo == "" || result.gender == "" || result.employeeId == "" || result.DateOfBirth == "" || result.pass1 == "" || result.pass2 == ""){
+    if(result.name == "" || result.mobileNo == "" || result.gender == ""|| result.DateOfWorker == "" || result.employeeId == "" || result.DateOfBirth == "" || result.pass1 == "" || result.pass2 == ""){
       this.alertError = JSON.stringify("กรุณากรอกข้อมูลให้ครบทุกช่อง")
     } else if(result.pass1 !== result.pass2){
       this.alertError = JSON.stringify("กรุณากรอกรหัสผ่านให้ถูกต้อง")
