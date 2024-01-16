@@ -28,8 +28,8 @@ export class EmployeeManagerComponent {
     // this.querymenuSubTopic()
   }
   async queryEmployee() { //pass
-    this.currentEmployee = []
     this.WorkService.queryCollection('Caregivers').then((data: any) => {
+      this.currentEmployee = []
     // this.WorkService.queryCollection('employee').then((data: any) => {
       data.forEach(async (outerDoc:any) => {
         const outerData = outerDoc.data();
