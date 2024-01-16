@@ -14,6 +14,9 @@ import { MenuTopicComponent } from './manager-page/container/component/menu-topi
 import { EmployeeManagerComponent } from './manager-page/container/component/employee-manager/employee-manager.component';
 import { CreateUserComponent } from './manager-page/form-create/create-user/create-user.component';
 import { UpdateUserComponent } from './manager-page/form-create/update-user/update-user.component';
+import { ResidentsManagerComponent } from './manager-page/container/component/residents-manager/residents-manager.component';
+import { CreateResidentsComponent } from './manager-page/form-create/create-residents/create-residents.component';
+import { UpdateResidentsComponent } from './manager-page/form-create/update-residents/update-residents.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
@@ -46,9 +49,12 @@ const routes: Routes = [
       },
       { path: 'menu', component: MenuTopicComponent },
       { path: 'employee', component: EmployeeManagerComponent },
+      { path: 'residents', component: ResidentsManagerComponent },
       { path: 'profile', component: EmployeeProfileComponent },
       { path: 'form-Create', component: CreateUserComponent,data: { animation: 'Signin-page' } },
       { path: 'form-Update', component: UpdateUserComponent,data: { animation: 'Signin-page' } },
+      { path: 'Residents-Create', component: CreateResidentsComponent,data: { animation: 'Signin-page' } },
+      { path: 'Residents-Update', component: UpdateResidentsComponent,data: { animation: 'Signin-page' } },
     ]
   },
   {

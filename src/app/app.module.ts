@@ -31,6 +31,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CreateUserComponent } from './manager-page/form-create/create-user/create-user.component';
 import { UpdateUserComponent } from './manager-page/form-create/update-user/update-user.component';
+import { CreateResidentsComponent } from './manager-page/form-create/create-residents/create-residents.component';
+import { UpdateResidentsComponent } from './manager-page/form-create/update-residents/update-residents.component';
+import { ResidentsManagerComponent } from './manager-page/container/component/residents-manager/residents-manager.component';
 
 export function loadCrucialData() {
   return function() {
@@ -68,7 +71,10 @@ export function delay(delay: number) {
     CreateUserComponent,
     MenuTopicComponent,
     EmployeeManagerComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    CreateResidentsComponent,
+    UpdateResidentsComponent,
+    ResidentsManagerComponent
     // NavBarMgComponent
   ],
   imports: [

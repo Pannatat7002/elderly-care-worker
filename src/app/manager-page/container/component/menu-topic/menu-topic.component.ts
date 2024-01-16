@@ -55,9 +55,10 @@ constructor(
     console.log('topic',topic);
     if(topic == "รายชื่อพนักงาน"){
       this.router.navigate(['/manager/employee'])
-    } else {
-      // this.router.navigate(['/employee/landing/works'])
-    }
+    } 
+    if(topic == "รายชื่อผู้พักอาศัย"){
+      this.router.navigate(['/manager/residents'])
+    } 
   }
 
   // async checkExpire(){
