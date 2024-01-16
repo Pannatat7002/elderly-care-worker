@@ -66,15 +66,41 @@
             </div>
         </div>
     </div>
-    <!-- <div class="health-insights p-2">
-            <div *ngFor="let topic of nameTopic;">
-                <div style="display: grid;justify-content: center;" (click)="selectTopicMenu(topic)">
-                    <img  class="insight-show" [src]="byPass(topic)"
-                        style="background-size: cover;background-repeat: no-repeat">
-                    <div class="content-title">
-                        <div class="title" style="text-align: center;">{{topic}}</div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-</div>
+    <div class="pl-3 pr-3" style="display: flex;justify-content: space-between;font-size: 32px;">
+        <span>กำหนกการต่างๆ</span>
+    </div>
+    <div id="timeline" class="timeline">
+      <div class="timeline__item">
+        <div class="timeline__item-header">
+          <button class="timeline__arrow" type="button" id="item1" aria-labelledby="item1-name" aria-expanded="false" aria-controls="item1-ctrld" aria-haspopup="true" data-item="1">
+          </button>
+          <span class="timeline__dot"></span>
+          <span id="item1-name" class="timeline__meta">
+            <time class="timeline__date" datetime="1970-01-01">23 มกราคม 2567</time><br>
+            <div class="timeline__title">วันเกิดลุงพล</div>
+          </span>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__item-header">
+          <button class="timeline__arrow" type="button" id="item1" aria-labelledby="item1-name" aria-expanded="false" aria-controls="item1-ctrld" aria-haspopup="true" data-item="1">
+          </button>
+          <span class="timeline__dot"></span>
+          <span id="item1-name" class="timeline__meta">
+            <time class="timeline__date" datetime="1970-01-01">28 มกราคม 2567</time><br>
+            <div class="timeline__title">วันเกิดลุงพลี</div>
+          </span>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__item-header">
+          <button class="timeline__arrow" type="button" id="item1" aria-labelledby="item1-name" aria-expanded="false" aria-controls="item1-ctrld" aria-haspopup="true" data-item="1">
+          </button>
+          <span class="timeline__dot"></span>
+          <span id="item1-name" class="timeline__meta">
+            <time class="timeline__date" datetime="1970-01-01">28 มกราคม 2567</time><br>
+            <div class="timeline__title">วันเกิดลุงพล 123456789/*8^</div>
+          </span>
+        </div>
+      </div>
+    </div>
