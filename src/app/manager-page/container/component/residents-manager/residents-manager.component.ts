@@ -66,7 +66,7 @@ export class ResidentsManagerComponent {
     this.router.navigate(['/manager/Residents-Create'])
   }
   goToUpdateUser(data:any){
-    this.router.navigate(['/manager/Residents-Update'],{ queryParams: { ID: data.employeeId }})
+    this.router.navigate(['/manager/Residents-Update'],{ queryParams: { ID: data.username }})
   }
 
   deleteUser(data:any){
@@ -75,7 +75,7 @@ export class ResidentsManagerComponent {
 
   
   async deleteDoc() { //Pass
-    await deleteDoc(doc(firestore, "Residents", this.selectUser.employeeId));
+    await deleteDoc(doc(firestore, "Residents", this.selectUser.username));
     this.queryEmployee()
   }
 }

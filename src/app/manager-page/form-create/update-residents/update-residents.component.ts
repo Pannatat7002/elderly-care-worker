@@ -20,8 +20,8 @@ export class UpdateResidentsComponent {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      let employeeId = params['ID'];
-      this.querySigle(employeeId)
+      let username = params['ID'];
+      this.querySigle(username)
     });
 
   }
