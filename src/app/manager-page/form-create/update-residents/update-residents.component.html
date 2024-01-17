@@ -1,0 +1,69 @@
+<div class="container-em">
+  <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
+</div>
+<!-- Modal body -->
+<div class="modal-body">
+  <div class="container">
+    <!-- <h3>ข้อมูลพนักงาน</h3> -->
+    <form class="form-group" #FormCreateUser="ngForm" (ngSubmit)="submitFormCreate(FormCreateUser.value)">
+      <label for="name">ชื่อ-นามสกุล :</label>
+      <input name="name" type="text" class="form-control" placeholder="{{userData.name}}" ngModel required>
+      <label for="mobileNo">เบอร์ติดต่อ :</label>
+      <input name="mobileNo" type="tel" class="form-control" placeholder="{{userData.mobileNo}}" ngModel required>
+      <label for="movingIn">วันเข้าอยู่ : {{userData.movingIn}}</label>
+      <input #movingIn type="date" class="form-control" name="movingIn" ngModel required>
+      <label for="birthday">วันเกิด : {{userData.birthday}}</label>
+      <input #DateOfBirth type="date" class="form-control" name="birthday"ngModel required>
+      <label for="gender">เพศ :</label>
+      <div class="form-check">
+        <label class="form-check-label" for="radio1">
+          <input type="radio" class="form-check-input" id="radio1" name="optradio" value="ชาย" checked ngModel>ชาย
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label" for="radio2">
+          <input type="radio" class="form-check-input" id="radio2" name="optradio" value="หญิง" ngModel>หญิง
+        </label>
+      </div>
+      <label for="residentType">ประเภท :</label>
+      <input name="residentType" type="text" class="form-control" placeholder="ตัวอย่าง(ติดเตียง/ช่วยตัวเองได้น้อย)"
+        ngModel>
+      <label for="medicalDiagnose">การวินิจฉัยทางการแพทย์ :</label>
+      <input name="medicalDiagnose" type="text" class="form-control" placeholder="{{userData.medicalDiagnose}}" ngModel>
+      <label for="currentIllness">ประวัติการเจ็บป่วยปัจจุบัน :</label>
+      <input name="currentIllness" type="text" class="form-control" placeholder="{{userData.currentIllness}}" ngModel>
+      <label for="surgeryHistory">ประวัติการผ่าตัด :</label>
+      <input name="surgeryHistory" type="text" class="form-control" placeholder="{{userData.surgeryHistory}}" ngModel>
+      <label for="congenitalDisease">โรคประจำตัว :</label>
+      <input name="congenitalDisease" type="text" class="form-control" placeholder="{{userData.congenitalDisease}}" ngModel>
+      <label for="drugAllergy">การแพ้ยา(อาหาร สารเคมี เลือด) :</label>
+      <input name="drugAllergy" type="text" class="form-control" placeholder="{{userData.drugAllergy}}" ngModel>
+      <label for="hospitalRights">สิทธิของโรงพยาบาล :</label>
+      <input name="hospitalRights" type="text" class="form-control" placeholder="{{userData.hospitalRights}}" ngModel>
+      <label for="LatestHospitalTreatment">การรักษาในโรงพยาบาลล่าสุด :</label>
+      <input name="LatestHospitalTreatment" type="text" class="form-control" placeholder="{{userData.LatestHospitalTreatment}}" ngModel>
+      <label for="nameEmployer">ชื่อ-นามสกุล(ผู้จ้าง) :</label>
+      <input name="nameEmployer" type="text" class="form-control" placeholder="{{userData.nameEmployer}}" ngModel required>
+      <label for="mobileNoEmployer">เบอร์ติดต่อ(ผู้จ้าง) :</label>
+      <input name="mobileNoEmployer" type="tel" class="form-control" placeholder="{{userData.mobileNoEmployer}}" ngModel required>
+      <label for="nameRelative">ชื่อ-นามสกุล(ญาติ) :</label>
+      <input name="nameRelative" type="text" class="form-control" placeholder="{{userData.nameRelative}}" ngModel>
+      <label for="mobileNoRelative">เบอร์ติดต่อ(ชื่อญาติ) :</label>
+      <input name="mobileNoRelative" type="tel" class="form-control" placeholder="{{userData.mobileNoRelative}}" ngModel>
+      <br>
+      <label for="employeeId">User for Login : </label>
+      <!-- NJY/64/015 -->
+      <input disabled type="text" class="form-control" name="employeeId" placeholder="{{userData.employeeId}}" ngModel required>
+      <label for="pass1">รหัสผ่าน :</label>
+      <input disabled type="text" class="form-control" name="pass1" placeholder="{{userData.pass1}}" ngModel required>
+      <!-- <label for="pass2">ยืนยันรหัสผ่าน :</label>
+      <input type="text" class="form-control" name="pass2" placeholder="" ngModel required> -->
+      <label for="comment">หมายเหตุ :</label>
+      <textarea class="form-control" rows="5" name="comment" ngModel placeholder="{{userData.comment}}"></textarea>
+      <input *ngIf="alertError" class="error-sign" value="{{alertError}}">
+      <div class="modal-footer" style="display: flex;justify-content: right;">
+        <input class="btn" type="submit" value="ยืนยัน" style="color: #FFF;  background: #6f42c1;border-radius: 12px;">
+      </div>
+    </form>
+  </div>
+</div>

@@ -3,14 +3,13 @@ import { Router } from '@angular/router';
 import { collection, getDocs, getDoc, setDoc, doc, where, query, addDoc, updateDoc, deleteDoc, Timestamp, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { firestore } from "../../../../app/service/config/firebaseConfig";
 import { Location } from '@angular/common'
-
 @Component({
-  selector: 'app-create-user',
-  templateUrl: './create-user.component.html',
-  styleUrls: ['./create-user.component.scss']
+  selector: 'app-create-residents',
+  templateUrl: './create-residents.component.html',
+  styleUrls: ['./create-residents.component.scss']
 })
-export class CreateUserComponent {
-  _topicHeader:string = 'เพิ่มรายชื่อพนักงาน'
+export class CreateResidentsComponent {
+  _topicHeader:string = 'เพิ่มรายชื่อผู้พักอาศัย'
   alertError: any
 
   constructor(
@@ -25,7 +24,9 @@ export class CreateUserComponent {
   //   this.router.navigate(['/manager/form-user'])
   // }
   submitFormCreate(result: any) {
-    if(result.name == "" || result.mobileNo == "" || result.gender == ""|| result.DateOfWorker == "" || result.employeeId == "" || result.DateOfBirth == "" || result.pass1 == "" || result.pass2 == ""||result.level ==''){
+    console.log('submitFormCreate',result);
+    
+    if(result.name == "" || result.mobileNo == "" || result.gender == ""|| result.DateOfWorker == "" || result.employeeId == "" || result.DateOfBirth == "" || result.pass1 == "" || result.pass2 == ""){
       this.alertError = JSON.stringify("กรุณากรอกข้อมูลให้ครบทุกช่อง")
     } else if(result.pass1 !== result.pass2){
       this.alertError = JSON.stringify("กรุณากรอกรหัสผ่านให้ถูกต้อง")
@@ -37,8 +38,8 @@ export class CreateUserComponent {
   async createUser(result:any) {
     result.createTime = new Date();
     delete result.pass2
-    const docData = result
-    await setDoc(doc(firestore, "Caregivers",result.employeeId), docData);
+    const docData = result    
+    await setDoc(doc(firestore, "Residents",result.employeeId), docData);
     this.location.back()
   }
 

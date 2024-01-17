@@ -22,8 +22,6 @@
           <input #image type="file" class="custom-file-input" id="image" name="image">
           <label class="custom-file-label" for="image">Choose file</label>
         </div> -->
-        <label for="DateOfWorker">วันเริ่มงาน :</label>
-        <input #DateOfWorker type="date" class="form-control" name="DateOfWorker" placeholder="" ngModel required>
       <label for="DateOfBirth">วันเกิด :</label>
       <input #DateOfBirth type="date" class="form-control" name="DateOfBirth" placeholder="" ngModel required>
       <label for="gender">เพศ :</label>
@@ -38,7 +36,11 @@
         </label>
       </div>
       <br>
-      <label for="employeeId">EmployeeID : สาขา/ปี/ลำดับพนักงาน</label> 
+      <label for="DateOfWorker">วันเริ่มงาน :</label>
+      <input #DateOfWorker type="date" class="form-control" name="DateOfWorker" placeholder="" ngModel required>
+      <label for="level">ตำแหน่งงาน :</label>
+      <input name="level" type="text" class="form-control" placeholder="" ngModel required>
+      <label for="employeeId">EmployeeID :</label> 
       <!-- NJY/64/015 -->
       <input type="text" class="form-control" name="employeeId" placeholder="" ngModel required>
       <label for="pass1">สร้างรหัสผ่าน :</label>
