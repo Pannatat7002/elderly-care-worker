@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { WorkDatabaseService } from 'src/app/service/work-service/work-database.service';
 import { Location } from '@angular/common'
 import { collection, getDocs, getDoc, setDoc, doc, where, query, addDoc, updateDoc, deleteDoc, Timestamp, arrayUnion, arrayRemove } from 'firebase/firestore';
-import { firestore } from "../../../../../app/service/config/firebaseConfig";
+import { firestore } from "../../../service/config/firebaseConfig";
 
 @Component({
   selector: 'app-residents-manager',

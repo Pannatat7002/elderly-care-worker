@@ -8,15 +8,18 @@ import { WorkScheduleComponent } from './landing-page/component/work-schedule/wo
 import { EmployeeProfileComponent } from './landing-page/component/employee-profile/employee-profile.component';
 import { HomePageComponent } from './landing-page/component/home-page/home-page.component';
 import { ManagerPageComponent } from './manager-page/manager-page.component';
-import { DashboardComponent } from './manager-page/container/dashboard/dashboard.component';
+// import { DashboardComponent } from './manager-page/container/dashboard/dashboard.component';
 // import { CreateUserComponent } from './manager-page/container/component/create-user/create-user.component';
-import { MenuTopicComponent } from './manager-page/container/component/menu-topic/menu-topic.component';
-import { EmployeeManagerComponent } from './manager-page/container/component/employee-manager/employee-manager.component';
+// import { MenuTopicComponent } from './manager-page/container/component/menu-topic/menu-topic.component';
+import { EmployeeManagerComponent } from './manager-page/components/employee-manager/employee-manager.component';
 import { CreateUserComponent } from './manager-page/form-create/create-user/create-user.component';
 import { UpdateUserComponent } from './manager-page/form-create/update-user/update-user.component';
-import { ResidentsManagerComponent } from './manager-page/container/component/residents-manager/residents-manager.component';
+import { ResidentsManagerComponent } from './manager-page/components/residents-manager/residents-manager.component';
 import { CreateResidentsComponent } from './manager-page/form-create/create-residents/create-residents.component';
 import { UpdateResidentsComponent } from './manager-page/form-create/update-residents/update-residents.component';
+import { MenuTopicComponent } from './manager-page/container/menu-topic/menu-topic.component';
+import { IndividualGroupComponent } from './manager-page/container/individual-group/individual-group.component';
+import { ActivitiesGroupComponent } from './manager-page/container/activities-group/activities-group.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
@@ -55,6 +58,8 @@ const routes: Routes = [
       { path: 'form-Update', component: UpdateUserComponent,data: { animation: 'Signin-page' } },
       { path: 'Residents-Create', component: CreateResidentsComponent,data: { animation: 'Signin-page' } },
       { path: 'Residents-Update', component: UpdateResidentsComponent,data: { animation: 'Signin-page' } },
+      { path: 'Activities-Group', component: ActivitiesGroupComponent,data: { animation: 'Signin-page' } },
+      { path: 'Individual-Group', component: IndividualGroupComponent,data: { animation: 'Signin-page' } },
     ]
   },
   {

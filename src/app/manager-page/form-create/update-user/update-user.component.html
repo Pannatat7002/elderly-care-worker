@@ -6,9 +6,9 @@
   <div class="container">
     <!-- <h3>ข้อมูลพนักงาน</h3> -->
     <form class="form-group" #FormCreateUser="ngForm" (ngSubmit)="submitFormCreate(FormCreateUser.value)">
-      <label for="name">ชื่อ-นามสกุล :</label>
+      <label for="name">ชื่อ-นามสกุล(ผู้อาศัย)  :</label>
       <input name="name" type="text" class="form-control" placeholder="{{userData.name}}" ngModel required>
-      <label for="mobileNo">เบอร์ติดต่อ :</label>
+      <label for="mobileNo">เบอร์ติดต่อ(ผู้อาศัย)  :</label>
       <input name="mobileNo" type="text" class="form-control" placeholder="{{userData.mobileNo}}" ngModel required>
       <label for="DateOfBirth">วันเกิด :</label>
       <input #DateOfBirth type="date" class="form-control" name="DateOfBirth" placeholder="{{userData.date}}" ngModel

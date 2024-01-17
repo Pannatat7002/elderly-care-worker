@@ -21,9 +21,9 @@ import { WorkDatabaseService } from './service/work-service/work-database.servic
 import { NavBarComponent } from './landing-page/component/nav-bar/nav-bar.component';
 import { BackNavbarComponent } from './landing-page/component/back-navbar/back-navbar.component';
 import { ManagerPageComponent } from './manager-page/manager-page.component';
-import { DashboardComponent } from './manager-page/container/dashboard/dashboard.component';
-import { MenuTopicComponent } from './manager-page/container/component/menu-topic/menu-topic.component';
-import { EmployeeManagerComponent } from './manager-page/container/component/employee-manager/employee-manager.component';
+// import { DashboardComponent } from './manager-page/container/dashboard/dashboard.component';
+// import { MenuTopicComponent } from './manager-page/container/component/menu-topic/menu-topic.component';
+import { EmployeeManagerComponent } from './manager-page/components/employee-manager/employee-manager.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NavBarMgComponent } from './manager-page/container/component/nav-bar-mg/nav-bar-mg.component';
@@ -33,7 +33,10 @@ import { CreateUserComponent } from './manager-page/form-create/create-user/crea
 import { UpdateUserComponent } from './manager-page/form-create/update-user/update-user.component';
 import { CreateResidentsComponent } from './manager-page/form-create/create-residents/create-residents.component';
 import { UpdateResidentsComponent } from './manager-page/form-create/update-residents/update-residents.component';
-import { ResidentsManagerComponent } from './manager-page/container/component/residents-manager/residents-manager.component';
+import { ResidentsManagerComponent } from './manager-page/components/residents-manager/residents-manager.component';
+import { ActivitiesGroupComponent } from './manager-page/container/activities-group/activities-group.component';
+import { IndividualGroupComponent } from './manager-page/container/individual-group/individual-group.component';
+import { MenuTopicComponent } from './manager-page/container/menu-topic/menu-topic.component';
 
 export function loadCrucialData() {
   return function() {
@@ -67,14 +70,15 @@ export function delay(delay: number) {
     NavBarComponent,
     BackNavbarComponent,
     ManagerPageComponent,
-    DashboardComponent,
     CreateUserComponent,
     MenuTopicComponent,
     EmployeeManagerComponent,
     UpdateUserComponent,
     CreateResidentsComponent,
     UpdateResidentsComponent,
-    ResidentsManagerComponent
+    ResidentsManagerComponent,
+    ActivitiesGroupComponent,
+    IndividualGroupComponent
     // NavBarMgComponent
   ],
   imports: [

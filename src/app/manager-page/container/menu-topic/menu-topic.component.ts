@@ -2,7 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { WorkDatabaseService } from 'src/app/service/work-service/work-database.service';
-import { AuthService } from '../../../../../app/service/auth-service/auth.service'
+import { AuthService } from '../../../service/auth-service/auth.service'
 
 @Component({
   selector: 'app-menu-topic',
@@ -58,6 +58,12 @@ constructor(
     } 
     if(topic == "รายชื่อผู้พักอาศัย"){
       this.router.navigate(['/manager/residents'])
+    } 
+    if(topic == "สร้างงานกลุ่ม"){
+      this.router.navigate(['/manager/Activities-Group'])
+    } 
+    if(topic == "สร้างงานเฉพาะบุคคล"){
+      this.router.navigate(['/manager/Individual-Group'])
     } 
   }
 
