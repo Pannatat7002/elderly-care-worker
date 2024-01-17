@@ -15,7 +15,7 @@ export class ResidentsManagerComponent {
   currentEmployee: any = []
   currentDuies:any = []
   _selcetEmp:any = ''
-  _topicHeader:string = 'รายชื่อผู้พักอาศัย'
+  _topicHeader:string = 'แสดงรายชื่อผู้พักอาศัย'
   selectUser:any = []
 
   constructor(

@@ -9,7 +9,7 @@ import { Location } from '@angular/common'
   styleUrls: ['./create-residents.component.scss']
 })
 export class CreateResidentsComponent {
-  _topicHeader:string = 'เพิ่มรายชื่อผู้พักอาศัย'
+  _topicHeader:string = 'กรอกข้อมูลผู้พักอาศัย'
   alertError: any
 
   constructor(
