@@ -25,7 +25,7 @@ export class CreateUserComponent {
   //   this.router.navigate(['/manager/form-user'])
   // }
   submitFormCreate(result: any) {
-    if(result.name == "" || result.mobileNo == "" || result.gender == ""|| result.DateOfWorker == "" || result.employeeId == "" || result.DateOfBirth == "" || result.pass1 == "" || result.pass2 == ""){
+    if(result.name == "" || result.mobileNo == "" || result.gender == ""|| result.DateOfWorker == "" || result.employeeId == "" || result.DateOfBirth == "" || result.pass1 == "" || result.pass2 == ""||result.level ==''){
       this.alertError = JSON.stringify("กรุณากรอกข้อมูลให้ครบทุกช่อง")
     } else if(result.pass1 !== result.pass2){
       this.alertError = JSON.stringify("กรุณากรอกรหัสผ่านให้ถูกต้อง")
@@ -35,6 +35,8 @@ export class CreateUserComponent {
   }
 
   async createUser(result:any) {
+    result.createTime = new Date();
+    delete result.pass2
     const docData = result
     await setDoc(doc(firestore, "Caregivers",result.employeeId), docData);
     this.location.back()

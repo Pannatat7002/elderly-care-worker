@@ -24,6 +24,8 @@ export class CreateResidentsComponent {
   //   this.router.navigate(['/manager/form-user'])
   // }
   submitFormCreate(result: any) {
+    console.log('submitFormCreate',result);
+    
     if(result.name == "" || result.mobileNo == "" || result.gender == ""|| result.DateOfWorker == "" || result.employeeId == "" || result.DateOfBirth == "" || result.pass1 == "" || result.pass2 == ""){
       this.alertError = JSON.stringify("กรุณากรอกข้อมูลให้ครบทุกช่อง")
     } else if(result.pass1 !== result.pass2){
@@ -34,7 +36,9 @@ export class CreateResidentsComponent {
   }
 
   async createUser(result:any) {
-    const docData = result
+    result.createTime = new Date();
+    delete result.pass2
+    const docData = result    
     await setDoc(doc(firestore, "Residents",result.employeeId), docData);
     this.location.back()
   }
