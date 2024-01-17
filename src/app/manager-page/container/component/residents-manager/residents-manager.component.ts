@@ -15,7 +15,7 @@ export class ResidentsManagerComponent {
   currentEmployee: any = []
   currentDuies:any = []
   _selcetEmp:any = ''
-  _topicHeader:string = 'รายชื่อผู้พักอาศัย'
+  _topicHeader:string = 'แสดงรายชื่อผู้พักอาศัย'
   selectUser:any = []
 
   constructor(
@@ -58,15 +58,15 @@ export class ResidentsManagerComponent {
   }
 
   selectEmployee(data:any){
-    this._selcetEmp = data.employee
-    this.objectDuties(data)
+    this._selcetEmp = data
+    // this.objectDuties(data)
   }
 
   goToCreateUser(){
     this.router.navigate(['/manager/Residents-Create'])
   }
   goToUpdateUser(data:any){
-    this.router.navigate(['/manager/Residents-Update'],{ queryParams: { ID: data.employeeId }})
+    this.router.navigate(['/manager/Residents-Update'],{ queryParams: { ID: data.username }})
   }
 
   deleteUser(data:any){
@@ -75,7 +75,7 @@ export class ResidentsManagerComponent {
 
   
   async deleteDoc() { //Pass
-    await deleteDoc(doc(firestore, "Residents", this.selectUser.employeeId));
+    await deleteDoc(doc(firestore, "Residents", this.selectUser.username));
     this.queryEmployee()
   }
 }

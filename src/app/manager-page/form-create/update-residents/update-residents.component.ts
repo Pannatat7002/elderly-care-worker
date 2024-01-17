@@ -20,9 +20,8 @@ export class UpdateResidentsComponent {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      let employeeId = params['ID'];
-      console.log('employeeId', employeeId);
-      this.querySigle(employeeId)
+      let username = params['ID'];
+      this.querySigle(username)
     });
 
   }
@@ -47,12 +46,12 @@ export class UpdateResidentsComponent {
         console.log('this.userData',this.userData);
       }
     })
-    await setDoc(doc(firestore, "Residents", this.userData.employeeId), this.userData);
+    await setDoc(doc(firestore, "Residents", this.userData.username), this.userData);
     this.location.back()
   }
 
-  async querySigle(employeeId: any) {
-    const data = query(collection(firestore, 'Residents'), where("employeeId", "==", employeeId));
+  async querySigle(username: any) {
+    const data = query(collection(firestore, 'Residents'), where("username", "==", username));
     console.log('Sigle data', data);
     const querySnapshot = await getDocs(data);
     querySnapshot.forEach((doc) => {

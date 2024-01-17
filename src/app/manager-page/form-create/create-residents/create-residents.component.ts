@@ -9,7 +9,7 @@ import { Location } from '@angular/common'
   styleUrls: ['./create-residents.component.scss']
 })
 export class CreateResidentsComponent {
-  _topicHeader:string = 'เพิ่มรายชื่อผู้พักอาศัย'
+  _topicHeader:string = 'กรอกข้อมูลผู้พักอาศัย'
   alertError: any
 
   constructor(
@@ -26,7 +26,7 @@ export class CreateResidentsComponent {
   submitFormCreate(result: any) {
     console.log('submitFormCreate',result);
     
-    if(result.name == "" || result.mobileNo == "" || result.gender == ""|| result.DateOfWorker == "" || result.employeeId == "" || result.DateOfBirth == "" || result.pass1 == "" || result.pass2 == ""){
+    if(result.name == "" || result.mobileNo == "" || result.gender == ""|| result.DateOfWorker == "" || result.username == "" || result.DateOfBirth == "" || result.pass1 == "" || result.pass2 == ""){
       this.alertError = JSON.stringify("กรุณากรอกข้อมูลให้ครบทุกช่อง")
     } else if(result.pass1 !== result.pass2){
       this.alertError = JSON.stringify("กรุณากรอกรหัสผ่านให้ถูกต้อง")
@@ -39,7 +39,7 @@ export class CreateResidentsComponent {
     result.createTime = new Date();
     delete result.pass2
     const docData = result    
-    await setDoc(doc(firestore, "Residents",result.employeeId), docData);
+    await setDoc(doc(firestore, "Residents",result.username), docData);
     this.location.back()
   }
 

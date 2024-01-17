@@ -14,7 +14,7 @@ export class EmployeeManagerComponent {
   currentEmployee: any = []
   currentDuies:any = []
   _selcetEmp:any = ''
-  _topicHeader:string = 'รายชื่อพนักงาน'
+  _topicHeader:string = 'แสดงรายชื่อผู้ดูแล'
   selectUser:any = []
   constructor(
     private router: Router,

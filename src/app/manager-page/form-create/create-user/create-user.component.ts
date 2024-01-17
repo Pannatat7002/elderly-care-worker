@@ -10,7 +10,7 @@ import { Location } from '@angular/common'
   styleUrls: ['./create-user.component.scss']
 })
 export class CreateUserComponent {
-  _topicHeader:string = 'เพิ่มรายชื่อพนักงาน'
+  _topicHeader:string = 'กรอกข้อมูลผู้ดูแล'
   alertError: any
 
   constructor(
