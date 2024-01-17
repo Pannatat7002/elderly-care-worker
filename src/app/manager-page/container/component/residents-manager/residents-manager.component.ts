@@ -58,8 +58,8 @@ export class ResidentsManagerComponent {
   }
 
   selectEmployee(data:any){
-    this._selcetEmp = data.employee
-    this.objectDuties(data)
+    this._selcetEmp = data
+    // this.objectDuties(data)
   }
 
   goToCreateUser(){

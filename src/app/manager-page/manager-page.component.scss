@@ -8,8 +8,8 @@
 .container-box  {
     background: #f4f4f4;
     min-height: 100vh;
-    .content-body {
-        width: 100%;
-        overflow: scroll;
-    }
+    width: 100%;
+    overflow: hidden;
+    // .content-body {
+    // }
 }

@@ -1,64 +1,89 @@
 <div class="container-em">
-    <!-- <button (click)="back()"><i class="bi bi-arrow-left-circle-fill" style="font-size: 48px;color:#6f42c1;"></i></button> -->
-    <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
-    <div class="container tools">
-      <button (click)="goToCreateUser()">+ เพิ่มรายชื่อผู้พักอาศัย</button>
-      <i (click)="queryEmployee()" class="bi bi-arrow-clockwise"></i>
+  <!-- <button (click)="back()"><i class="bi bi-arrow-left-circle-fill" style="font-size: 48px;color:#6f42c1;"></i></button> -->
+  <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
+  <div class="container tools">
+    <button (click)="goToCreateUser()">+ เพิ่มรายชื่อผู้พักอาศัย</button>
+    <i (click)="queryEmployee()" class="bi bi-arrow-clockwise"></i>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>userID</th>
+      <th>ชื่อ-นามสกุล</th>
+      <th>เบอร์ติดต่อ</th>
+      <th>วันเกิด</th>
+      <th>เพศ</th>
+      <th>ประเภท </th>
+      <th>การวินิจฉัยทางการแพทย์</th>
+      <th>ประวัติการเจ็บป่วยปัจจุบัน</th>
+      <th>ประวัติการผ่าตัด</th>
+      <th>โรคประจำตัว</th>
+      <th>การแพ้ยา</th>
+      <th>สิทธิของโรงพยาบาล</th>
+      <th>การรักษาในโรงพยาบาลล่าสุด</th>
+      <th>ชื่อ-นามสกุล(ผู้จ้าง)</th>
+      <th>เบอร์ติดต่อ(ผู้จ้าง)</th>
+      <th>ชื่อ-นามสกุล(ญาติ)</th>
+      <th>เบอร์ติดต่อ(ญาติ)</th>
+      <th>หมายเหตุ</th>
+      <th>เข้าเมื่อ</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let dataem of currentEmployee;">
+    <tr>
+      <td>{{dataem.username}}</td>
+      <td>{{dataem.name}}</td>
+      <td>{{dataem.mobileNo}}</td>
+      <td>{{dataem.birthday}}</td>
+      <td>{{dataem.optradio}}</td>
+      <td>{{dataem.residentType}}</td>
+      <td>{{dataem.medicalDiagnose}}</td>
+      <td>{{dataem.currentIllness}}</td>
+      <td>{{dataem.surgeryHistory}}</td>
+      <td>{{dataem.congenitalDisease}}</td>
+      <td>{{dataem.drugAllergy}}</td>
+      <td>{{dataem.hospitalRights}}</td>
+      <td>{{dataem.LatestHospitalTreatment}}</td>
+      <td>{{dataem.nameEmployer}}</td>
+      <td>{{dataem.mobileNoEmployer}}</td>
+      <td>{{dataem.nameRelative}}</td>
+      <td>{{dataem.mobileNoRelative}}</td>
+      <td>{{dataem.comment}}</td>
+      <td>{{dataem.movingIn}}</td>
+      <td><button type="button" class="btn btn-warning" (click)="goToUpdateUser(dataem)">แก้ไข</button></td>
+      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"
+          (click)="deleteUser(dataem)">ลบ</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- The Modal -->
+<div class="modal fade" id="DeleteUser">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">ยืนยันการลบข้อมูล</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        ชื่อ : {{selectUser.name}}
+        <br>
+        id : {{selectUser.employeeId}}
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ไม่</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deleteDoc()">ใช้</button>
+      </div>
+
     </div>
   </div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>userID</th>
-        <th>ชื่อ-นามสกุล</th>
-        <th>เบอร์ติดต่อ</th>
-        <th>วันเกิด</th>
-        <th>เพศ</th>
-        <th>comment</th>
-        <th></th>
-        <!-- <th></th> -->
-      </tr>
-    </thead>
-    <tbody *ngFor="let dataem of currentEmployee;">
-      <tr>
-        <td>{{dataem.employeeId}}</td>
-        <td>{{dataem.name}}</td>
-        <td>{{dataem.mobileNo}}</td>
-        <td>{{dataem.DateOfBirth}}</td>
-        <td>{{dataem.optradio}}</td>
-        <td>{{dataem.comment}}</td>
-        <td><button type="button" class="btn btn-warning" (click)="goToUpdateUser(dataem)">แก้ไข</button></td>
-        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser" (click)="deleteUser(dataem)">ลบ</button></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-    <!-- The Modal -->
-    <div class="modal fade" id="DeleteUser">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-        
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">ยืนยันการลบข้อมูล</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          
-          <!-- Modal body -->
-          <div class="modal-body">
-            ชื่อ : {{selectUser.name}} 
-            <br>
-            id : {{selectUser.employeeId}}
-          </div>
-          
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">ไม่</button>
-            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deleteDoc()">ใช้</button>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-  
+</div>

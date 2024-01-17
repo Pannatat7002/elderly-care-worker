@@ -34,16 +34,16 @@ h1 {
 
 }
 
-.containers {
+.container{
   padding: 0px;
   height: 100vh;
-  width: 100%;
+  // width: 100%;
   // background: linear-gradient(to top left, #0000ff 0%, #66ffff 100%);
   position: relative;
   overflow: hidden;
   // background-image: url("https://www.appsheet.com/image/getremoteimageurl?url=https%3A%2F%2Fwww.appsheet.com%3A443%2Ffsimage.png%3Fappid%3D7cd1e497-7302-4534-86b1-b6e8592e188b%26datasource%3Dgoogle%26filename%3DDocId%3D1pW8QzYN8t0lA5JC_G91RCkaKovhVZpML%26signature%3D27462c020ccfde7d0e455dd9853368d0cec60a7413cf59142b6423a743ec8841%26tableprovider%3Dgoogle%26userid%3D777845&width=1920");
   // background-repeat: no-repeat;
-  background-color: #F5F5F5;
+  // background-color: #F5F5F5;
   // background-size: 100% 100vh;
 }
 .title-header {

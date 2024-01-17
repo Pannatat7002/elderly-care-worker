@@ -28,36 +28,37 @@
       <td>{{dataem.optradio}}</td>
       <td>{{dataem.comment}}</td>
       <td><button type="button" class="btn btn-warning" (click)="goToUpdateUser(dataem)">แก้ไข</button></td>
-      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser" (click)="deleteUser(dataem)">ลบ</button></td>
+      <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"
+          (click)="deleteUser(dataem)">ลบ</button></td>
     </tr>
   </tbody>
 </table>
 
 
-  <!-- The Modal -->
-  <div class="modal fade" id="DeleteUser">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">ยืนยันการลบข้อมูล</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          ชื่อ : {{selectUser.name}} 
-          <br>
-          id : {{selectUser.employeeId}}
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">ไม่</button>
-          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deleteDoc()">ใช้</button>
-        </div>
-        
+<!-- The Modal -->
+<div class="modal fade" id="DeleteUser">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">ยืนยันการลบข้อมูล</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        ชื่อ : {{selectUser.name}}
+        <br>
+        id : {{selectUser.employeeId}}
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ไม่</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deleteDoc()">ใช้</button>
+      </div>
+
     </div>
   </div>
+</div>
