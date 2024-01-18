@@ -1,0 +1,63 @@
+.container {
+    .tools {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        button {
+            background: #6f42c1;
+            padding: 12px;
+            color: #FFF;
+            cursor: pointer;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            border: none;
+            font-size: 26px;
+        }
+
+        i {
+            padding: 12px;
+            color: #6f42c1;
+            cursor: pointer;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 42px;
+        }
+    }
+
+    .content {
+        display: grid;
+        justify-content: normal;
+        align-items: center;
+
+        .card-activites {
+            display: grid;
+            grid-template-columns: 40% 40% 20%;
+            align-items: center;
+            margin: 8px 0px;
+            background-color: rgb(171 126 251 / 24%);
+            border-radius: 12px;
+            .title {
+                text-align: left;
+                // background: #673ab73d;
+                height: 100%;
+                // outline: 5px solid #ffffff;
+                border-radius: 12px;
+                padding: 10px;
+                p{
+                    margin: 0;
+                    height: 75px;
+                    font-size: 22px;
+                    overflow: scroll;
+                    line-height: 19px;
+                }
+            }
+        }
+    }
+}
