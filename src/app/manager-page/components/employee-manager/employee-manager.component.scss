@@ -96,8 +96,9 @@
 .table{
     font-family: "db_heavent_regular";
     overflow: scroll;
-    display: list-item;
-    // text-align: center;
+    @media screen and (max-width: 900px) {
+        display: list-item;
+    }
     thead>tr>th{
         padding: 6px;
         font-size: 20px;

@@ -94,7 +94,9 @@
 .table{
     font-family: "db_heavent_regular";
     overflow: scroll;
-    display: list-item;
+    // @media screen and (max-width: 900px) {
+        display: list-item;
+    // }
     // text-align: center;
     thead>tr>th{
         padding: 6px;
