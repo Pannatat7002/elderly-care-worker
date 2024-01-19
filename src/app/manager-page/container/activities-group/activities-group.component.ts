@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./activities-group.component.scss']
 })
 export class ActivitiesGroupComponent {
-  _topicHeader:string = 'ข้อมูลกิจกรรมกลุ่ม'
+  _topicHeader:string = 'ส่งเสริมจิตใจและสังคม'
 
 }

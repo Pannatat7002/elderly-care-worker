@@ -20,6 +20,7 @@ import { UpdateResidentsComponent } from './manager-page/form-create/update-resi
 import { MenuTopicComponent } from './manager-page/container/menu-topic/menu-topic.component';
 import { IndividualGroupComponent } from './manager-page/container/individual-group/individual-group.component';
 import { ActivitiesGroupComponent } from './manager-page/container/activities-group/activities-group.component';
+import { GeneralGroupComponent } from './manager-page/container/general-group/general-group.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
@@ -60,6 +61,7 @@ const routes: Routes = [
       { path: 'Residents-Update', component: UpdateResidentsComponent,data: { animation: 'Signin-page' } },
       { path: 'Activities-Group', component: ActivitiesGroupComponent,data: { animation: 'Signin-page' } },
       { path: 'Individual-Group', component: IndividualGroupComponent,data: { animation: 'Signin-page' } },
+      { path: 'General-Group', component: GeneralGroupComponent,data: { animation: 'Signin-page' } },
     ]
   },
   {

@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./individual-group.component.scss']
 })
 export class IndividualGroupComponent {
-  _topicHeader:string = 'individual-group'
+  _topicHeader:string = 'ส่งเสริมสุภาพร่างกาย'
 
 }

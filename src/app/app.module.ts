@@ -37,6 +37,7 @@ import { ResidentsManagerComponent } from './manager-page/components/residents-m
 import { ActivitiesGroupComponent } from './manager-page/container/activities-group/activities-group.component';
 import { IndividualGroupComponent } from './manager-page/container/individual-group/individual-group.component';
 import { MenuTopicComponent } from './manager-page/container/menu-topic/menu-topic.component';
+import { GeneralGroupComponent } from './manager-page/container/general-group/general-group.component';
 
 export function loadCrucialData() {
   return function() {
@@ -78,7 +79,8 @@ export function delay(delay: number) {
     UpdateResidentsComponent,
     ResidentsManagerComponent,
     ActivitiesGroupComponent,
-    IndividualGroupComponent
+    IndividualGroupComponent,
+    GeneralGroupComponent
     // NavBarMgComponent
   ],
   imports: [

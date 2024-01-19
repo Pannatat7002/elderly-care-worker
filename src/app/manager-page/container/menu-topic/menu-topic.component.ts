@@ -65,6 +65,9 @@ constructor(
     if(topic == "สร้างงานเฉพาะบุคคล"){
       this.router.navigate(['/manager/Individual-Group'])
     } 
+    if(topic == "งานทั่วไป"){
+      this.router.navigate(['/manager/General-Group'])
+    } 
   }
 
   // async checkExpire(){
