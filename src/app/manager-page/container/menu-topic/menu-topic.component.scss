@@ -9,13 +9,13 @@
 
     .manager-group {
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 33% 33% 33%;
 
         .insight-show {
             display: flex;
             margin: 5px;
             // height: 150px;
-            height: 190px;
+            height: 100px;
             background: #FFF;
             border-radius: 14px;
             justify-content: center;
