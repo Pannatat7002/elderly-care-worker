@@ -21,6 +21,7 @@ import { MenuTopicComponent } from './manager-page/container/menu-topic/menu-top
 import { IndividualGroupComponent } from './manager-page/container/individual-group/individual-group.component';
 import { ActivitiesGroupComponent } from './manager-page/container/activities-group/activities-group.component';
 import { GeneralGroupComponent } from './manager-page/container/general-group/general-group.component';
+import { CkeckWorkerGroupComponent } from './manager-page/container/ckeck-worker-group/ckeck-worker-group.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
@@ -62,6 +63,7 @@ const routes: Routes = [
       { path: 'Activities-Group', component: ActivitiesGroupComponent,data: { animation: 'Signin-page' } },
       { path: 'Individual-Group', component: IndividualGroupComponent,data: { animation: 'Signin-page' } },
       { path: 'General-Group', component: GeneralGroupComponent,data: { animation: 'Signin-page' } },
+      { path: 'Ckeck-Worker-Group', component: CkeckWorkerGroupComponent,data: { animation: 'Signin-page' } },
     ]
   },
   {

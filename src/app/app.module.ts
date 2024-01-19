@@ -38,6 +38,8 @@ import { ActivitiesGroupComponent } from './manager-page/container/activities-gr
 import { IndividualGroupComponent } from './manager-page/container/individual-group/individual-group.component';
 import { MenuTopicComponent } from './manager-page/container/menu-topic/menu-topic.component';
 import { GeneralGroupComponent } from './manager-page/container/general-group/general-group.component';
+import { ManagerPageModule } from './manager-page/manager-page.module';
+import { CkeckWorkerGroupComponent } from './manager-page/container/ckeck-worker-group/ckeck-worker-group.component';
 
 export function loadCrucialData() {
   return function() {
@@ -80,7 +82,8 @@ export function delay(delay: number) {
     ResidentsManagerComponent,
     ActivitiesGroupComponent,
     IndividualGroupComponent,
-    GeneralGroupComponent
+    GeneralGroupComponent,
+    CkeckWorkerGroupComponent
     // NavBarMgComponent
   ],
   imports: [
@@ -94,6 +97,7 @@ export function delay(delay: number) {
     BrowserAnimationsModule,
     MatTabsModule,
     MatCheckboxModule,
+    ManagerPageModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'

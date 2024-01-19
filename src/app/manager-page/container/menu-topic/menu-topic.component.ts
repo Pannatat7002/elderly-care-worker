@@ -68,6 +68,9 @@ constructor(
     if(topic == "งานทั่วไป"){
       this.router.navigate(['/manager/General-Group'])
     } 
+    if(topic == "ตรวจงานสอบงาน"){
+      this.router.navigate(['/manager/Ckeck-Worker-Group'])
+    } 
   }
 
   // async checkExpire(){
