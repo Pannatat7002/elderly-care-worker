@@ -41,6 +41,10 @@
                 }
             }
         }
+        .insight-show:hover{
+          scale: 1.05;
+          box-shadow: 3px 3px 3px ;
+        }
     }
     .Legal-Entity-group {
         display: grid;
