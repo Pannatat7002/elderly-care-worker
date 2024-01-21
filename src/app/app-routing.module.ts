@@ -22,6 +22,8 @@ import { IndividualGroupComponent } from './manager-page/container/individual-gr
 import { ActivitiesGroupComponent } from './manager-page/container/activities-group/activities-group.component';
 import { GeneralGroupComponent } from './manager-page/container/general-group/general-group.component';
 import { CkeckWorkerGroupComponent } from './manager-page/container/ckeck-worker-group/ckeck-worker-group.component';
+import { CreateActivitiesComponent } from './manager-page/form-create/create-activities/create-activities.component';
+import { UpdateActivitiesComponent } from './manager-page/form-create/update-activities/update-activities.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/signin-page', pathMatch: 'full' },
@@ -60,6 +62,8 @@ const routes: Routes = [
       { path: 'form-Update', component: UpdateUserComponent,data: { animation: 'Signin-page' } },
       { path: 'Residents-Create', component: CreateResidentsComponent,data: { animation: 'Signin-page' } },
       { path: 'Residents-Update', component: UpdateResidentsComponent,data: { animation: 'Signin-page' } },
+      { path: 'Activities-Create', component: CreateActivitiesComponent,data: { animation: 'Signin-page' } },
+      { path: 'Activities-Update', component: UpdateActivitiesComponent,data: { animation: 'Signin-page' } },
       { path: 'Activities-Group', component: ActivitiesGroupComponent,data: { animation: 'Signin-page' } },
       { path: 'Individual-Group', component: IndividualGroupComponent,data: { animation: 'Signin-page' } },
       { path: 'General-Group', component: GeneralGroupComponent,data: { animation: 'Signin-page' } },

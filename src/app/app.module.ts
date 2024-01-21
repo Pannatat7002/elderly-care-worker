@@ -1,6 +1,6 @@
-import { NgModule, isDevMode,APP_INITIALIZER } from '@angular/core';
+import { NgModule, isDevMode, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {config} from '../../src/app/service/config/firebaseConfig'
+import { config } from '../../src/app/service/config/firebaseConfig'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -27,8 +27,8 @@ import { EmployeeManagerComponent } from './manager-page/components/employee-man
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { NavBarMgComponent } from './manager-page/container/component/nav-bar-mg/nav-bar-mg.component';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CreateUserComponent } from './manager-page/form-create/create-user/create-user.component';
 import { UpdateUserComponent } from './manager-page/form-create/update-user/update-user.component';
 import { CreateResidentsComponent } from './manager-page/form-create/create-residents/create-residents.component';
@@ -40,9 +40,11 @@ import { MenuTopicComponent } from './manager-page/container/menu-topic/menu-top
 import { GeneralGroupComponent } from './manager-page/container/general-group/general-group.component';
 import { ManagerPageModule } from './manager-page/manager-page.module';
 import { CkeckWorkerGroupComponent } from './manager-page/container/ckeck-worker-group/ckeck-worker-group.component';
+import { CreateActivitiesComponent } from './manager-page/form-create/create-activities/create-activities.component';
+import { UpdateActivitiesComponent } from './manager-page/form-create/update-activities/update-activities.component';
 
 export function loadCrucialData() {
-  return function() {
+  return function () {
     // or use UserService
     WorkDatabaseService
     return delay(3000);
@@ -50,9 +52,9 @@ export function loadCrucialData() {
 }
 
 export function delay(delay: number) {
-  return function() {
-    return new Promise(function(resolve) {
-        setTimeout(resolve, delay);
+  return function () {
+    return new Promise(function (resolve) {
+      setTimeout(resolve, delay);
     });
   }
 }
@@ -83,16 +85,16 @@ export function delay(delay: number) {
     ActivitiesGroupComponent,
     IndividualGroupComponent,
     GeneralGroupComponent,
-    CkeckWorkerGroupComponent
-    // NavBarMgComponent
-  ],
+    CkeckWorkerGroupComponent,
+    CreateActivitiesComponent,
+    UpdateActivitiesComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
     FormsModule,
-    ReactiveFormsModule ,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatTabsModule,
@@ -102,7 +104,7 @@ export function delay(delay: number) {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    
+
 
 
   ],

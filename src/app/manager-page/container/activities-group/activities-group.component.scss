@@ -1,11 +1,12 @@
-.container {
-    .tools {
+.container-em {
+    display: block;
+    justify-content: center;
+    .tools{
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         margin-bottom: 1rem;
-
-        button {
+        button{
             background: #6f42c1;
             padding: 12px;
             color: #FFF;
@@ -14,12 +15,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 12px;
+            border-radius: 24px;
             border: none;
             font-size: 26px;
         }
-
-        i {
+        i{
             padding: 12px;
             color: #6f42c1;
             cursor: pointer;
@@ -27,37 +27,84 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 24px;
+            border: none;
             font-size: 42px;
         }
     }
 
-    .content {
-        display: grid;
-        justify-content: normal;
-        align-items: center;
+    .content-em {
 
-        .card-activites {
+        .personImg {
+            font-size: 45PX;
+            color: #6c757d;
+            margin: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .list-em {
             display: grid;
-            grid-template-columns: 40% 40% 20%;
-            align-items: center;
-            margin: 8px 0px;
-            background-color: rgb(171 126 251 / 24%);
-            border-radius: 12px;
-            .title {
-                text-align: left;
-                // background: #673ab73d;
-                height: 100%;
-                // outline: 5px solid #ffffff;
-                border-radius: 12px;
-                padding: 10px;
-                p{
-                    margin: 0;
-                    height: 75px;
-                    font-size: 22px;
-                    overflow: scroll;
-                    line-height: 19px;
+            grid-template-columns: 50% 50%;
+            border-bottom: 2px solid #6c757d;
+            .media-body {
+                // display: flex;
+                // justify-content: space-between;
+                font-size: 24px;
+                // align-items: end;
+
+                .media {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    // border: 1px solid black;
+                    // border-radius: 8px;
+                    margin: 6px;
+                    .media-body{
+                        display: grid;
+                        // grid-template-columns: 70% 30%;
+                    }
+                }
+            }
+
+            // .media{
+            //     display: flex;
+            //     justify-content: center;
+            //     align-items: center;
+            // }
+            .tab-em {
+                color: rgba(0, 0, 0, 0.644);
+            }
+
+            .tool-bar {
+                display: grid;
+                grid-template-columns: 70% 30%;
+                // justify-content: space-around;
+                align-items: center;
+
+                div {
+                    font-size: 24px;
                 }
             }
         }
+    }
+}
+
+.table{
+    font-family: "db_heavent_regular";
+    overflow: scroll;
+    // @media screen and (max-width: 900px) {
+        display: list-item;
+    // }
+    // text-align: center;
+    thead>tr>th{
+        padding: 6px;
+        font-size: 20px;
+        min-width: 130px;
+    }
+    td{
+        font-size: 18px;
+        padding: 6px;
     }
 }
