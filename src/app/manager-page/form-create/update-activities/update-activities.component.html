@@ -1,1 +1,33 @@
-<p>update-activities works!</p>
+<div class="container-em">
+    <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
+  </div>
+  <!-- Modal body -->
+  <div class="modal-body">
+    <div class="container">
+      <!-- <h3>ข้อมูลพนักงาน</h3> -->
+      <form class="form-group" #FormCreateUser="ngForm" (ngSubmit)="submitFormCreate(FormCreateUser.value)">
+        <label for="activitieID">activitieID</label>
+        <input name="activitieID" disabled  type="text" class="form-control" placeholder="{{userData.activitieID}}" ngModel required>
+        <label for="ActivityName">ชื่องาน</label>
+        <input name="ActivityName" type="text" class="form-control" placeholder="{{userData.ActivityName}}" ngModel required>
+        <label for="branch">สาขา</label>
+        <input name="branch" type="text" class="form-control" placeholder="{{userData.branch}}" ngModel required>
+        <label for="status">สถานะ</label>
+        <input name="status" type="text" class="form-control" placeholder="{{userData.status}}" ngModel required>
+        <label for="ActivityType">ประเภท</label>
+        <input name="ActivityType" type="text" class="form-control" placeholder="{{userData.ActivityType}}" ngModel required>
+        <label for="owner">owner</label>
+        <input name="owner" type="text" class="form-control" placeholder="{{userData.owner}}" ngModel required>
+        <!-- <label for="ActivityImage">image</label>
+        <input name="ActivityImage" type="text" class="form-control" placeholder="{{userData.ActivityImage}}" ngModel required> -->
+        <label for="Description">รายละเอียด</label>
+        <input name="Description" type="text" class="form-control" placeholder="{{userData.Description}}" ngModel required>
+        <label for="comment">หมายเหตุ :</label>
+        <textarea class="form-control" rows="5" name="comment"  placeholder="{{userData.comment}}" ngModel></textarea>
+        <input *ngIf="alertError" class="error-sign" value="{{alertError}}">
+        <div class="modal-footer" style="display: flex;justify-content: right;">
+          <input class="btn" type="submit" value="ยืนยัน" style="color: #FFF;  background: #6f42c1;border-radius: 12px;">
+        </div>
+      </form>
+    </div>
+  </div>

@@ -6,58 +6,22 @@
     <div class="container">
       <!-- <h3>ข้อมูลพนักงาน</h3> -->
       <form class="form-group" #FormCreateUser="ngForm" (ngSubmit)="submitFormCreate(FormCreateUser.value)">
-        <label for="name">ชื่อ-นามสกุล(ผู้อาศัย)  :</label>
-        <input name="name" type="text" class="form-control" placeholder="" ngModel required>
-        <label for="mobileNo">เบอร์ติดต่อ(ผู้อาศัย)  :</label>
-        <input name="mobileNo" type="tel" class="form-control" placeholder="" ngModel required>
-        <label for="movingIn">วันเข้าอยู่ :</label>
-        <input #movingIn type="date" class="form-control" name="movingIn" placeholder="" ngModel required>
-        <label for="birthday">วันเกิด :</label>
-        <input #DateOfBirth type="date" class="form-control" name="birthday" placeholder="" ngModel required>
-        <label for="gender">เพศ :</label>
-        <div class="form-check">
-          <label class="form-check-label" for="radio1">
-            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="ชาย" checked ngModel>ชาย
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label" for="radio2">
-            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="หญิง" ngModel>หญิง
-          </label>
-        </div>
-        <label for="residentType">ประเภท :</label>
-        <input name="residentType" type="text" class="form-control" placeholder="ตัวอย่าง(ติดเตียง/ช่วยตัวเองได้น้อย)"
-          ngModel>
-        <label for="medicalDiagnose">การวินิจฉัยทางการแพทย์ :</label>
-        <input name="medicalDiagnose" type="text" class="form-control" placeholder="" ngModel>
-        <label for="currentIllness">ประวัติการเจ็บป่วยปัจจุบัน :</label>
-        <input name="currentIllness" type="text" class="form-control" placeholder="" ngModel>
-        <label for="surgeryHistory">ประวัติการผ่าตัด :</label>
-        <input name="surgeryHistory" type="text" class="form-control" placeholder="" ngModel>
-        <label for="congenitalDisease">โรคประจำตัว :</label>
-        <input name="congenitalDisease" type="text" class="form-control" placeholder="" ngModel>
-        <label for="drugAllergy">การแพ้ยา(อาหาร สารเคมี เลือด) :</label>
-        <input name="drugAllergy" type="text" class="form-control" placeholder="" ngModel>
-        <label for="hospitalRights">สิทธิของโรงพยาบาล :</label>
-        <input name="hospitalRights" type="text" class="form-control" placeholder="" ngModel>
-        <label for="LatestHospitalTreatment">การรักษาในโรงพยาบาลล่าสุด :</label>
-        <input name="LatestHospitalTreatment" type="text" class="form-control" placeholder="" ngModel>
-        <label for="nameEmployer">ชื่อ-นามสกุล(ผู้จ้าง) :</label>
-        <input name="nameEmployer" type="text" class="form-control" placeholder="" ngModel required>
-        <label for="mobileNoEmployer">เบอร์ติดต่อ(ผู้จ้าง) :</label>
-        <input name="mobileNoEmployer" type="tel" class="form-control" placeholder="" ngModel required>
-        <label for="nameRelative">ชื่อ-นามสกุล(ญาติ) :</label>
-        <input name="nameRelative" type="text" class="form-control" placeholder="" ngModel>
-        <label for="mobileNoRelative">เบอร์ติดต่อ(ญาติ) :</label>
-        <input name="mobileNoRelative" type="tel" class="form-control" placeholder="" ngModel>
-        <br>
-        <label for="username">User for Login : </label>
-        <!-- NJY/64/015 -->
-        <input type="text" class="form-control" name="username" placeholder="" ngModel required>
-        <label for="pass1">สร้างรหัสผ่าน :</label>
-        <input type="text" class="form-control" name="pass1" placeholder="" ngModel required>
-        <label for="pass2">ยืนยันรหัสผ่าน :</label>
-        <input type="text" class="form-control" name="pass2" placeholder="" ngModel required>
+        <label for="activitieID">activitieID</label>
+        <input name="activitieID" type="text" class="form-control" placeholder="" ngModel required>
+        <label for="ActivityName">ชื่องาน</label>
+        <input name="ActivityName" type="text" class="form-control" placeholder="" ngModel required>
+        <label for="branch">สาขา</label>
+        <input name="branch" type="text" class="form-control" placeholder="" ngModel required>
+        <label for="status">สถานะ</label>
+        <input name="status" type="text" class="form-control" placeholder="" ngModel required>
+        <label for="ActivityType">ประเภท</label>
+        <input name="ActivityType" type="text" class="form-control" placeholder="" ngModel required>
+        <label for="owner">owner</label>
+        <input name="owner" type="text" class="form-control" placeholder="" ngModel required>
+        <!-- <label for="ActivityImage">image</label>
+        <input name="ActivityImage" type="image" class="form-control" placeholder="" ngModel required> -->
+        <label for="Description">รายละเอียด</label>
+        <input name="Description" type="text" class="form-control" placeholder="" ngModel required>
         <label for="comment">หมายเหตุ :</label>
         <textarea class="form-control" rows="5" name="comment" ngModel></textarea>
         <input *ngIf="alertError" class="error-sign" value="{{alertError}}">

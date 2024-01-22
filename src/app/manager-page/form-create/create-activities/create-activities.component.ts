@@ -26,10 +26,8 @@ export class CreateActivitiesComponent {
   submitFormCreate(result: any) {
     console.log('submitFormCreate',result);
     
-    if(result.name == "" || result.mobileNo == "" || result.gender == ""|| result.DateOfWorker == "" || result.username == "" || result.DateOfBirth == "" || result.pass1 == "" || result.pass2 == ""){
+    if(result.activitieID == "" || result.ActivityName == "" || result.status == ""|| result.ActivityType == "" || result.owner == "" || result.ActivityImage == "" || result.Description == "" || result.comment == ""){
       this.alertError = JSON.stringify("กรุณากรอกข้อมูลให้ครบทุกช่อง")
-    } else if(result.pass1 !== result.pass2){
-      this.alertError = JSON.stringify("กรุณากรอกรหัสผ่านให้ถูกต้อง")
     } else {
       this.createUser(result)
     }
@@ -37,14 +35,14 @@ export class CreateActivitiesComponent {
 
   async createUser(result:any) {
     result.createTime = new Date();
-    delete result.pass2
+    // delete result.pass2
     const docData = result    
-    await setDoc(doc(firestore, "Activities",result.username), docData);
+    await setDoc(doc(firestore, "Activities",result.activitieID), docData);
     this.location.back()
   }
 
   getRandomId() {
-    return "00"+Math.floor(Math.random() * 1000) + 1
+    return "A00"+Math.floor(Math.random() * 1000) + 1
 
   }
 }

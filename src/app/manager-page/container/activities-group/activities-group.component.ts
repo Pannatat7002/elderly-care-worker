@@ -38,7 +38,7 @@ export class ActivitiesGroupComponent {
         const outerData = outerDoc.data();
         this.currentEmployee.push(outerData)
       });
-      this._selcetEmp =  this.currentEmployee[0].employee || ''
+      this._selcetEmp =  this.currentEmployee[0].activitieID || ''
       console.log('this.currentEmployee',this.currentEmployee);
     })
     
@@ -66,7 +66,7 @@ export class ActivitiesGroupComponent {
     this.router.navigate(['/manager/Activities-Create'])
   }
   goToUpdateUser(data:any){
-    this.router.navigate(['/manager/Activities-Update'],{ queryParams: { ID: data.username }})
+    this.router.navigate(['/manager/Activities-Update'],{ queryParams: { ID: data.activitieID }})
   }
 
   deleteUser(data:any){
@@ -75,7 +75,7 @@ export class ActivitiesGroupComponent {
 
   
   async deleteDoc() { //Pass
-    await deleteDoc(doc(firestore, "Activities", this.selectUser.username));
+    await deleteDoc(doc(firestore, "Activities", this.selectUser.activitieID));
     this.queryEmployee()
   }
 }
