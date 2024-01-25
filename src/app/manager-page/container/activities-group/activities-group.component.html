@@ -44,7 +44,7 @@
 <div class="container-em">
   <!-- <button (click)="back()"><i class="bi bi-arrow-left-circle-fill" style="font-size: 48px;color:#6f42c1;"></i></button> -->
   <div class="container tools">
-    <div style="font-size: 24px;padding-right: 24px;">จำนวน {{currentEmployee.length}} รายการ</div>
+    <!-- <div style="font-size: 24px;padding-right: 24px;">จำนวน {{currentEmployee.length}} รายการ</div> -->
     <button (click)="goToCreateUser()">+ เพิ่ม</button>
     <i (click)="queryEmployee()" class="bi bi-arrow-clockwise"></i>
   </div>
@@ -82,24 +82,26 @@
   </table> -->
 
 <div class="card">
-  <div class="card-body" *ngFor="let dataem of currentEmployee;">
-    <div class="card-title">
-      <h3 class="card-text">
-        <b>ชื่องาน</b> : {{dataem.ActivityName}} <br>
-      </h3>
-      <h5 class="card-text">
-        <b>ID</b> : {{dataem.activitieID}} <br>
-        <b>สถานะ</b> : ({{dataem.status}}) <br>
-        <b>ประเภท</b> : {{dataem.ActivityType}} <br>
-        <b>รายละเอียด</b> : {{dataem.Description}}<br>
-        <b>หมายเหตุ</b> : {{dataem.comment}}<br>
-        <b>ผู้สั่ง</b> : {{dataem.owner}}<br>
-      </h5>
-    </div>
-    <div class="card-tool">
-      <button type="button" class="btn btn-warning" (click)="goToUpdateUser(dataem)">แก้ไข</button>
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"
-        (click)="deleteUser(dataem)">ลบ</button>
+  <div  *ngFor="let dataem of currentEmployee;">
+    <div class="card-body" *ngIf="dataem.activitieID[0] === 'A'">
+        <div class="card-title">
+          <h3 class="card-text">
+            <b>ชื่องาน</b> : {{dataem.ActivityName}} <br>
+          </h3>
+          <h5 class="card-text">
+            <b>ID</b> : {{dataem.activitieID}} <br>
+            <b>สถานะ</b> : ({{dataem.status}}) <br>
+            <b>ประเภท</b> : {{dataem.ActivityType}} <br>
+            <b>รายละเอียด</b> : {{dataem.Description}}<br>
+            <b>หมายเหตุ</b> : {{dataem.comment}}<br>
+            <b>ผู้สั่ง</b> : {{dataem.owner}}<br>
+          </h5>
+        </div>
+        <div class="card-tool">
+          <button type="button" class="btn btn-warning" (click)="goToUpdateUser(dataem)">แก้ไข</button>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"
+            (click)="deleteUser(dataem)">ลบ</button>
+        </div>
     </div>
   </div>
 </div>

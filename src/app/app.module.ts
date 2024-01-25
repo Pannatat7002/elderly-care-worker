@@ -42,6 +42,8 @@ import { ManagerPageModule } from './manager-page/manager-page.module';
 import { CkeckWorkerGroupComponent } from './manager-page/container/ckeck-worker-group/ckeck-worker-group.component';
 import { CreateActivitiesComponent } from './manager-page/form-create/create-activities/create-activities.component';
 import { UpdateActivitiesComponent } from './manager-page/form-create/update-activities/update-activities.component';
+import { CreateGeneralComponent } from './manager-page/form-create/create-general/create-general.component';
+import { UpdateGeneralComponent } from './manager-page/form-create/update-general/update-general.component';
 
 export function loadCrucialData() {
   return function () {
@@ -87,7 +89,10 @@ export function delay(delay: number) {
     GeneralGroupComponent,
     CkeckWorkerGroupComponent,
     CreateActivitiesComponent,
-    UpdateActivitiesComponent],
+    UpdateActivitiesComponent,
+    CreateGeneralComponent,
+    UpdateGeneralComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

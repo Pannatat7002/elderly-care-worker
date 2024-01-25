@@ -1,9 +1,9 @@
-<app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
+<!-- <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
 <div class="container">
-    <div class="tools">
-        <button>สร้างกิจกรรม</button>
-        <i class="bi bi-arrow-clockwise"></i>
-    </div>
+    <div class="container tools">
+        <button (click)="goToCreateUser()">+ เพิ่ม</button>
+        <i (click)="queryEmployee()" class="bi bi-arrow-clockwise"></i>
+      </div>
     <div class="content">
         <div class="card-activites">
             <div class="title">
@@ -39,4 +39,98 @@
             <div class="title">3</div>
         </div>
     </div>
+</div> -->
+<app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
+<div class="container-em">
+  <!-- <button (click)="back()"><i class="bi bi-arrow-left-circle-fill" style="font-size: 48px;color:#6f42c1;"></i></button> -->
+  <div class="container tools">
+    <!-- <div style="font-size: 24px;padding-right: 24px;">จำนวน {{currentEmployee.length}} รายการ</div> -->
+    <button (click)="goToCreateUser()">+ เพิ่ม</button>
+    <i (click)="queryEmployee()" class="bi bi-arrow-clockwise"></i>
+  </div>
+</div>
+<!-- <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>activitieID</th>
+        <th>ชื่องาน</th>
+        <th>สาขา</th>
+        <th>สถานะ</th>
+        <th>ประเภทงาน</th>
+        <th>ผู้สั่งงาน</th>
+        <th>รายละเอียด</th>
+        <th>หมายเหตุ</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let dataem of currentEmployee;">
+      <tr>
+        <td>{{dataem.activitieID}}</td>
+        <td>{{dataem.ActivityName}}</td>
+        <td>{{dataem.branch}}</td>
+        <td>{{dataem.status}}</td>
+        <td>{{dataem.ActivityType}}</td>
+        <td>{{dataem.owner}}</td>
+        <td>{{dataem.Description}}</td>
+        <td>{{dataem.comment}}</td>
+        <td><button type="button" class="btn btn-warning" (click)="goToUpdateUser(dataem)">แก้ไข</button></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"
+            (click)="deleteUser(dataem)">ลบ</button></td>
+      </tr>
+    </tbody>
+  </table> -->
+
+<div class="card">
+  <div  *ngFor="let dataem of currentEmployee;">
+    <div class="card-body" *ngIf="dataem.activitieID[0] === 'G'">
+        <div class="card-title">
+          <h3 class="card-text">
+            <b>ชื่องาน</b> : {{dataem.ActivityName}} <br>
+          </h3>
+          <h5 class="card-text">
+            <b>ID</b> : {{dataem.activitieID}} <br>
+            <b>สถานะ</b> : ({{dataem.status}}) <br>
+            <b>ประเภท</b> : {{dataem.ActivityType}} <br>
+            <b>รายละเอียด</b> : {{dataem.Description}}<br>
+            <b>หมายเหตุ</b> : {{dataem.comment}}<br>
+            <b>ผู้สั่ง</b> : {{dataem.owner}}<br>
+          </h5>
+        </div>
+        <div class="card-tool">
+          <button type="button" class="btn btn-warning" (click)="goToUpdateUser(dataem)">แก้ไข</button>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"
+            (click)="deleteUser(dataem)">ลบ</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal fade" id="DeleteUser">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">ยืนยันการลบข้อมูล</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        ชื่อ : {{selectUser.ActivityName}}
+        <br>
+        id : {{selectUser.activitieID}}
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">ไม่</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="deleteDoc()">ใช้</button>
+      </div>
+
+    </div>
+  </div>
 </div>
