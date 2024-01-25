@@ -11,12 +11,16 @@ import { Location } from '@angular/common'
 export class CreateActivitiesComponent {
   _topicHeader:string = 'กรอกข้อมูลกิจกรรม'
   alertError: any
-
+  aid:string = ''
   constructor(
     private router: Router,
     private location: Location,
 
   ){
+  }
+
+  ngOnInit(): void {
+    this.getRandomId()
 
   }
 
@@ -26,7 +30,7 @@ export class CreateActivitiesComponent {
   submitFormCreate(result: any) {
     console.log('submitFormCreate',result);
     
-    if(result.activitieID == "" || result.ActivityName == "" || result.status == ""|| result.ActivityType == "" || result.owner == "" || result.ActivityImage == "" || result.Description == "" || result.comment == ""){
+    if(result.ActivityName == "" || result.ActivityType == "" || result.owner == ""){
       this.alertError = JSON.stringify("กรุณากรอกข้อมูลให้ครบทุกช่อง")
     } else {
       this.createUser(result)
@@ -35,14 +39,14 @@ export class CreateActivitiesComponent {
 
   async createUser(result:any) {
     result.createTime = new Date();
-    // delete result.pass2
+    result.activitieID =  this.aid  
     const docData = result    
     await setDoc(doc(firestore, "Activities",result.activitieID), docData);
     this.location.back()
   }
 
   getRandomId() {
-    return "A00"+Math.floor(Math.random() * 1000) + 1
+    this.aid = "A00"+Math.floor(Math.random() * 1000) + 1
 
   }
 }

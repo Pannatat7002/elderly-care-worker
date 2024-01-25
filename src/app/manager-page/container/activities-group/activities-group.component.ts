@@ -15,7 +15,7 @@ export class ActivitiesGroupComponent {
   currentEmployee: any = []
   currentDuies:any = []
   _selcetEmp:any = ''
-  _topicHeader:string = 'แสดงรายชื่อผู้พักอาศัย'
+  _topicHeader:string = 'กิจกรรมจิตใจและสังคม'
   selectUser:any = []
 
   constructor(

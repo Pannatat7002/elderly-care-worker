@@ -9,13 +9,12 @@
 
     .manager-group {
         display: grid;
-        grid-template-columns: 33% 33% 33%;
+        grid-template-columns: 50% 50%;
 
         .insight-show {
             display: flex;
-            margin: 5px;
-            // height: 150px;
-            height: 100px;
+            margin: 6px;
+            height: 135px;
             background: #FFF;
             border-radius: 14px;
             justify-content: center;
@@ -52,8 +51,8 @@
 
         .insight-show {
             display: flex;
-            margin: 5px;
-            height: 190px;
+            margin: 6px;
+            height: 135px;
             background: #FFF;
             border-radius: 14px;
             justify-content: center;
@@ -86,8 +85,8 @@
         grid-template-columns: 50% 50%;
         .insight-show {
             display: flex;
-            margin: 5px;
-            // height: 80px;
+            margin: 6px;
+            height: 135px;
             background: #FFF;
             border-radius: 14px;
             justify-content: center;

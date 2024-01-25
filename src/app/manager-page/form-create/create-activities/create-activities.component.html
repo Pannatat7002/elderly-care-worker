@@ -7,7 +7,7 @@
       <!-- <h3>ข้อมูลพนักงาน</h3> -->
       <form class="form-group" #FormCreateUser="ngForm" (ngSubmit)="submitFormCreate(FormCreateUser.value)">
         <label for="activitieID">activitieID</label>
-        <input name="activitieID" type="text" class="form-control" placeholder="" ngModel required>
+        <input name="activitieID" type="text" class="form-control" [placeholder]="aid" ngModel disabled>
         <label for="ActivityName">ชื่องาน</label>
         <input name="ActivityName" type="text" class="form-control" placeholder="" ngModel required>
         <label for="branch">สาขา</label>
