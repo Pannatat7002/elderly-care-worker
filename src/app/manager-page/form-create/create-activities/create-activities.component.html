@@ -7,7 +7,11 @@
       <!-- <h3>ข้อมูลพนักงาน</h3> -->
       <form class="form-group" #FormCreateUser="ngForm" (ngSubmit)="submitFormCreate(FormCreateUser.value)">
         <label for="activitieID">activitieID</label>
-        <input name="activitieID" type="text" class="form-control" [placeholder]="aid" ngModel disabled>
+        <input class="form-control" name="activitieID" type="text" [placeholder]="aid" ngModel disabled>
+        <label for="ActivityCategory">หมวดหมู่:</label>
+        <select class="form-control" name="ActivityCategory" ngModel required>
+            <option *ngFor="let item of category;" [value]="item">{{item}}</option>
+        </select>    
         <label for="ActivityName">ชื่องาน</label>
         <input name="ActivityName" type="text" class="form-control" placeholder="" ngModel required>
         <label for="branch">สาขา</label>

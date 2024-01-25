@@ -8,6 +8,11 @@
       <form class="form-group" #FormCreateUser="ngForm" (ngSubmit)="submitFormCreate(FormCreateUser.value)">
         <label for="activitieID">activitieID</label>
         <input name="activitieID" disabled  type="text" class="form-control" placeholder="{{userData.activitieID}}" ngModel required>
+        <label for="ActivityCategory">หมวดหมู่:</label>
+        <select class="form-control" name="ActivityCategory" ngModel required>
+            <option>{{userData.ActivityCategory}}</option>
+            <option *ngFor="let item of category;">{{item}}</option>
+        </select>  
         <label for="ActivityName">ชื่องาน</label>
         <input name="ActivityName" type="text" class="form-control" placeholder="{{userData.ActivityName}}" ngModel required>
         <label for="branch">สาขา</label>

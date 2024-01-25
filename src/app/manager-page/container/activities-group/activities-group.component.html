@@ -1,87 +1,18 @@
-<!-- <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
-<div class="container">
-    <div class="container tools">
-        <button (click)="goToCreateUser()">+ เพิ่ม</button>
-        <i (click)="queryEmployee()" class="bi bi-arrow-clockwise"></i>
-      </div>
-    <div class="content">
-        <div class="card-activites">
-            <div class="title">
-                <h3>กิจกรรมโยคะ</h3>
-                <h4>เวลา 08:30</h4>
-            </div>
-            <div class="title">
-                <h3>รายละเอียด</h3>
-                <p>galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div>
-            <div class="title">3</div>
-        </div>
-        <div class="card-activites">
-            <div class="title">
-                <h3>ไหว้พระ</h3>
-                <h4>เวลา 12:30</h4>
-            </div>
-            <div class="title">
-                <h3>รายละเอียด</h3>
-                <p>nt here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still</p>
-            </div>
-            <div class="title">3</div>
-        </div>
-        <div class="card-activites">
-            <div class="title">
-                <h3>ทำความสะอาดห้องน้ำ</h3>
-                <h4>เวลา 14:20</h4>
-            </div>
-            <div class="title">
-                <h3>รายละเอียด</h3>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightl</p>
-            </div>
-            <div class="title">3</div>
-        </div>
-    </div>
-</div> -->
 <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
 <div class="container-em">
   <!-- <button (click)="back()"><i class="bi bi-arrow-left-circle-fill" style="font-size: 48px;color:#6f42c1;"></i></button> -->
   <div class="container tools">
     <!-- <div style="font-size: 24px;padding-right: 24px;">จำนวน {{currentEmployee.length}} รายการ</div> -->
-    <button (click)="goToCreateUser()">+ เพิ่ม</button>
+    <button (click)="goToCreateUser()">+ สร้างกิจกรรม</button>
     <i (click)="queryEmployee()" class="bi bi-arrow-clockwise"></i>
   </div>
 </div>
-<!-- <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>activitieID</th>
-        <th>ชื่องาน</th>
-        <th>สาขา</th>
-        <th>สถานะ</th>
-        <th>ประเภทงาน</th>
-        <th>ผู้สั่งงาน</th>
-        <th>รายละเอียด</th>
-        <th>หมายเหตุ</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let dataem of currentEmployee;">
-      <tr>
-        <td>{{dataem.activitieID}}</td>
-        <td>{{dataem.ActivityName}}</td>
-        <td>{{dataem.branch}}</td>
-        <td>{{dataem.status}}</td>
-        <td>{{dataem.ActivityType}}</td>
-        <td>{{dataem.owner}}</td>
-        <td>{{dataem.Description}}</td>
-        <td>{{dataem.comment}}</td>
-        <td><button type="button" class="btn btn-warning" (click)="goToUpdateUser(dataem)">แก้ไข</button></td>
-        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteUser"
-            (click)="deleteUser(dataem)">ลบ</button></td>
-      </tr>
-    </tbody>
-  </table> -->
-
 <div class="card">
+  <div class="card-body">
+    <div class="card-tool">
+      หมวดหมู่ : 
+    </div>
+  </div>
   <div  *ngFor="let dataem of currentEmployee;">
     <div class="card-body" *ngIf="dataem.activitieID[0] === 'A'">
         <div class="card-title">
@@ -91,6 +22,7 @@
           <h5 class="card-text">
             <b>ID</b> : {{dataem.activitieID}} <br>
             <b>สถานะ</b> : ({{dataem.status}}) <br>
+            <b>หมวดหมู่</b> : ({{dataem.ActivityCategory}})  <br>
             <b>ประเภท</b> : {{dataem.ActivityType}} <br>
             <b>รายละเอียด</b> : {{dataem.Description}}<br>
             <b>หมายเหตุ</b> : {{dataem.comment}}<br>

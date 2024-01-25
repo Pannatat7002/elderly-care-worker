@@ -12,6 +12,7 @@ export class UpdateActivitiesComponent {
   _topicHeader: string = 'แก้ไขข้อมูกิจกรรม'
   alertError: any
   userData:any = []
+  category:any = []
   constructor(
     private location: Location,
     private route: ActivatedRoute
@@ -23,6 +24,7 @@ export class UpdateActivitiesComponent {
       let activitieID = params['ID'];
       this.querySigle(activitieID)
     });
+    this.queryCategory("จิตใจและสังคม")
 
   }
 
@@ -60,6 +62,19 @@ export class UpdateActivitiesComponent {
       console.log(doc.id, " => ",doc.data());
       this.userData = doc.data()
       // this.querySigleObject = JSON.stringify(doc.data())
+    });
+  }
+
+  
+  async queryCategory(ID: any) {
+    const data = query(collection(firestore, 'Category'));
+    const querySnapshot = await getDocs(data);
+    querySnapshot.forEach((doc:any) => {
+      if(doc.id == ID){
+        this.category =  Object.values(doc.data())
+        console.log(' this.category', this.category);
+        
+      }
     });
   }
 }

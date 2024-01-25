@@ -12,6 +12,7 @@ export class CreateActivitiesComponent {
   _topicHeader:string = 'กรอกข้อมูลกิจกรรม'
   alertError: any
   aid:string = ''
+  category:any = []
   constructor(
     private router: Router,
     private location: Location,
@@ -21,16 +22,19 @@ export class CreateActivitiesComponent {
 
   ngOnInit(): void {
     this.getRandomId()
-
+    this.querySigle("จิตใจและสังคม")
   }
 
+  getActivityCategory(){
+    
+  }
   // goToCreateUSer(){
   //   this.router.navigate(['/manager/form-user'])
   // }
   submitFormCreate(result: any) {
     console.log('submitFormCreate',result);
     
-    if(result.ActivityName == "" || result.ActivityType == "" || result.owner == ""){
+    if(result.ActivityName == "" || result.ActivityType == "" || result.owner == "" || result.ActivityCategory ==""){
       this.alertError = JSON.stringify("กรุณากรอกข้อมูลให้ครบทุกช่อง")
     } else {
       this.createUser(result)
@@ -47,6 +51,17 @@ export class CreateActivitiesComponent {
 
   getRandomId() {
     this.aid = "A00"+Math.floor(Math.random() * 1000) + 1
+  }
 
+  async querySigle(ID: any) {
+    const data = query(collection(firestore, 'Category'));
+    const querySnapshot = await getDocs(data);
+    querySnapshot.forEach((doc:any) => {
+      if(doc.id == ID){
+        this.category =  Object.values(doc.data())
+        console.log(' this.category', this.category);
+        
+      }
+    });
   }
 }
