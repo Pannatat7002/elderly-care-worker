@@ -16,6 +16,7 @@ export class ActivitiesGroupComponent {
   currentDuies:any = []
   _selcetEmp:any = ''
   _topicHeader:string = 'กิจกรรมจิตใจและสังคม'
+  _selcetCategory:string = 'ทั้งหมด'
   selectUser:any = []
   category:any = []
 
@@ -33,13 +34,19 @@ export class ActivitiesGroupComponent {
 
     // this.querymenuSubTopic()
   }
-  async queryEmployee() { //pass
+  async queryEmployee(filter?:string) { //pass
     this.currentEmployee = []
     this.WorkService.queryCollection('Activities').then((data: any) => {
     // this.WorkService.queryCollection('employee').then((data: any) => {
       data.forEach(async (outerDoc:any) => {
         const outerData = outerDoc.data();
-        this.currentEmployee.push(outerData)
+        if(filter){
+          if(outerData && outerData.ActivityCategory === filter || filter === "ทั้งหมด"  ){
+            this.currentEmployee.push(outerData)
+          }
+        } else {
+          this.currentEmployee.push(outerData)
+        }
       });
       this._selcetEmp =  this.currentEmployee[0].activitieID || ''
       console.log('this.currentEmployee',this.currentEmployee);
@@ -62,6 +69,11 @@ export class ActivitiesGroupComponent {
 
   selectEmployee(data:any){
     this._selcetEmp = data
+    // this.objectDuties(data)
+  }
+  selectCategory(data:string){
+    this._selcetCategory = data||"ทั้งหมด"
+    this.queryEmployee(this._selcetCategory)
     // this.objectDuties(data)
   }
 
@@ -88,6 +100,7 @@ export class ActivitiesGroupComponent {
     querySnapshot.forEach((doc:any) => {
       if(doc.id == ID){
         this.category =  Object.values(doc.data())
+        this.category.push('ทั้งหมด')
         console.log(' this.category', this.category);
         
       }

@@ -46,13 +46,10 @@
         align-items: center;
         border: none;
         font-size: 26px;
-        select{
+        .dropdown-menu{
             border: none;
             font-size: 24px;
-            border-radius: 24px;
-            margin-left: 12px;
-            height: 42px;
-            line-height: 30px;
+            border-radius: 6px;
         }
     }
     .content-em {

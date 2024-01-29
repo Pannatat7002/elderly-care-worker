@@ -22,7 +22,7 @@ export class CreateActivitiesComponent {
 
   ngOnInit(): void {
     this.getRandomId()
-    this.querySigle("จิตใจและสังคม")
+    this.queryCategory("จิตใจและสังคม")
   }
 
   getActivityCategory(){
@@ -53,7 +53,7 @@ export class CreateActivitiesComponent {
     this.aid = "A00"+Math.floor(Math.random() * 1000) + 1
   }
 
-  async querySigle(ID: any) {
+  async queryCategory(ID: any) {
     const data = query(collection(firestore, 'Category'));
     const querySnapshot = await getDocs(data);
     querySnapshot.forEach((doc:any) => {

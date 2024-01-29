@@ -1,18 +1,17 @@
 <app-back-navbar [topicHeader]="_topicHeader"></app-back-navbar>
 <div class="container-em">
   <!-- <button (click)="back()"><i class="bi bi-arrow-left-circle-fill" style="font-size: 48px;color:#6f42c1;"></i></button> -->
-  <div class="filter">
-    <div>หมวด:</div>
-    <select name="ActivityCategory" ngModel required>
-      <option selected>ทั้งหมด</option>
-      <option value="แบบเฉพาะเจาะจง">แบบเฉพาะเจาะจง</option>
-      <option value="แบบกลุ่ม">แบบกลุ่ม</option>
-      <!-- <option value="audi">Audi</option> -->
-    </select>
+  <div class="dropdown filter">
+    <button type="button" class="dropdown-toggle" style="background: none;border: none;" data-toggle="dropdown">
+      หมวด : {{_selcetCategory}}
+    </button>
+    <div class="dropdown-menu">
+      <span *ngFor="let item of category;" class="dropdown-item-text" (click)="selectCategory(item)">{{item}}</span>
+    </div>
   </div>
   <div class="tools">
     <button class="create" (click)="goToCreateUser()">สร้าง</button>
-    <i (click)="queryEmployee()" class="bi bi-arrow-clockwise"></i>
+    <i (click)="selectCategory('ทั้งหมด')" class="bi bi-arrow-clockwise"></i>
   </div>
 </div>
 <div class="card">
