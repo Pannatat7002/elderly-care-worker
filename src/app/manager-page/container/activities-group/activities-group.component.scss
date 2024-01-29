@@ -1,6 +1,6 @@
 .container-em {
-    display: block;
-    justify-content: center;
+    display: flex;
+    justify-content: space-between;
 
     .tools {
         display: flex;
@@ -8,7 +8,7 @@
         align-items: center;
         margin-bottom: 1rem;
 
-        button {
+        .create {
             background: #6f42c1;
             padding: 12px;
             color: #FFF;
@@ -35,7 +35,26 @@
             font-size: 42px;
         }
     }
-
+    .filter {
+        // background: #6f42c1;
+        padding: 12px;
+        // color: #FFF;
+        cursor: pointer;
+        height: 42px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        font-size: 26px;
+        select{
+            border: none;
+            font-size: 24px;
+            border-radius: 24px;
+            margin-left: 12px;
+            height: 42px;
+            line-height: 30px;
+        }
+    }
     .content-em {
 
         .personImg {

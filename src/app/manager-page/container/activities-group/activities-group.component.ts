@@ -17,6 +17,7 @@ export class ActivitiesGroupComponent {
   _selcetEmp:any = ''
   _topicHeader:string = 'กิจกรรมจิตใจและสังคม'
   selectUser:any = []
+  category:any = []
 
   constructor(
     private router: Router,
@@ -28,6 +29,8 @@ export class ActivitiesGroupComponent {
   
   ngOnInit(): void {
     this.queryEmployee()
+    this.queryCategory("จิตใจและสังคม")
+
     // this.querymenuSubTopic()
   }
   async queryEmployee() { //pass
@@ -77,5 +80,17 @@ export class ActivitiesGroupComponent {
   async deleteDoc() { //Pass
     await deleteDoc(doc(firestore, "Activities", this.selectUser.activitieID));
     this.queryEmployee()
+  }
+
+  async queryCategory(ID: any) {
+    const data = query(collection(firestore, 'Category'));
+    const querySnapshot = await getDocs(data);
+    querySnapshot.forEach((doc:any) => {
+      if(doc.id == ID){
+        this.category =  Object.values(doc.data())
+        console.log(' this.category', this.category);
+        
+      }
+    });
   }
 }
